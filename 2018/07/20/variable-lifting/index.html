@@ -108,20 +108,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="H-Dongjian">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
+<meta name="keywords" content="JavaScript,变量提升">
+<meta property="og:type" content="article">
+<meta property="og:title" content="变量提升">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/variable-lifting/index.html">
 <meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-24T09:12:57.191Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H-Dongjian">
+<meta name="twitter:title" content="变量提升">
+<meta name="twitter:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/20/variable-lifting/"/>
 
 
 
@@ -131,7 +136,7 @@
   };
 </script>
 
-  <title>H-Dongjian</title>
+  <title>变量提升 | H-Dongjian</title>
   
 
 
@@ -178,8 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -220,7 +224,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
@@ -288,172 +292,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/closure/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="H-Dongjian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="H-Dongjian">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/24/closure/" itemprop="url">
-                  浅析闭包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-24 17:14:14 / 修改时间：17:41:38" itemprop="dateCreated datePublished" datetime="2018-07-24T17:14:14+08:00">2018-07-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          闭包的概念：函数的闭包形成闭包；封闭的区域（可以调用其他作用域变量的函数）；闭包的组成：内层函数本身；内层函数所处的作用域；
-闭包作用：1. 形成隔离的封闭空间；123456//函数里面的num不会影响外面num的值；var num = 100;(function()&#123;    var nu
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/24/closure/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -485,11 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/20/variable-lifting/" itemprop="url">
-                  变量提升
-                </a>
+          <h1 class="post-title" itemprop="name headline">变量提升
               
             
           </h1>
@@ -580,23 +417,15 @@
       
 
       
-        
-          
-          变量提升是JS在非严格模式下，JS解析的时候出现的一种情况
-
-JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
-JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。
-
-1.变量提升 12345console.log(first) //undefinedva
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/20/variable-lifting/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>变量提升是JS在非严格模式下，JS解析的时候出现的一种情况</p>
+<ul>
+<li>JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。</li>
+<li>JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。</li>
+</ul>
+<h4 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(first) <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> first = <span class="number">124</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，所以为undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-函数提升"><a href="#2-函数提升" class="headerlink" title="2.函数提升"></a>2.函数提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">second(); <span class="comment">//123</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">征程通过function声明之后函数会被提升到最顶端，可以直接在声明之前调用</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-函数提升"><a href="#3-函数提升" class="headerlink" title="3.函数提升"></a>3.函数提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// third(); //14-变量提升.html:28 Uncaught TypeError: third is not a function</span></span><br><span class="line"><span class="keyword">var</span> third = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第三种'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">页面报错，因为var声明变量，声明提前，赋值不提前，所以trird为undefined，所以报错；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-函数和变量提升对比"><a href="#4-函数和变量提升对比" class="headerlink" title="4.函数和变量提升对比"></a>4.函数和变量提升对比</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fifth) <span class="comment">//ƒ fifth()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">var</span> fifth = <span class="number">123</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fifth</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(six) <span class="comment">//ƒ six()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">six</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> six = <span class="number">123</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -614,14 +443,38 @@ JavaScript 中，变量可以在使用后声明，也就是变量可以先使用
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/变量提升/" rel="tag"># 变量提升</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/24/closure/" rel="prev" title="浅析闭包">
+                浅析闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -631,10 +484,7 @@ JavaScript 中，变量可以在使用后声明，也就是变量可以先使用
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -659,8 +509,17 @@ JavaScript 中，变量可以在使用后声明，也就是变量可以先使用
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -739,6 +598,22 @@ JavaScript 中，变量可以在使用后声明，也就是变量可以先使用
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-变量提升"><span class="nav-number">1.</span> <span class="nav-text">1.变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-函数提升"><span class="nav-number">2.</span> <span class="nav-text">2.函数提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-函数提升"><span class="nav-number">3.</span> <span class="nav-text">3.函数提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-函数和变量提升对比"><span class="nav-number">4.</span> <span class="nav-text">4.函数和变量提升对比</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -897,6 +772,10 @@ JavaScript 中，变量可以在使用后声明，也就是变量可以先使用
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
