@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
-<meta name="keywords" content="JavaScript,变量提升">
+  <meta name="description" content="关于需求树状结构数据，需要为每一层增加一个索引值，第一层数据1，第二层2，以此类推；123456789101112131415161718var tree = [&amp;#123;    a: 1,    children: [&amp;#123;        a: 1,        children: [&amp;#123;            a: 1,        &amp;#125;]    &amp;#125;]&amp;#">
+<meta name="keywords" content="JavaScript,递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变量提升">
-<meta property="og:url" content="http://yoursite.com/2018/07/20/variable-lifting/index.html">
+<meta property="og:title" content="关于递归-树状结构">
+<meta property="og:url" content="http://yoursite.com/2018/08/17/about-recursion/index.html">
 <meta property="og:site_name" content="H-Dongjian">
-<meta property="og:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
+<meta property="og:description" content="关于需求树状结构数据，需要为每一层增加一个索引值，第一层数据1，第二层2，以此类推；123456789101112131415161718var tree = [&amp;#123;    a: 1,    children: [&amp;#123;        a: 1,        children: [&amp;#123;            a: 1,        &amp;#125;]    &amp;#125;]&amp;#">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-24T09:12:57.191Z">
+<meta property="og:updated_time" content="2018-08-17T03:08:34.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="变量提升">
-<meta name="twitter:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
+<meta name="twitter:title" content="关于递归-树状结构">
+<meta name="twitter:description" content="关于需求树状结构数据，需要为每一层增加一个索引值，第一层数据1，第二层2，以此类推；123456789101112131415161718var tree = [&amp;#123;    a: 1,    children: [&amp;#123;        a: 1,        children: [&amp;#123;            a: 1,        &amp;#125;]    &amp;#125;]&amp;#">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/20/variable-lifting/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/17/about-recursion/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>变量提升 | H-Dongjian</title>
+  <title>关于递归-树状结构 | H-Dongjian</title>
   
 
 
@@ -256,7 +256,7 @@
         
         
           
-          <li class="menu-item menu-item-about">
+          <li class="menu-item menu-item-about menu-item-active">
     <a href="/about" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/variable-lifting/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/17/about-recursion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="H-Dongjian">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">变量提升
+          <h1 class="post-title" itemprop="name headline">关于递归-树状结构
               
             
           </h1>
@@ -351,24 +351,12 @@
                 
               
 
-              <time title="创建时间：2018-07-20 17:25:27" itemprop="dateCreated datePublished" datetime="2018-07-20T17:25:27+08:00">2018-07-20</time>
+              <time title="创建时间：2018-08-17 10:16:36 / 修改时间：11:08:34" itemprop="dateCreated datePublished" datetime="2018-08-17T10:16:36+08:00">2018-08-17</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-24 17:12:57" itemprop="dateModified" datetime="2018-07-24T17:12:57+08:00">2018-07-24</time>
               
             
           </span>
@@ -389,10 +377,19 @@
 
                 
                 
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/递归/" itemprop="url" rel="index"><span itemprop="name">递归</span></a></span>
+
+                
+                
               
             </span>
           
 
+          
+            
           
 
           
@@ -417,15 +414,15 @@
       
 
       
-        <p>变量提升是JS在非严格模式下，JS解析的时候出现的一种情况</p>
-<ul>
-<li>JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。</li>
-<li>JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。</li>
-</ul>
-<h4 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(first) <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> first = <span class="number">124</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，所以为undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-函数提升"><a href="#2-函数提升" class="headerlink" title="2.函数提升"></a>2.函数提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">second(); <span class="comment">//123</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">征程通过function声明之后函数会被提升到最顶端，可以直接在声明之前调用</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-函数提升"><a href="#3-函数提升" class="headerlink" title="3.函数提升"></a>3.函数提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// third(); //14-变量提升.html:28 Uncaught TypeError: third is not a function</span></span><br><span class="line"><span class="keyword">var</span> third = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第三种'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">页面报错，因为var声明变量，声明提前，赋值不提前，所以trird为undefined，所以报错；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-函数和变量提升对比"><a href="#4-函数和变量提升对比" class="headerlink" title="4.函数和变量提升对比"></a>4.函数和变量提升对比</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fifth) <span class="comment">//ƒ fifth()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">var</span> fifth = <span class="number">123</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fifth</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(six) <span class="comment">//ƒ six()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">six</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> six = <span class="number">123</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+        <h4 id="关于需求"><a href="#关于需求" class="headerlink" title="关于需求"></a>关于需求</h4><p>树状结构数据，需要为每一层增加一个索引值，第一层数据1，第二层2，以此类推；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> tree = [&#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    children: [&#123;</span><br><span class="line">        a: <span class="number">1</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">            a: <span class="number">1</span>,</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    children: [&#123;</span><br><span class="line">        a: <span class="number">1</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">            a: <span class="number">1</span>,</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<p>具体结果看下代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = [ &#123;</span><br><span class="line">    count:<span class="number">1</span>,</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    children: [&#123;</span><br><span class="line">    count:<span class="number">2</span>,</span><br><span class="line">        a: <span class="number">1</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">            a: <span class="number">1</span>,</span><br><span class="line">            count:<span class="number">3</span>,</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    count:<span class="number">1</span>,</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    children: [&#123;</span><br><span class="line">    count:<span class="number">2</span>,</span><br><span class="line">        a: <span class="number">1</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">            a: <span class="number">1</span>,</span><br><span class="line">            count:<span class="number">3</span>,</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="关于解决思路"><a href="#关于解决思路" class="headerlink" title="关于解决思路"></a>关于解决思路</h4><h5 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h5><p>树状结构需要层层设置，一般想到的就是递归，关于count设置一个全局变量，递归一层，加一次；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        arr[i].count = count;</span><br><span class="line">        <span class="keyword">if</span> (arr[i].children) &#123;</span><br><span class="line">            fn1(arr[i].children)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn1(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure></p>
+<p>但是递归的顺序并非我们想要的那种，count++执行的时间和想要的不一致</p>
+<h5 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h5><p>模拟for循环实现结构，考虑再次更改为递归</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    arr[i].count = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (arr[i].children) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; arr[i].children.length; k++) &#123;</span><br><span class="line">            <span class="comment">// console.log(arr)</span></span><br><span class="line">            arr[i].children[k].count = <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是实现的基本思路，里面赋值的count可以理解为在for循环这个作用域内，是不改变的，每次递归一次，增加1,通过自执行函数缓存count，每次递归加1</p>
+<p>更改版本<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr, c</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        arr[i].c = c;</span><br><span class="line">        <span class="keyword">if</span> (arr[i].children) &#123;</span><br><span class="line">            (<span class="function"><span class="keyword">function</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">                fn(arr[i].children, c += <span class="number">1</span>)</span><br><span class="line">            &#125;)(c)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -447,7 +444,7 @@
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/变量提升/" rel="tag"># 变量提升</a>
+            <a href="/tags/递归/" rel="tag"># 递归</a>
           
         </div>
       
@@ -460,15 +457,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/02/mine/" rel="next" title="前端的自我修养">
+                <i class="fa fa-chevron-left"></i> 前端的自我修养
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/24/closure/" rel="prev" title="浅析闭包">
-                浅析闭包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -489,6 +486,10 @@
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -634,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-变量提升"><span class="nav-number">1.</span> <span class="nav-text">1.变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-函数提升"><span class="nav-number">2.</span> <span class="nav-text">2.函数提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-函数提升"><span class="nav-number">3.</span> <span class="nav-text">3.函数提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-函数和变量提升对比"><span class="nav-number">4.</span> <span class="nav-text">4.函数和变量提升对比</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于需求"><span class="nav-number">1.</span> <span class="nav-text">关于需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于解决思路"><span class="nav-number">2.</span> <span class="nav-text">关于解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思路1"><span class="nav-number">2.1.</span> <span class="nav-text">思路1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思路2"><span class="nav-number">2.2.</span> <span class="nav-text">思路2</span></a></li></ol></li></ol></div>
             
 
           </div>
