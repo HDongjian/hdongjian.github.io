@@ -1,0 +1,62 @@
+body {
+    background: url(../images/background.jpg) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+/* 控制台 */
+
+.control {
+    height: 100px;
+    width: 1200px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px rgba(189, 130, 122, .5);
+    border-radius: 4px;
+}
+
+
+/* 主体部分 */
+
+.main {
+    height: 600px;
+    width: 1200px;
+    background-color: rgba(255, 255, 255, .7);
+    margin: 0 auto 0;
+    box-shadow: 10px 10px 10px rgba(93, 101, 138, .5);
+    border-radius: 4px;
+}
+
+.main ul {
+    padding: 20px;
+}
+
+.main ul li {
+    font-size: 16px;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    /* padding: 0 10px;*/
+    width: 100px;
+    text-align: center;
+    /* border: 1px solid rgb(93, 101, 138); */
+    margin-left: 20px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px rgba(93, 101, 138, .5);
+    /* color: #ff9d00; */
+}
+
+.main #content {
+    color: #ff9d00;
+    font-size: 90px;
+    line-height: 600px;
+    text-align: center;
+    /* font-weight: bold; */
+}
+
+.main ul li.choosed {
+    background-color: #ff9d00;
+    /* color: rgba(93, 101, 138, 1); */
+    color: #fff;
+}
