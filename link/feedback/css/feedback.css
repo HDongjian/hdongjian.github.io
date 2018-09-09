@@ -69,11 +69,13 @@ section {
   height: 6rem;
   line-height: 6rem;
   background-color: #ccc;
+  text-align: center;
 }
 .footer button {
   height: 100%;
-  padding: 0 1rem;
+  width: 100%;
   color: #375f8e;
+  font-weight: bold;
 }
 .main {
   min-height: 100%;
