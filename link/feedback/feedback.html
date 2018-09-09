@@ -16,41 +16,83 @@
     3.课堂表现
     4.作业 -->
     <!-- 标题 -->
-    <div class="title fix-box">请选择学生姓名</div>
+    <div id="title" class="title fix-box"></div>
     <!-- 主题部分 -->
     <div class="main">
         <!-- 选择学生姓名以及日期部分 -->
-        <div class="choose-name">
+        <div class="choose-name" id="s_0">
             <!-- 选择日期 -->
             <div class="date form">
                 <p>选择日期：</p>
                 <div class="inputs">
-                    <span class="date-show">2018-12-8</span>
-                    <input class="input" type="date" name="user_date" />
+                    <span class="date-show" id="timeS"></span>
+                    <input id="datePicker" class="input" type="date" name="user_date" />
                 </div>
             </div>
             <!-- 选择学生姓名 -->
             <div class="name form">
                 <p>选择学生姓名：</p>
                 <div class="inputs">
-                    <span class="name-show">赵靖宇</span>
-                    <select class="input">
-                        <option value ="volvo">Volvo</option>
-                        <option value ="saab">Saab</option>
-                        <option value="opel">Opel</option>
-                        <option value="audi">Audi</option>
+                    <span class="name-show" id="studentS"></span>
+                    <select class="input" id="select">
                     </select>
                 </div>
             </div>
         </div>
+        <!-- 选择上课主要内容 -->
+        <div class="class-content hide" id="s_1">
+            <ul class="stract-list">
+            </ul>
+        </div>
+        <!-- 选择上课表现 -->
+        <div class="class-performance hide" id="s_2">
+            <ul class="stract-list">
+            </ul>
+        </div>
+        <!-- 选择课后作业 -->
+        <div class="class-homework hide" id="s_3">
+            <ul class="stract-list">
+            </ul>
+        </div>
+        <!-- 生成反馈 -->
+        <div class="class-result hide" id="s_4">
+            <!-- <textarea rows="3 " cols="20 ">今天的重点上课内容是首先把初一年级的一些主要语法点</br>重点做了一下梳理复习和进一步的巩固讲解和练习。今天的重点上课内容是首先把初一年级的一些主要语法点重点做了一下梳理复习和进一步的巩固讲解和练习。今天的重点上课内容是首先把初一年级的一些主要语法点重点做了一下梳理复习和进一步的巩固讲解和练习。今天的重点上课内容是首先把初一年级的一些主要语法点重点做了一下梳理复习和进一步的巩固讲解和练习。今天的重点上课内容是首先把初一年级的一些主要语法点重点做了一下梳理复习和进一步的巩固讲解和练习。今天的重点上课内容是首先把初一年级的一些主要语法点重点做了一下梳理复习和进一步的巩固讲解和练习。今天的重点上课内容是首先把初一年级的一些主要语法点重点做了一下梳理复习和进一步的巩固讲解和练习。</textarea> -->
+            <ul class="result-list">
+                <li id="res-date">
+                    <h4>时间</h4>
+                    <p></p>
+                </li>
+                <li id="res-name">
+                    <h4>姓名</h4>
+                    <p></p>
+                </li>
+                <li id="res-content">
+                    <h4>授课内容</h4>
+                    <p class="t-in"></p>
+                </li>
+                <li id="res-performance">
+                    <h4>课堂表现</h4>
+                    <p class="t-in"></p>
+                </li>
+                <li id="res-homework">
+                    <h4>课后作业</h4>
+                    <p class="t-in"></p>
+                </li>
+            </ul>
+
+        </div>
     </div>
     <!-- 底部控制栏 -->
-    <div class="footer fix-box cl">
-        <button class="fl">上一步</button>
-        <button class="fr">下一步</button>
+    <div class="footer fix-box cl " id="footer">
+        <!-- <button class="fl ">上一步</button> -->
+        <button class="fr" id="nextB">下一步</button>
     </div>
 </body>
-<script src="../common/js/rem.js"></script>
-<script src="../common/js/h-jquery.js"></script>
+<script src="../common/js/rem.js "></script>
+<script src="../common/js/h-jquery.js "></script>
+<script src="../common/js/library.js "></script>
+<script src="./js/feedback.js "></script>
+<script>
+</script>
 
 </html>

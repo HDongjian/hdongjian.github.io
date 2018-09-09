@@ -37,9 +37,27 @@ section {
   width: 100%;
   left: 0;
 }
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.showmove {
+  animation: showA 2s  forwards;
+  opacity: 0;
+}
+@keyframes showA {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .title {
-  height: 4rem;
-  line-height: 4rem;
+  height: 6rem;
+  line-height: 6rem;
   background-color: #375f8e;
   color: #fff;
   text-align: center;
@@ -48,25 +66,27 @@ section {
 }
 .footer {
   bottom: 0;
-  height: 4rem;
-  line-height: 4rem;
-  background-color: rgba(0, 0, 0, 0.1);
+  height: 6rem;
+  line-height: 6rem;
+  background-color: #ccc;
 }
 .footer button {
   height: 100%;
   padding: 0 1rem;
+  color: #375f8e;
 }
 .main {
-  height: 100%;
-  padding: 4rem 0.8rem;
+  min-height: 100%;
+  padding: 6rem 1rem;
   background-color: #fff;
   box-sizing: border-box;
 }
 .main .choose-name {
-  margin-top: 5rem;
+  position: relative;
+  top: 15rem;
 }
 .main .choose-name .form {
-  height: 7rem;
+  height: 10rem;
   display: flex;
   margin-top: 1rem;
   justify-content: center;
@@ -81,7 +101,9 @@ section {
   flex: 2;
   width: 100%;
   position: relative;
-  padding: .5rem 1rem;
+  height: 5rem;
+  line-height: 5rem;
+  padding: 0rem 1rem;
   border: 1px solid #375f8e;
   border-radius: 4px;
 }
@@ -92,4 +114,38 @@ section {
   height: 100%;
   left: 0;
   opacity: 0;
+}
+.stract-list {
+  padding: 1rem;
+}
+.stract-list li {
+  margin-top: 2rem;
+  width: 100%;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 4px 4px 20px #375f8e;
+}
+.stract-list li.choosed {
+  background-color: #375f8e;
+  color: #fff;
+}
+.class-result textarea {
+  width: 100%;
+  font-size: 1.6rem;
+}
+.class-result .result-list {
+  font-size: 1.6rem;
+}
+.class-result .result-list p {
+  font-size: 1.6rem;
+}
+.class-result .result-list p.t-in {
+  text-indent: 2rem;
+}
+.class-result .result-list h4 {
+  font-size: 2rem;
+  color: #375f8e;
+  height: 5rem;
+  line-height: 5rem;
 }

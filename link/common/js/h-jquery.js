@@ -70,7 +70,24 @@
 
             }
         },
+        /**
+         * html
+         */
+        html: function() {
+            if (arguments.length > 0) {
+                this.each((i) => {
+                    this[i].innerHTML = arguments[0]
+                })
+                return this
+            } else {
+                var allText = ""
+                this.each((i) => {
+                    allText += this[i].innerHTML
+                })
+                return allText
 
+            }
+        },
         /**
          * 点击事件
          */
@@ -92,15 +109,6 @@
          * 切换class名
          */
         toggleClass: function(name) {
-            console.log(this)
-                // this.each((i) => {
-                //     this[i].classList.toggle(name)
-                // })
-        },
-        /**
-         * 切换class名
-         */
-        toggleClass: function(name) {
             this.each((i) => {
                 this[i].classList.toggle(name)
             })
@@ -117,6 +125,12 @@
             push.apply(this, arr)
             return this;
         },
+        /**
+         * 获取元素内容
+         */
+        value: function() {
+            return this[0].value;
+        }
     };
 
     window.jQuery = window.$ = jQuery;
