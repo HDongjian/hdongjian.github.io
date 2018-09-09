@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>反馈系统</title>
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="./css/feedback.css">
+</head>
+
+<body>
+    <!-- 1.姓名
+    2.上课内容
+    3.课堂表现
+    4.作业 -->
+    <!-- 标题 -->
+    <div class="title fix-box">请选择学生姓名</div>
+    <!-- 主题部分 -->
+    <div class="main">
+        <!-- 选择学生姓名以及日期部分 -->
+        <div class="choose-name">
+            <!-- 选择日期 -->
+            <div class="date form">
+                <p>选择日期：</p>
+                <input class="inputs" type="date" name="user_date" />
+            </div>
+            <!-- 选择学生姓名 -->
+            <div class="name form">
+                <p>选择学生姓名：</p>
+                <select class="inputs">
+                    <option value ="volvo">Volvo</option>
+                    <option value ="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- 底部控制栏 -->
+    <div class="footer fix-box">
+        <button>上一步</button>
+        <button>下一步</button>
+    </div>
+</body>
+<script src="../common/js/rem.js"></script>
+<script src="../common/js/h-jquery.js"></script>
+
+</html>

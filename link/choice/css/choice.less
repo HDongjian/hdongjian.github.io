@@ -1,0 +1,49 @@
+// @media screen and (mix-width: 300px) {
+//     body {
+//         background-color:lightblue;
+//     }
+// }
+
+@mainH:600px;
+@mainW:400px;
+
+.content{
+    width: @mainW;
+    height: @mainH;
+    margin: 150px auto 0;
+    perspective: 2000px;
+    .main{
+        position: relative;
+        width: @mainW;
+        height: @mainH;
+        transform-style: preserve-3d;
+        transition: all 2s;
+        // transform: rotateY(-30deg);
+        .side {
+            position: absolute;
+            width: @mainW;
+            height: @mainH;
+            box-sizing: border-box;
+            // border: 5px solid #9aa;
+            background-color: rgba(32, 170, 151, 1);
+            // padding: 120px 0;
+            // font: 50px/1 'Trebuchet MS', sans-serif;
+            // color: #fff;
+            // text-transform: uppercase;
+            text-align: center;
+            cursor: pointer;
+        }
+        .front {
+            transform: translateZ(@mainW/2);
+        }
+        .right{
+            transform: translateX(-@mainW/2) rotateY(-90deg);
+        }
+        .left{
+            transform: translateX(@mainW/2) rotateY(-90deg);
+        }
+    }
+    .trans{
+        transform: rotateY(-90deg);
+    }
+}

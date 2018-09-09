@@ -1,0 +1,34 @@
+.content {
+  width: 400px;
+  height: 600px;
+  margin: 150px auto 0;
+  perspective: 2000px;
+}
+.content .main {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  transform-style: preserve-3d;
+  transition: all 2s;
+}
+.content .main .side {
+  position: absolute;
+  width: 400px;
+  height: 600px;
+  box-sizing: border-box;
+  background-color: #20aa97;
+  text-align: center;
+  cursor: pointer;
+}
+.content .main .front {
+  transform: translateZ(200px);
+}
+.content .main .right {
+  transform: translateX(-200px) rotateY(-90deg);
+}
+.content .main .left {
+  transform: translateX(200px) rotateY(-90deg);
+}
+.content .trans {
+  transform: rotateY(-90deg);
+}

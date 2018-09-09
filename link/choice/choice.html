@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择</title>
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="./css/choice.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="main">
+            <!-- <div class="side front">Front</div> -->
+            <!-- <div class="side left">Left</div> -->
+            <!-- <div class="side right">Right</div> -->
+            <div class="show"></div>
+            <div class="control"></div>
+        </div>
+    </div>
+</body>
+<script src="../common/js/h-jquery.js"></script>
+<script>
+    $('.show').toggleClass('front')
+    $('.show').toggleClass('side')
+    var flag = false;
+    $('.main').on('mousedown', function() {
+        // console.log(22)
+        flag = true
+    })
+    document.onmouseup = function() {
+        if (flag) {
+            console.log(22)
+            $('.control').toggleClass('left')
+            $('.control').toggleClass('side')
+            $('.main').toggleClass('trans')
+        }
+    }
+</script>
+
+</html>

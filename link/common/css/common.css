@@ -1,0 +1,375 @@
+/* css清除默认样式*/
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+div,
+span,
+a,
+b,
+i,
+strong,
+em,
+img,
+form,
+input,
+textarea,
+table,
+th,
+td,
+section {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    font-family: 'Microsoft Yahei', sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: initial;
+}
+
+body {
+    background: #fff;
+    color: #313131;
+    font-size: 14px;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    line-height: 100%;
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: #313131;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+
+/*a的默认下划线和字体颜色| 移动端点击蓝边*/
+
+a:hover {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+strong,
+b {
+    font-weight: normal;
+}
+
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+
+/*解决苹果手机默认的背景透明*/
+
+input,
+button,
+select,
+textarea {
+    resize: none;
+    outline: none;
+    border: none 0;
+    padding: 0;
+    font-family: 'Microsoft Yahei', sans-serif;
+    background-color: transparent;
+}
+
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+li {
+    list-style: none;
+    vertical-align: top;
+}
+
+
+/*li里浮动,li不浮动，去3像素bug*/
+
+a img {
+    border: 0;
+}
+
+
+/*a包img：去蓝色边框*/
+
+img {
+    vertical-align: middle;
+    width: 100%
+}
+
+
+/*a包img：去3像素bug*/
+
+table {
+    border-collapse: collapse;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+table,
+tr,
+th,
+td {
+    padding: 0;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+
+/*body颜色*/
+
+body {
+    background: #f5f5f5;
+}
+
+.opacity {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+
+/*浮动*/
+
+.fl {
+    float: left !important;
+}
+
+.fr {
+    float: right !important;
+}
+
+.fn {
+    float: none !important;
+}
+
+
+/*清除浮动*/
+
+.clearfix:after,
+.cl:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+.clearfix,
+.cl {
+    zoom: 1;
+}
+
+
+/*定位*/
+
+.po_re {
+    position: relative;
+}
+
+.po_ab {
+    position: absolute;
+}
+
+
+/*文字对齐方式*/
+
+.font_left {
+    text-align: left !important;
+}
+
+.font_cen {
+    text-align: center !important;
+}
+
+.font_right {
+    text-align: right !important;
+}
+
+
+/*字体颜色*/
+
+.font_main,
+.font_main a {
+    color: #333;
+}
+
+.font_sup,
+.font_sup a {
+    color: #666;
+}
+
+
+/*字体大小*/
+
+.font_16 {
+    font-size: 16px;
+}
+
+.font_w {
+    font-weight: bold;
+}
+
+
+/*背景颜色*/
+
+.bg_main {
+    background: #fff !important;
+}
+
+.bg_fff {
+    background: #fff !important;
+}
+
+.bg_fafafa {
+    background: #fafafa !important;
+}
+
+
+/*边线*/
+
+.bor_1 {
+    border: 1px solid #eaeaea;
+}
+
+.bor_t1 {
+    border-top: 1px solid #eaeaea;
+}
+
+.bor_b1 {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.bor_l1 {
+    border-left: 1px solid #eaeaea;
+}
+
+.bor_r1 {
+    border-right: 1px solid #eaeaea;
+}
+
+
+/*公用的padding值*/
+
+.pad_10 {
+    padding: 10px !important;
+}
+
+.pad_t10 {
+    padding-top: 10px !important;
+}
+
+.pad_b10 {
+    padding-bottom: 10px !important;
+}
+
+.pad_l10 {
+    padding-left: 10px !important;
+}
+
+.pad_r10 {
+    padding-right: 10px !important;
+}
+
+
+/*margin*/
+
+.mar_10 {
+    margin: 10px !important;
+}
+
+.mar_t10 {
+    margin-top: 10px !important;
+}
+
+.mar_b10 {
+    margin-bottom: 10px !important;
+}
+
+.mar_l10 {
+    margin-left: 10px !important;
+}
+
+.mar_r10 {
+    margin-right: 10px !important;
+}
+
+
+/*块转换*/
+
+.show {
+    display: block;
+}
+
+.show_table {
+    display: inline-table;
+}
+
+.dis_tab {
+    display: table;
+}
+
+.tab_mid {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.hide {
+    display: none;
+}
+
+
+/*溢出隐藏*/
+
+.over_hide {
+    overflow: hidden;
+}
+
+
+/*超出隐藏 文本不换行 省略号*/
+
+.font_nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,85 @@
+@mainColor:#375f8e;
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+div,
+span,
+a,
+b,
+i,
+strong,
+em,
+img,
+form,
+input,
+textarea,
+table,
+th,
+td,
+button,
+section {
+  color:#666;
+  font-size: 40rem/25;
+}
+.fix-box{
+    position: fixed;
+    width: 100%;
+    left: 0;
+}
+
+// 头部
+.title{
+    height: 80rem/25;
+    line-height: 80rem/25;
+    background-color: @mainColor;
+    color:#fff;
+    text-align: center;
+    font-size: 50rem/25;
+    top: 0;
+}
+.footer{
+    bottom: 0;
+    height: 80rem/25;
+    line-height: 80rem/25;
+    background-color: rgba(0, 0, 0, .1);
+}
+// 主体部分
+.main{
+    height: 100%;
+    padding:100rem/25 20rem/25;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+// 第一步选择学生姓名以及日期部分
+.main .choose-name{
+    margin-top: 5rem;
+    .form{
+        height: 5rem;
+        display: flex;
+        margin-top: 1rem;
+        justify-content:center;
+        align-items:center;
+        p{
+            flex: 1;
+            text-align: right;
+            font-weight: bold;
+        }
+        .inputs{
+            flex: 2;
+            width: 100%;
+        }
+    }
+}

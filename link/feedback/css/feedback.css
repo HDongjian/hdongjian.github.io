@@ -1,0 +1,79 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+div,
+span,
+a,
+b,
+i,
+strong,
+em,
+img,
+form,
+input,
+textarea,
+table,
+th,
+td,
+button,
+section {
+  color: #666;
+  font-size: 1.6rem;
+}
+.fix-box {
+  position: fixed;
+  width: 100%;
+  left: 0;
+}
+.title {
+  height: 3.2rem;
+  line-height: 3.2rem;
+  background-color: #375f8e;
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  top: 0;
+}
+.footer {
+  bottom: 0;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.main {
+  height: 100%;
+  padding: 4rem 0.8rem;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.main .choose-name {
+  margin-top: 5rem;
+}
+.main .choose-name .form {
+  height: 5rem;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.main .choose-name .form p {
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+}
+.main .choose-name .form .inputs {
+  flex: 2;
+  width: 100%;
+}
