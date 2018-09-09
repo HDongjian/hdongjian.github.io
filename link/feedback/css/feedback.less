@@ -1,4 +1,4 @@
-@mainColor:#375f8e;
+
 
 html,
 body,
@@ -32,7 +32,7 @@ td,
 button,
 section {
   color:#666;
-  font-size: 40rem/25;
+  font-size: 50rem/25;
 }
 .fix-box{
     position: fixed;
@@ -40,21 +40,28 @@ section {
     left: 0;
 }
 
+@mainColor:#375f8e;
+@topHeight:4rem;
+
 // 头部
 .title{
-    height: 80rem/25;
-    line-height: 80rem/25;
+    height: @topHeight;
+    line-height: @topHeight;
     background-color: @mainColor;
     color:#fff;
     text-align: center;
-    font-size: 50rem/25;
+    font-size: 60rem/25;
     top: 0;
 }
 .footer{
     bottom: 0;
-    height: 80rem/25;
-    line-height: 80rem/25;
+    height: @topHeight;
+    line-height: @topHeight;
     background-color: rgba(0, 0, 0, .1);
+    button{
+        height: 100%;
+        padding:0 1rem;
+    }
 }
 // 主体部分
 .main{
@@ -67,7 +74,7 @@ section {
 .main .choose-name{
     margin-top: 5rem;
     .form{
-        height: 5rem;
+        height: 7rem;
         display: flex;
         margin-top: 1rem;
         justify-content:center;
@@ -80,6 +87,20 @@ section {
         .inputs{
             flex: 2;
             width: 100%;
+            position: relative;
+            // height: 3rem;
+            // line-height: 3rem;
+            padding:.5rem 1rem;
+            border: 1px solid @mainColor;
+            border-radius: 4px;
+            .input{
+                position: absolute;
+                top:0;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                opacity: 0;
+            }
         }
     }
 }

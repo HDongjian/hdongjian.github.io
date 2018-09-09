@@ -24,24 +24,30 @@
             <!-- 选择日期 -->
             <div class="date form">
                 <p>选择日期：</p>
-                <input class="inputs" type="date" name="user_date" />
+                <div class="inputs">
+                    <span class="date-show">2018-12-8</span>
+                    <input class="input" type="date" name="user_date" />
+                </div>
             </div>
             <!-- 选择学生姓名 -->
             <div class="name form">
                 <p>选择学生姓名：</p>
-                <select class="inputs">
-                    <option value ="volvo">Volvo</option>
-                    <option value ="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
+                <div class="inputs">
+                    <span class="name-show">赵靖宇</span>
+                    <select class="input">
+                        <option value ="volvo">Volvo</option>
+                        <option value ="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
     <!-- 底部控制栏 -->
-    <div class="footer fix-box">
-        <button>上一步</button>
-        <button>下一步</button>
+    <div class="footer fix-box cl">
+        <button class="fl">上一步</button>
+        <button class="fr">下一步</button>
     </div>
 </body>
 <script src="../common/js/rem.js"></script>
