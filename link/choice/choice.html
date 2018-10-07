@@ -12,32 +12,31 @@
 
 <body>
     <div class="content">
-        <div class="main">
-            <!-- <div class="side front">Front</div> -->
-            <!-- <div class="side left">Left</div> -->
-            <!-- <div class="side right">Right</div> -->
-            <div class="show"></div>
-            <div class="control"></div>
+        <div class="main trans">
+            <!-- 选择主屏幕 -->
+            <div class="side front screen">
+                <p id="content">Enter开始和停止</p>
+            </div>
+            <!-- 增加删除默认选项 -->
+            <div class="side left options">
+                <!-- 选项增加 -->
+                <div class="add">
+                    <input maxlength="15" type="text" id="input-add" class="input-add">
+                    <button class="button-add" id="button-add">添加</button>
+                </div>
+                <!-- 选项列表 -->
+                <ul class="list" id="options-list"></ul>
+            </div>
+            <div class="side right">Right</div>
+            <div class="side back">back</div>
         </div>
     </div>
 </body>
 <script src="../common/js/h-jquery.js"></script>
+<!-- <script src="./js/random.js"></script> -->
+<script src="./js/rotate.js"></script>
 <script>
-    $('.show').toggleClass('front')
-    $('.show').toggleClass('side')
-    var flag = false;
-    $('.main').on('mousedown', function() {
-        // console.log(22)
-        flag = true
-    })
-    document.onmouseup = function() {
-        if (flag) {
-            console.log(22)
-            $('.control').toggleClass('left')
-            $('.control').toggleClass('side')
-            $('.main').toggleClass('trans')
-        }
-    }
 </script>
+
 
 </html>

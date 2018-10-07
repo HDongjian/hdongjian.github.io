@@ -5,8 +5,8 @@
 // }
 
 @mainH:600px;
-@mainW:400px;
-
+@mainW:800px;
+@mainC:rgba(32, 170, 151, 1);
 .content{
     width: @mainW;
     height: @mainH;
@@ -17,7 +17,6 @@
         width: @mainW;
         height: @mainH;
         transform-style: preserve-3d;
-        transition: all 2s;
         // transform: rotateY(-30deg);
         .side {
             position: absolute;
@@ -25,25 +24,113 @@
             height: @mainH;
             box-sizing: border-box;
             // border: 5px solid #9aa;
-            background-color: rgba(32, 170, 151, 1);
+            background-color: @mainC;            
+            // border-radius: 10px;
             // padding: 120px 0;
             // font: 50px/1 'Trebuchet MS', sans-serif;
             // color: #fff;
             // text-transform: uppercase;
-            text-align: center;
-            cursor: pointer;
+            // text-align: center;
+            // cursor: pointer;
         }
         .front {
             transform: translateZ(@mainW/2);
+            // background-color: rgba(32, 170, 151, 1);
+        }
+        .back {
+            transform: translateZ(-@mainW/2)  rotateY(180deg);
+            // background-color: rgba(32, 170, 151, 1);
         }
         .right{
             transform: translateX(-@mainW/2) rotateY(-90deg);
+            // background-color: blueviolet;
         }
         .left{
-            transform: translateX(@mainW/2) rotateY(-90deg);
+            transform: translateX(@mainW/2) rotateY(-270deg);
+            // background-color: rosybrown;
         }
     }
     .trans{
-        transform: rotateY(-90deg);
+        transition: all 500ms;
+        // transform: rotateY(-90deg);
     }
 }
+
+// 主要屏幕选择
+.main .screen{
+    #content{
+        line-height: @mainH;
+        height: @mainH;
+        font-size: 50px;
+        color: white;
+        text-align: center;
+    }
+}
+//设置选择项
+.main .options{
+    padding: 20px 30px;
+    // input,
+    // li,
+    // button{
+    //     // color: @mainC;
+    // }
+    .add{
+        height: 30px;
+        margin-bottom: 20px;
+        // text-align: center;
+        .input-add{
+            height: 100%;
+            width: 250px;
+            background-color: #fff;
+            border-radius: 6px;
+            vertical-align: top;
+            padding: 0 6px;
+        }   
+        .button-add{
+            height: 30px;
+            background-color: #fff;
+            width: 80px;
+            // font-size: 18px;
+            border-radius: 6px;
+        }
+    }
+    .list{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        li{
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            padding: 0px 10px;
+            background-color: #fff;
+            border-radius: 15px;
+            margin: 0 20px 20px 0px;
+            cursor: pointer;
+            // position: absolute;
+            position: relative;
+        // top:50%;
+            // left:50%;
+            // transform: translate(-50%,-50%);
+        }
+        li:after{
+            content: "删除";
+            display: none;
+            position: absolute;
+            text-align: center;
+            color:#fff;
+            font-size: 12px;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            border-radius: 15px;
+            left: 0;
+            background-color: rgba(0,0,0,.5);
+        }
+        li:hover:after{
+            display: block;
+        }
+    }
+}
+
+

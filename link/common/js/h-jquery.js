@@ -37,7 +37,6 @@
          * css方法
          */
         css: function() {
-            console.log(arguments)
             if (arguments.length > 1) {
                 this.each((i) => {
                     this[i].style[arguments[0]] = arguments[1]
@@ -100,9 +99,33 @@
         /**
          * 绑定点击事件
          */
-        on: function(type, callback) {
+        on: function() {
+            if (arguments.length == 2) {
+                this.each((i) => {
+                    this[i].addEventListener(arguments[0], arguments[1])
+                })
+            } else if (arguments.length == 3) {
+                var argu = arguments
+                var _this = this;
+                this.each((i) => {
+                    this[i].addEventListener(arguments[0], function(e) {
+                        var tagName = argu[1].toLowerCase();
+                        if (e.target.tagName.toLowerCase() == tagName) {
+                            splice.call(_this, 0, _this.length);
+                            push.call(_this, e.target)
+                            argu[2](_this)
+                        }
+                    })
+                })
+            }
+
+        },
+        /**
+         * 解除事件
+         */
+        off: function(type, callback) {
             this.each((i) => {
-                this[i].addEventListener(type, callback)
+                this[i].removeEventListener(type, callback)
             })
         },
         /**
@@ -129,7 +152,24 @@
          * 获取元素内容
          */
         value: function() {
-            return this[0].value;
+            if (arguments.length === 0) {
+                return this[0].value;
+            } else {
+                this.each((i) => {
+                    this[i].value = arguments[0]
+                })
+            }
+        },
+        /**
+         * 获取自定义属性
+         */
+        attr: function() {
+            var argu = arguments;
+            var attrArr = [];
+            this.each((i) => {
+                attrArr.push(this[i].getAttribute(argu[0]));
+            })
+            return attrArr;
         }
     };
 
