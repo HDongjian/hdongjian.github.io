@@ -2,12 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--点击不能放大缩小-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--优先使用 IE 最新版本和 Chrome-->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
+    <!--移动端配置-->
+    <!--<meta http-equiv="Cache-Control" content="max-age=0">-->
+    <meta http-equiv="Cache-Control:private" content="max-age=0">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- uc强制竖屏 -->
+    <!-- <meta name="screen-orientation" content="portrait"> -->
+    <!-- QQ强制竖屏 -->
+    <!-- <meta name="x5-orientation" content="portrait"> -->
+    <!-- UC强制全屏 -->
+    <!-- <meta name="full-screen" content="yes"> -->
+    <!-- QQ强制全屏 -->
+    <!-- <meta name="x5-fullscreen" content="true"> -->
+    <!-- UC应用模式 -->
+    <!-- <meta name="browsermode" content="application"> -->
+    <!-- QQ应用模式 -->
+    <!-- <meta name="x5-page-mode" content="app"> -->
+    <!-- windows phone 点击无高光 -->
+    <!-- <meta name="msapplication-tap-highlight" content="no"> -->
+    <!-- 关闭自动识别数字转换为电话号码 -->
+    <!-- <meta name="format-detection" content="telephone=no" /> -->
+    <!-- iphoneX适配 -->
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"> -->
     <title>选择</title>
     <link rel="stylesheet" href="../common/css/common.css">
-    <link rel="stylesheet" href="./css/choice.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 800px)" href="./css/choice.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 800px)" href="./css/choiceP.css" />
+
+    <!-- <link rel="stylesheet" href="./css/choice.css"> -->
 </head>
 
 <body>
@@ -33,6 +66,7 @@
     </div>
 </body>
 <script src="../common/js/h-jquery.js"></script>
+<!-- <script src="../common/js/rem.js"></script> -->
 <!-- <script src="./js/random.js"></script> -->
 <script src="./js/rotate.js"></script>
 <script>

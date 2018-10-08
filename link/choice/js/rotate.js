@@ -119,6 +119,7 @@ var mainRotate = function() {
     }
 }
 
+// 控制台
 $('document').on('keydown', function(e) {
     if (e.keyCode === 13) {
         homeControl();
@@ -127,6 +128,43 @@ $('document').on('keydown', function(e) {
         mainRotate();
     } else if (e.keyCode === 37 && canRotate) {
         xCount++;
+        mainRotate();
+    }
+})
+
+// 移动端控制台
+$('#content').on('click', function() {
+    homeControl();
+})
+
+var touch, startX, endX;
+
+$('document').on('touchstart', function(ev) {
+    //获取手指信息
+    touch = ev.targetTouches[0];
+    //获取x坐标
+    startX = touch.clientX;
+})
+
+$('document').on('touchmove', function(ev) {
+    //获取手指信息；
+    // touch = ev.changedTouches[0];
+    // // 离开屏幕时X坐标
+    // endX = touch.clientX;
+})
+
+$('document').on('touchend', function(ev) {
+    ev.stopImmediatePropagation();
+    //获取手指信息；
+    touch = ev.changedTouches[0];
+    // 离开屏幕时X坐标
+    endX = touch.clientX;
+    // 判断方向
+    if (endX > startX + 10 && canRotate) {
+        xCount++;
+        mainRotate();
+    } else if (startX > endX + 10 && canRotate) {
+        xCount--;
         mainRotate();
     }
 })

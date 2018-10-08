@@ -50,8 +50,6 @@
         },
     }
 
-    window.$ = window.lib = lib;
-
     /**
      * 设置html属性
      */
