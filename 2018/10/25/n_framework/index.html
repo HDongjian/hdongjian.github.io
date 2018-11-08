@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前端工程化工具模块化关于模块化模块化是一种将系统分离成独立功能部分的方法，可将系统分割成独立的功能部分，严格定义模块接口、模块间具有透明性。 优点 灵活架构，焦点分离 方便模块间组合、分解 方便单个模块功能调试、升级 多人协作互不干扰  发展历程 script标签 ComonJS AMD CMD UMD ES6  工具Webpackhttps://webpack.js.org 基本概念: 1Web">
+<meta name="keywords" content="JavaScript,Webpack,Vue,Ne">
+<meta property="og:type" content="article">
+<meta property="og:title" content="框架原理与进阶">
+<meta property="og:url" content="http://yoursite.com/2018/10/25/n_framework/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="前端工程化工具模块化关于模块化模块化是一种将系统分离成独立功能部分的方法，可将系统分割成独立的功能部分，严格定义模块接口、模块间具有透明性。 优点 灵活架构，焦点分离 方便模块间组合、分解 方便单个模块功能调试、升级 多人协作互不干扰  发展历程 script标签 ComonJS AMD CMD UMD ES6  工具Webpackhttps://webpack.js.org 基本概念: 1Web">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-29T01:55:57.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="框架原理与进阶">
+<meta name="twitter:description" content="前端工程化工具模块化关于模块化模块化是一种将系统分离成独立功能部分的方法，可将系统分割成独立的功能部分，严格定义模块接口、模块间具有透明性。 优点 灵活架构，焦点分离 方便模块间组合、分解 方便单个模块功能调试、升级 多人协作互不干扰  发展历程 script标签 ComonJS AMD CMD UMD ES6  工具Webpackhttps://webpack.js.org 基本概念: 1Web">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/25/n_framework/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>框架原理与进阶 | H-Dongjian</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H-Dongjian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">前端小学生</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">19</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">13</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">17</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/n_framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="H-Dongjian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H-Dongjian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">框架原理与进阶
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-25 11:31:43" itemprop="dateCreated datePublished" datetime="2018-10-25T11:31:43+08:00">2018-10-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-29 09:55:57" itemprop="dateModified" datetime="2018-10-29T09:55:57+08:00">2018-10-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/Webpack/Parce/" itemprop="url" rel="index"><span itemprop="name">Parce</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/Webpack/Parce/Eslint/" itemprop="url" rel="index"><span itemprop="name">Eslint</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前端工程化工具"><a href="#前端工程化工具" class="headerlink" title="前端工程化工具"></a>前端工程化工具</h2><h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><h4 id="关于模块化"><a href="#关于模块化" class="headerlink" title="关于模块化"></a>关于模块化</h4><p>模块化是一种将系统分离成独立功能部分的方法，可将系统分割成独立的功能部分，严格定义模块接口、模块间具有透明性。</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>灵活架构，焦点分离</li>
+<li>方便模块间组合、分解</li>
+<li>方便单个模块功能调试、升级</li>
+<li>多人协作互不干扰</li>
+</ol>
+<h4 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h4><ol>
+<li>script标签</li>
+<li>ComonJS</li>
+<li>AMD</li>
+<li>CMD</li>
+<li>UMD</li>
+<li>ES6</li>
+</ol>
+<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><h5 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h5><p><a href="https://webpack.js.org" target="_blank" rel="noopener">https://webpack.js.org</a></p>
+<p>基本概念:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 <span class="built_in">JSON</span>、Coffeescript、 LESS 等。</span><br></pre></td></tr></table></figure>
+<p>优势:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、代码拆分</span><br><span class="line"><span class="number">2</span>、Loader</span><br><span class="line"><span class="number">3</span>、智能解析</span><br><span class="line"><span class="number">4</span>、插件系统</span><br><span class="line"><span class="number">5</span>、快速运行</span><br></pre></td></tr></table></figure>
+<p>实战之基本演练:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">打包单个js文件</span><br><span class="line">	<span class="number">1</span>、新建一个项目的入口文件entry.js并且在里面写好内容</span><br><span class="line">	</span><br><span class="line">	<span class="number">2</span>、一定要切换到项目根目录，使用 </span><br><span class="line">		webpack entry.js bundle.js</span><br><span class="line">		</span><br><span class="line">	<span class="number">3</span>、在项目根目录，创建index.html，导入bundle.js文件</span><br><span class="line">	</span><br><span class="line">	<span class="number">4</span>、运行</span><br><span class="line">    </span><br><span class="line">打包具有依赖关系的两个js文件</span><br><span class="line">	<span class="number">1</span>、新建两个文件 entry.js <span class="built_in">module</span>.js ，并且在里面写好导出</span><br><span class="line">	导入的代码</span><br><span class="line">	</span><br><span class="line">	<span class="number">2</span>、一定要切换到项目根目录，使用 </span><br><span class="line">		webpack entry.js bundle.js</span><br><span class="line">		</span><br><span class="line">	<span class="number">3</span>、在项目根目录，创建index.html，导入bundle.js文件</span><br><span class="line">	</span><br><span class="line">	<span class="number">4</span>、运行</span><br><span class="line">    </span><br><span class="line"> 打包非js(以后css)文件</span><br><span class="line">	<span class="number">1</span>、新建一个site.css文件，里面写上内容</span><br><span class="line">	</span><br><span class="line">	<span class="number">2</span>、一定要切换到项目根目录，使用 </span><br><span class="line">		webpack entry.js bundle.js</span><br><span class="line">		</span><br><span class="line">	<span class="number">3</span>、我们需要安装两个load来打包css文件</span><br><span class="line">		npm i style-loader css-loader -D</span><br><span class="line">		</span><br><span class="line">	<span class="number">4</span>、使用style-loader &amp; css-loader 来打包css文件</span><br><span class="line">		<span class="number">4.1</span>、再导入css的时候，使用style-loader css-loader</span><br><span class="line">		<span class="number">4.2</span>、在终端里面对css结尾的文件统一处理</span><br><span class="line">        </span><br><span class="line"> webpack.config.js的使用</span><br><span class="line">	作用:简化在终端里面输入的很长的打包指令</span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>、项目根目录下创建webpack.config.js</span><br><span class="line">	</span><br><span class="line">	<span class="number">2</span>、在webpack.config.js中配置</span><br><span class="line">		entry</span><br><span class="line">		output</span><br><span class="line">		loader</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/HDongjian/NotesCode/tree/master/01_framework/01_engineeringTools/01_webpack_base" target="_blank" rel="noopener">github案例</a></p>
+<p>实战之和VueJS结合使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">webpack + vue 构建项目【实现热更新，看到Hello Vue】</span><br><span class="line"></span><br><span class="line">#### 新建基本的文件和文件夹</span><br><span class="line">	<span class="number">1</span>、创建一个项目的根目录</span><br><span class="line">		szhmqd18</span><br><span class="line">			|--src 项目的源代码目录</span><br><span class="line">				|--main.js 项目的入口文件</span><br><span class="line">				|--App.vue 根组件【项目启动之后看到的第一个组件】</span><br><span class="line">			|--package.json 项目配置文件</span><br><span class="line">				npm init -y</span><br><span class="line">			|--webpack.config.dev.js 项目开发阶段的配置文件</span><br><span class="line"></span><br><span class="line">#### 在新建的文件中写代码</span><br><span class="line">	App.vue</span><br><span class="line">		写上hello Vue</span><br><span class="line">		</span><br><span class="line">	main.js</span><br><span class="line">		导入根组件【使用es6的语法】，渲染根组件【利用Vue】</span><br><span class="line">		</span><br><span class="line">	webpack.config.dev.js</span><br><span class="line">		entry</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">#### 利用 webpack-dev-server + html-webpack-plugin 运行我们的项目</span><br><span class="line">	webpack-dev-server【只是打包生成了bundle.js】</span><br><span class="line">		webpack-dev-server --progress --config webpack.config.dev.js --open --hot</span><br><span class="line">		</span><br><span class="line">		把上面的指令，放在package.json的scripts中</span><br><span class="line">		</span><br><span class="line">		<span class="string">"dev"</span>:<span class="string">"webpack-dev-server --progress --config webpack.config.dev.js --open --hot"</span></span><br><span class="line">		</span><br><span class="line">	html-webpack-plugin【帮我们生成index.html并且自动导入bundle.js】</span><br><span class="line">		安装包</span><br><span class="line">		</span><br><span class="line">		在 webapck.config.dev.js 中配置</span><br></pre></td></tr></table></figure>
+<h5 id="Parcel"><a href="#Parcel" class="headerlink" title="Parcel"></a>Parcel</h5><p><a href="https://parceljs.org/" target="_blank" rel="noopener">https://parceljs.org/</a></p>
+<p>基本概念:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">极速零配置Web应用打包工具</span><br></pre></td></tr></table></figure>
+<p>优势:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、极速打包</span><br><span class="line"><span class="number">2</span>、将你所有的资源打包</span><br><span class="line"><span class="number">3</span>、自动转换</span><br><span class="line"><span class="number">4</span>、零配置代码分拆</span><br><span class="line"><span class="number">5</span>、热模块替换</span><br><span class="line"><span class="number">6</span>、友好的错误日志</span><br></pre></td></tr></table></figure>
+<p>实战之基本使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、首先通过 Yarn 或者 npm 安装 Parcel </span><br><span class="line">	npm install -g parcel-bundler</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、创建一个 index.html 和 index.js 文件，并且写好代码</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、打包</span><br><span class="line">	parcel index.html</span><br><span class="line"><span class="number">4</span>、打开浏览器</span><br><span class="line">    parcel index.html --open</span><br></pre></td></tr></table></figure>
+<p>实战之和VueJS结合使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、首先，我们需要安装 Vue 的依赖关系。</span><br><span class="line">	npm install --save vue</span><br><span class="line">	npm install --save-dev parcel-bundler</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、向 package.json 的 scripts 中添加 start 脚本。</span><br><span class="line">	<span class="comment">// package.json</span></span><br><span class="line">    <span class="string">"scripts"</span>: &#123;</span><br><span class="line">      <span class="string">"start"</span>: <span class="string">"parcel index.html"</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h5><p><a href="https://www.rollupjs.com/guide/zh" target="_blank" rel="noopener">https://www.rollupjs.com/guide/zh</a></p>
+<p>基本概念:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rollup 是一个 JavaScript 模块打包器，可以将小块代码编译成大块复杂的代码，例如 library 或应用程序。</span><br></pre></td></tr></table></figure>
+<p>优势:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、静态分析</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、小巧而专一</span><br></pre></td></tr></table></figure>
+<p>实战之打包流行库</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、写一个js库</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、使用rollup打包</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Webpack/" rel="tag"># Webpack</a>
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/Ne/" rel="tag"># Ne</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/11/my-axios/" rel="next" title="初步实现Axios">
+                <i class="fa fa-chevron-left"></i> 初步实现Axios
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/29/n_flow_typeScript/" rel="prev" title="Flow&TypeScript">
+                Flow&TypeScript <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="H-Dongjian" />
+            
+              <p class="site-author-name" itemprop="name">H-Dongjian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端工程化工具"><span class="nav-number">1.</span> <span class="nav-text">前端工程化工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化"><span class="nav-number">1.1.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于模块化"><span class="nav-number">1.1.1.</span> <span class="nav-text">关于模块化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发展历程"><span class="nav-number">1.1.3.</span> <span class="nav-text">发展历程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具"><span class="nav-number">1.1.4.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Webpack"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">Webpack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Parcel"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">Parcel</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Rollup"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">Rollup</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">H_Dongjian 个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">博客</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
