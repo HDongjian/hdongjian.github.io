@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="MVVM框架介绍介绍 M ：Modal 模型层 V ：View 视图层 VM ： ViewModal 视图模型，V和M的桥梁  MVVM框架实现了数据双向绑定  当M层数据进行修改时，VM层会检测到变化，并且通知V层进行相应的修改； 修改V层则会通知M层数据进行修改 MVVM框架实现了视图和模型层的相互解耦  几种双向数据绑定的方式 发布-订阅者模式（backbone.js）一般通过pub、sub">
+<meta name="keywords" content="Vue,Ne,MVVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVVM框架进阶与现实">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/n_myVue/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="MVVM框架介绍介绍 M ：Modal 模型层 V ：View 视图层 VM ： ViewModal 视图模型，V和M的桥梁  MVVM框架实现了数据双向绑定  当M层数据进行修改时，VM层会检测到变化，并且通知V层进行相应的修改； 修改V层则会通知M层数据进行修改 MVVM框架实现了视图和模型层的相互解耦  几种双向数据绑定的方式 发布-订阅者模式（backbone.js）一般通过pub、sub">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-21T09:41:37.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVVM框架进阶与现实">
+<meta name="twitter:description" content="MVVM框架介绍介绍 M ：Modal 模型层 V ：View 视图层 VM ： ViewModal 视图模型，V和M的桥梁  MVVM框架实现了数据双向绑定  当M层数据进行修改时，VM层会检测到变化，并且通知V层进行相应的修改； 修改V层则会通知M层数据进行修改 MVVM框架实现了视图和模型层的相互解耦  几种双向数据绑定的方式 发布-订阅者模式（backbone.js）一般通过pub、sub">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/n_myVue/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MVVM框架进阶与现实 | H-Dongjian</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H-Dongjian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">前端小学生</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">20</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">13</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">18</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/n_myVue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="H-Dongjian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H-Dongjian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MVVM框架进阶与现实
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-14 15:50:15" itemprop="dateCreated datePublished" datetime="2018-11-14T15:50:15+08:00">2018-11-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-21 17:41:37" itemprop="dateModified" datetime="2018-11-21T17:41:37+08:00">2018-11-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="MVVM框架介绍"><a href="#MVVM框架介绍" class="headerlink" title="MVVM框架介绍"></a>MVVM框架介绍</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li>M ：Modal 模型层</li>
+<li>V ：View 视图层</li>
+<li>VM ： ViewModal 视图模型，V和M的桥梁</li>
+</ul>
+<p>MVVM框架实现了数据双向绑定</p>
+<ul>
+<li>当M层数据进行修改时，VM层会检测到变化，并且通知V层进行相应的修改；</li>
+<li>修改V层则会通知M层数据进行修改</li>
+<li>MVVM框架实现了视图和模型层的相互解耦</li>
+</ul>
+<h3 id="几种双向数据绑定的方式"><a href="#几种双向数据绑定的方式" class="headerlink" title="几种双向数据绑定的方式"></a>几种双向数据绑定的方式</h3><ul>
+<li><p>发布-订阅者模式（backbone.js）<br>一般通过pub、sub的方式来实现数据和视图的绑定，但是使用比较麻烦</p>
+</li>
+<li><p>脏值检查（anjular.js）<br>angular.js是通过脏值检测的方式对数据是否有变更，来决定是否更新视图。类似于通过定时器轮训检测数据是否发生了改变；</p>
+</li>
+<li><p>数据劫持<br>vue.js是通过数据劫持结合发布者-订阅者的方式。通过Object.defineProperty()来劫持各个属性的setter、getter，在数据发生变动的时候发布消息给订阅者，触发相应的监听回调</p>
+</li>
+</ul>
+<h3 id="Vue实现思路"><a href="#Vue实现思路" class="headerlink" title="Vue实现思路"></a>Vue实现思路</h3><ul>
+<li>实现一个Compile模板解析器，能够对模板中的指令和插值表达式进行解析，并且赋予不同的操作</li>
+<li>实现一个Observe数据监听器，能够对数据对象的所有属性进行监听</li>
+<li>实现一个Watcher观察者，将Compile的解析结果，与Observer所观察的对象链接起来，建立关系，在Observer观察对象到对象数据变化时，接受通知，同时更新DOM</li>
+<li>创建一个公共的入口对象，接受初始化的配置并且协调上面三个模块，也就是Vue</li>
+</ul>
+<h2 id="Compile实现逻辑"><a href="#Compile实现逻辑" class="headerlink" title="Compile实现逻辑"></a>Compile实现逻辑</h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><ul>
+<li>需要基本的html文件，vue.js文件，并且引入并且实例化vue对象</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-text</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-html</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./src/compile.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./src/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    var el = new Vue(&#123;</span></span><br><span class="line"><span class="undefined">        el: '#app',</span></span><br><span class="line"><span class="undefined">        data: &#123;</span></span><br><span class="line"><span class="undefined">            msg: "hello vue"</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined">    console.log(el)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建vue对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(option = &#123;&#125;) &#123;</span><br><span class="line">        <span class="keyword">this</span>.$el = option.el;</span><br><span class="line">        <span class="keyword">this</span>.$data = option.data;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.$el) &#123;</span><br><span class="line">            <span class="comment">//compile负责解析模板的内容</span></span><br><span class="line">            <span class="keyword">new</span> Compile(<span class="keyword">this</span>.$el, <span class="keyword">this</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建Compile模板解析器、</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Compile</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(el, vm) &#123;</span><br><span class="line">      <span class="comment">//允许用户传递的dom对象可以是真实Dom或者是选择器</span></span><br><span class="line">        <span class="keyword">this</span>.el = <span class="keyword">typeof</span> el === <span class="string">'string'</span> ? <span class="built_in">document</span>.querySelector(el) : el;</span><br><span class="line">        <span class="keyword">this</span>.vm = vm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建文本碎片"><a href="#创建文本碎片" class="headerlink" title="创建文本碎片"></a>创建文本碎片</h3><p>DocumentFragments 是DOM节点。它们不是主DOM树的一部分。通常的用例是创建文档片段，将元素附加到文档片段，然后将文档片段附加到DOM树。在DOM树中，文档片段被其所有的子元素所代替。</p>
+<p>因为文档片段存在于内存中，并不在DOM树中，所以将子元素插入到文档片段时不会引起页面回流（对元素位置和几何上的计算）。因此，使用文档片段通常会带来更好的性能。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createDocumentFragment" target="_blank" rel="noopener">关于createDocumentFragment方法</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.el) &#123;</span><br><span class="line">  <span class="keyword">let</span> fragment = <span class="keyword">this</span>.node2fragment(<span class="keyword">this</span>.el)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 核心方法-生成文档碎片</span></span><br><span class="line"><span class="comment">   * @param &#123;根Dom对象&#125; node </span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  node2fragment(node) &#123;</span><br><span class="line">      <span class="keyword">let</span> fragment = <span class="built_in">document</span>.createDocumentFragment();</span><br><span class="line">      <span class="keyword">let</span> childNodes = node.childNodes;</span><br><span class="line">      <span class="keyword">this</span>.toArray(childNodes).forEach(<span class="function"><span class="params">node</span> =&gt;</span> &#123;</span><br><span class="line">          fragment.appendChild(node);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 工具方法-类数组转化数组</span></span><br><span class="line"><span class="comment">   * @param &#123;类数组&#125; likeArray </span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  toArray(likeArray) &#123;</span><br><span class="line">      <span class="keyword">return</span> [].slice.call(likeArray)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="根据类型解析节点"><a href="#根据类型解析节点" class="headerlink" title="根据类型解析节点"></a>根据类型解析节点</h3><ul>
+<li>区分是文本节点还是元素节点来分别解析</li>
+<li>使用递归层层解析</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 工具方法-类数组转化数组</span></span><br><span class="line"><span class="comment"> * @param &#123;类数组&#125; likeArray </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">toArray(likeArray) &#123;</span><br><span class="line">    <span class="keyword">return</span> [].slice.call(likeArray)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断是否是元素节点</span></span><br><span class="line"><span class="comment"> * @param &#123;node&#125; node </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">isElementNode(node) &#123;</span><br><span class="line">    <span class="keyword">return</span> node.nodeType === <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解析元素节点"><a href="#解析元素节点" class="headerlink" title="解析元素节点"></a>解析元素节点</h3><ul>
+<li>需要分别解析v-text  v-html v-modal指令</li>
+<li>v-on指令因为类型原因需要特别解析</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解析元素节点</span></span><br><span class="line"><span class="comment"> * @param &#123;节点&#125; node  </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">compileElement(node) &#123;</span><br><span class="line">    <span class="comment">// 1.获取所有当前节点下的属性</span></span><br><span class="line">    <span class="keyword">let</span> attributes = node.attributes;</span><br><span class="line">    <span class="keyword">this</span>.toArray(attributes).forEach(<span class="function">(<span class="params">attr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> attrName = attr.name;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.isDirective(attrName)) &#123;</span><br><span class="line">            <span class="keyword">let</span> type = attrName.slice(<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">let</span> attrValue = attr.value;</span><br><span class="line">            <span class="keyword">if</span> (type === <span class="string">'text'</span>) &#123;</span><br><span class="line">                node.textContent = <span class="keyword">this</span>.vm.$data[attrValue];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (type === <span class="string">'html'</span>) &#123;</span><br><span class="line">                node.textContent = <span class="keyword">this</span>.vm.$data[attrValue];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (type === <span class="string">'modal'</span>) &#123;</span><br><span class="line">                node.value = <span class="keyword">this</span>.vm.$data[attrValue];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.isEventDirective(type)) &#123;</span><br><span class="line">                <span class="keyword">let</span> eventType = attrName.split(<span class="string">':'</span>)[<span class="number">1</span>];</span><br><span class="line">                node.addEventListener(eventType, <span class="keyword">this</span>.vm.$methods[attrValue].bind(<span class="keyword">this</span>.vm))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解析文本节点"><a href="#解析文本节点" class="headerlink" title="解析文本节点"></a>解析文本节点</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//解析文本节点</span></span><br><span class="line">mustache(node, vm) &#123;</span><br><span class="line">    <span class="keyword">let</span> txt = node.textContent;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="regexp">/\&#123;\&#123;(.+)\&#125;\&#125;/</span>;</span><br><span class="line">    <span class="keyword">if</span> (reg.test(txt)) &#123;</span><br><span class="line">        <span class="keyword">let</span> expr = <span class="built_in">RegExp</span>.$<span class="number">1</span>;</span><br><span class="line">        node.textContent = txt.replace(reg, <span class="keyword">this</span>.getVMValue(vm, expr))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取VM中的数据</span></span><br><span class="line">getVMValue(vm, expr) &#123;</span><br><span class="line">    <span class="keyword">let</span> data = vm.$data;</span><br><span class="line">    expr.split(<span class="string">'.'</span>).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">        data = data[key]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/Ne/" rel="tag"># Ne</a>
+          
+            <a href="/tags/MVVM/" rel="tag"># MVVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/29/n_flow_typeScript/" rel="next" title="Flow&TypeScript">
+                <i class="fa fa-chevron-left"></i> Flow&TypeScript
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="H-Dongjian" />
+            
+              <p class="site-author-name" itemprop="name">H-Dongjian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM框架介绍"><span class="nav-number">1.</span> <span class="nav-text">MVVM框架介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种双向数据绑定的方式"><span class="nav-number">1.2.</span> <span class="nav-text">几种双向数据绑定的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue实现思路"><span class="nav-number">1.3.</span> <span class="nav-text">Vue实现思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compile实现逻辑"><span class="nav-number">2.</span> <span class="nav-text">Compile实现逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文件"><span class="nav-number">2.1.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文本碎片"><span class="nav-number">2.2.</span> <span class="nav-text">创建文本碎片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据类型解析节点"><span class="nav-number">2.3.</span> <span class="nav-text">根据类型解析节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析元素节点"><span class="nav-number">2.4.</span> <span class="nav-text">解析元素节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析文本节点"><span class="nav-number">2.5.</span> <span class="nav-text">解析文本节点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">H_Dongjian 个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">博客</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
