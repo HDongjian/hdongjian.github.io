@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
+<meta name="keywords" content="vue,vuex,玲珑金管家,项目搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玲珑金管家-后台管理系统">
+<meta property="og:url" content="http://yoursite.com/2018/12/12/l_back/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-12T07:38:55.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="玲珑金管家-后台管理系统">
+<meta name="twitter:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/12/l_back/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>玲珑金管家-后台管理系统 | H-Dongjian</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H-Dongjian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">前端小学生</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">27</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">17</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">25</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/l_back/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="H-Dongjian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H-Dongjian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">玲珑金管家-后台管理系统
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-12 15:38:11 / 修改时间：15:38:55" itemprop="dateCreated datePublished" datetime="2018-12-12T15:38:11+08:00">2018-12-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建"></a>项目构建</h2><h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><p>通过vue-cli实现基本项目的搭建</p>
+<h3 id="自定义配置方面"><a href="#自定义配置方面" class="headerlink" title="自定义配置方面"></a>自定义配置方面</h3><h4 id="打包命令区分环境"><a href="#打包命令区分环境" class="headerlink" title="打包命令区分环境"></a>打包命令区分环境</h4><ol>
+<li>package.json中设置打包命令</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"uat"</span>: <span class="string">"node build/uat.js"</span>,</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>新建打包配置文件</p>
+</li>
+<li><p>在webpack.prod.conf配置不同的环境变量</p>
+</li>
+<li><p>在config里面新建相对应的环境变量</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  NODE_ENV: <span class="string">'"uat"'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>在项目中使用process.env.NODE_ENV来获取不同的环境变量；</li>
+</ol>
+<h4 id="配置代理地址"><a href="#配置代理地址" class="headerlink" title="配置代理地址"></a>配置代理地址</h4><ol>
+<li><p>在config/index.js里面配置</p>
+</li>
+<li><p>配置方式</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">    <span class="string">'/hyacp'</span>: &#123;</span><br><span class="line">        <span class="comment">// '*': &#123;</span></span><br><span class="line">        target: <span class="string">'https://yunyingtest.huanyueguoji.com'</span>,</span><br><span class="line">        <span class="comment">// target: 'http://192.168.1.168:8091/',</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">            <span class="string">'^/hyacp'</span>: <span class="string">'/hyacp'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>基本作用</p>
+<ul>
+<li>用于请求后台数据==》调用接口</li>
+<li>解决可能会存在的跨域问题；</li>
+</ul>
+</li>
+</ol>
+<h3 id="vue相关配置"><a href="#vue相关配置" class="headerlink" title="vue相关配置"></a>vue相关配置</h3><h4 id="vue的use方法"><a href="#vue的use方法" class="headerlink" title="vue的use方法"></a>vue的use方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(iView)</span><br></pre></td></tr></table></figure>
+<p>基本原理就是通过模块化外放一个变量，内置有一个install方法，vue调用use方法的时候，可以理解为调用了install，并且将vue实例作为实参传递进去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    install: <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h4><p>此项目除了登录页，其他页面都是有相同的菜单栏，所以使用路由嵌套的方式<br>在app.vue中为1级路由；<br>在home.vue中为2级路由；</p>
+<h4 id="关于vuex"><a href="#关于vuex" class="headerlink" title="关于vuex"></a>关于vuex</h4><ol>
+<li><p>数据共享；</p>
+</li>
+<li><p>数据发生改变之后，凡是用到这个数据的地方都会发生改变；</p>
+</li>
+<li><p>在咱们项目中vuex的数据：menu的层级数据；</p>
+</li>
+</ol>
+<h5 id="vuex使用步骤"><a href="#vuex使用步骤" class="headerlink" title="vuex使用步骤"></a>vuex使用步骤</h5><ol>
+<li>声明实例化</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    actions,</span><br><span class="line">    mutations,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在vue实例化的时候挂载到vue</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    router,</span><br><span class="line">    store,</span><br><span class="line">    components: &#123; App &#125;,</span><br><span class="line">    template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>关于四个属性</p>
+<ul>
+<li>status：存放变量（状态）</li>
+<li>mutations：存储更改变量的方法</li>
+<li>action：涉及到异步；</li>
+</ul>
+</li>
+<li><p>获取变量</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState, mapMutations, mapGetters, mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line">  computed: mapState(&#123;</span><br><span class="line">    power: <span class="function"><span class="params">state</span> =&gt;</span> state.power,</span><br><span class="line">    shrinked: <span class="function"><span class="params">state</span> =&gt;</span> state.shrinked,</span><br><span class="line">    tabData: <span class="function"><span class="params">state</span> =&gt;</span> state.tabData</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">//通过this.power获取到相应变量</span></span><br><span class="line"></span><br><span class="line">  computed: &#123;</span><br><span class="line">    ...mapState([<span class="string">'pSwiperModal'</span>, <span class="string">'pSwiperPicList'</span>])</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>更改变量（状态）<br>通过mapMutations等方法将函数挂载到method下面就可以了直接调用了</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...mapMutations([</span><br><span class="line">   <span class="string">'setPowerM'</span>,</span><br><span class="line">   <span class="string">'pathPushM'</span>,</span><br><span class="line">   <span class="string">'setTabList'</span>,</span><br><span class="line">   <span class="string">'setTabChoosed'</span>,</span><br><span class="line">   <span class="string">'setPermList'</span></span><br><span class="line"> ]),</span><br></pre></td></tr></table></figure>
+<h2 id="项目页面搭建"><a href="#项目页面搭建" class="headerlink" title="项目页面搭建"></a>项目页面搭建</h2><h3 id="home-vue"><a href="#home-vue" class="headerlink" title="home.vue"></a>home.vue</h3><p>home文件主要有layout.vue组成，包括左侧菜单，右侧头部，右侧主要内容，这些主要有插槽来实现的</p>
+<h4 id="vue插槽"><a href="#vue插槽" class="headerlink" title="vue插槽"></a>vue插槽</h4><ol>
+<li>确定插槽位置</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;slot name=<span class="string">'logo'</span>&gt;&lt;/slot&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>设置插槽的主要内容<br>template、组件、div都可以作为插槽，主要设置slot属性即可<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">e-menu</span> <span class="attr">slot</span>=<span class="string">'menu'</span> <span class="attr">:openNames</span>=<span class="string">'openNames'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">e-menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="左侧菜单"><a href="#左侧菜单" class="headerlink" title="左侧菜单"></a>左侧菜单</h4><ul>
+<li><p>这个是有ivew的menu功能实现的</p>
+</li>
+<li><p>最多实现三级菜单</p>
+</li>
+<li><p>数据由后台接口或者menu.js的all属性（关闭权限之后）提供</p>
+</li>
+</ul>
+<h5 id="数据渲染步骤"><a href="#数据渲染步骤" class="headerlink" title="数据渲染步骤"></a>数据渲染步骤</h5><ul>
+<li><p>在router/index.js中判断权限开关是否打开</p>
+</li>
+<li><p>打开的情况下请求接口获取权限list数据，使用方法分出层级结构，将数据赋值给menu.js中的list属性</p>
+</li>
+<li><p>在关闭的情况下，直接获取menu.js的all属性的值，赋值给menu.js的list属性</p>
+</li>
+<li><p>在home.vue中获取menu.js的值并通过vuex保存；</p>
+</li>
+<li><p>在menu.vue中获取vuex中的数据，渲染页面</p>
+</li>
+</ul>
+<h3 id="menu-vue"><a href="#menu-vue" class="headerlink" title="menu.vue"></a>menu.vue</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><ol>
+<li>在右侧打开一系列菜单</li>
+<li>保存菜单中的操作；</li>
+</ol>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ol>
+<li>新建一个vue文件用来展示选项卡；</li>
+<li>新建一个list数据用来存放选项卡数据；</li>
+<li>新建一个标志位用来判断当前那个选项卡展示；</li>
+<li>点击菜单需要为list增加数据并且改变标志位的值；<ul>
+<li>获取点击菜单的key判断在一开打的选项卡中有无该key值</li>
+<li>有，直接将choosed的值改为该key值；</li>
+<li>没有，将list中push该菜单，并且改变choosed的值；</li>
+<li>不管又或者没有，都需要获取该菜单的fakId来记录哪一个菜单被打开；</li>
+</ul>
+</li>
+<li>点击关闭选项卡功能的时候，为list删除数据并且改变标志位的值；<ul>
+<li>获取点击的选项卡的index值；</li>
+<li>通过方法从list数据中删除该选项卡；</li>
+<li>判断如果删的此index还在选中此index值</li>
+<li>如果index值不在，选中index-1的值；</li>
+</ul>
+</li>
+<li>需要在本地以及vuex中缓存数据；<ul>
+<li>删除也好或者增加也好都是通过调用vuex的方法来实现的</li>
+<li>并且更改vuex数据的同时更改session中的数据；</li>
+</ul>
+</li>
+<li>在展示当前选中组件的时候，需要找一个文件注册所有的组件:config/components.js</li>
+<li>在展示选项卡标题部分需要对于超出页面宽度的滑动处理；</li>
+<li>点击选项卡改变显示<ul>
+<li>点击选项卡获取此key值fakid</li>
+<li>然后改变choosed的值和fakId来记录哪一个菜单被打开</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/vuex/" rel="tag"># vuex</a>
+          
+            <a href="/tags/玲珑金管家/" rel="tag"># 玲珑金管家</a>
+          
+            <a href="/tags/项目搭建/" rel="tag"># 项目搭建</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/03/regular_advanced/" rel="next" title="正则表达式进阶">
+                <i class="fa fa-chevron-left"></i> 正则表达式进阶
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="H-Dongjian" />
+            
+              <p class="site-author-name" itemprop="name">H-Dongjian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目构建"><span class="nav-number">1.</span> <span class="nav-text">项目构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置方面"><span class="nav-number">1.2.</span> <span class="nav-text">自定义配置方面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包命令区分环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">打包命令区分环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置代理地址"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置代理地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue相关配置"><span class="nav-number">1.3.</span> <span class="nav-text">vue相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue的use方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">vue的use方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由"><span class="nav-number">1.3.2.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于vuex"><span class="nav-number">1.3.3.</span> <span class="nav-text">关于vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vuex使用步骤"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">vuex使用步骤</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目页面搭建"><span class="nav-number">2.</span> <span class="nav-text">项目页面搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#home-vue"><span class="nav-number">2.1.</span> <span class="nav-text">home.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue插槽"><span class="nav-number">2.1.1.</span> <span class="nav-text">vue插槽</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左侧菜单"><span class="nav-number">2.1.2.</span> <span class="nav-text">左侧菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据渲染步骤"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">数据渲染步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#menu-vue"><span class="nav-number">2.2.</span> <span class="nav-text">menu.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求"><span class="nav-number">2.2.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">H_Dongjian 个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">博客</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
