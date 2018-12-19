@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-12T07:38:55.313Z">
+<meta property="og:updated_time" content="2018-12-19T01:15:12.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玲珑金管家-后台管理系统">
 <meta name="twitter:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
@@ -351,12 +351,24 @@
                 
               
 
-              <time title="创建时间：2018-12-12 15:38:11 / 修改时间：15:38:55" itemprop="dateCreated datePublished" datetime="2018-12-12T15:38:11+08:00">2018-12-12</time>
+              <time title="创建时间：2018-12-12 15:38:11" itemprop="dateCreated datePublished" datetime="2018-12-12T15:38:11+08:00">2018-12-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-19 09:15:12" itemprop="dateModified" datetime="2018-12-19T09:15:12+08:00">2018-12-19</time>
               
             
           </span>
@@ -442,6 +454,11 @@
 <h3 id="vue相关配置"><a href="#vue相关配置" class="headerlink" title="vue相关配置"></a>vue相关配置</h3><h4 id="vue的use方法"><a href="#vue的use方法" class="headerlink" title="vue的use方法"></a>vue的use方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(iView)</span><br></pre></td></tr></table></figure>
 <p>基本原理就是通过模块化外放一个变量，内置有一个install方法，vue调用use方法的时候，可以理解为调用了install，并且将vue实例作为实参传递进去</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    install: <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="axios的相关配置"><a href="#axios的相关配置" class="headerlink" title="axios的相关配置"></a>axios的相关配置</h3><ol>
+<li>通过axios的create方法统一配置axios的配置项</li>
+<li>通过promise封装axios来区别后天返回的成功或失败(在状态值为200的成功)</li>
+<li>在axios的请求钩子函数中统一处理请求数据</li>
+</ol>
 <h4 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h4><p>此项目除了登录页，其他页面都是有相同的菜单栏，所以使用路由嵌套的方式<br>在app.vue中为1级路由；<br>在home.vue中为2级路由；</p>
 <h4 id="关于vuex"><a href="#关于vuex" class="headerlink" title="关于vuex"></a>关于vuex</h4><ol>
 <li><p>数据共享；</p>
@@ -509,14 +526,14 @@
 <li>保存菜单中的操作；</li>
 </ol>
 <h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ol>
-<li>新建一个vue文件用来展示选项卡；</li>
-<li>新建一个list数据用来存放选项卡数据；</li>
-<li>新建一个标志位用来判断当前那个选项卡展示；</li>
+<li>新建一个vue文件(menu.vue)用来展示选项卡；</li>
+<li>新建一个list数据(vuex)用来存放选项卡数据；</li>
+<li>新建一个标志位用来判断当前那个选项卡展示(vuex:choosed)；</li>
 <li>点击菜单需要为list增加数据并且改变标志位的值；<ul>
 <li>获取点击菜单的key判断在一开打的选项卡中有无该key值</li>
 <li>有，直接将choosed的值改为该key值；</li>
 <li>没有，将list中push该菜单，并且改变choosed的值；</li>
-<li>不管又或者没有，都需要获取该菜单的fakId来记录哪一个菜单被打开；</li>
+<li>不管又或者没有，都需要获取该菜单的fakId来记录哪一个菜单被打开(openNames)；</li>
 </ul>
 </li>
 <li>点击关闭选项卡功能的时候，为list删除数据并且改变标志位的值；<ul>
@@ -529,6 +546,8 @@
 <li>需要在本地以及vuex中缓存数据；<ul>
 <li>删除也好或者增加也好都是通过调用vuex的方法来实现的</li>
 <li>并且更改vuex数据的同时更改session中的数据；</li>
+<li>在session中存数据的目的是页面刷新之后能够记录打开的选项卡</li>
+<li>在home.vue中会先去session中获取数据然后存储到vuex中</li>
 </ul>
 </li>
 <li>在展示当前选中组件的时候，需要找一个文件注册所有的组件:config/components.js</li>
@@ -536,6 +555,51 @@
 <li>点击选项卡改变显示<ul>
 <li>点击选项卡获取此key值fakid</li>
 <li>然后改变choosed的值和fakId来记录哪一个菜单被打开</li>
+</ul>
+</li>
+</ol>
+<h3 id="阻止架构"><a href="#阻止架构" class="headerlink" title="阻止架构"></a>阻止架构</h3><ul>
+<li>权限管理<ul>
+<li>负责的是所有的菜单，按钮，接口的访问权限</li>
+</ul>
+</li>
+<li>角色管理<ul>
+<li>权限匹配到每个角色身上</li>
+</ul>
+</li>
+<li>员工管理<ul>
+<li>匹配相应的角色和部门</li>
+</ul>
+</li>
+<li>部门管理<ul>
+<li>有一个城市的属性</li>
+<li>作用是为每一个员工增加一个城市的属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="风控管理"><a href="#风控管理" class="headerlink" title="风控管理"></a>风控管理</h3><p>整个权限控制</p>
+<ol>
+<li>菜单是由后台接口返回的权限list数据+breadcrumbs.js的本地配置来实现的<ul>
+<li>首先从后台获取数据之后做层级处理</li>
+<li>渲染左侧菜单</li>
+<li>打开以及关闭选项卡的时候，是获取到点击的目录key值，循环breadcrumbs.js数据，找到相同key值push到tabData.list中</li>
+<li>breadcrumb数据中有一个action用来区分相同组件不同菜单的；</li>
+</ul>
+</li>
+<li>打开风控详情部分<ul>
+<li>这个不同于菜单，这个页面是不存在与权限树中的</li>
+<li>当打开多个详情页面时，使用由一些id组成的对象转化的字符串来作为选中的key值；</li>
+</ul>
+</li>
+<li>列表的按钮以及详情中的tab权限控制<ul>
+<li>在menu.js中为风控页面配置相应的key值</li>
+<li>循环遍历后台返回的权限树，新建一个由所有权限key组成的list；</li>
+<li>当我们判断该按钮或者tab菜单是否展示的时候，首先找到这个菜单或者tab相对应的key，然后去list去找，有，展示，没有则不展示</li>
+</ul>
+</li>
+<li>详情-审核决策页面<ul>
+<li>除了上述说的由后台返回的list还有在不同情况下展示按钮的控制</li>
+<li>主要是由detailStatus来控制的</li>
 </ul>
 </li>
 </ol>
@@ -810,7 +874,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目构建"><span class="nav-number">1.</span> <span class="nav-text">项目构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置方面"><span class="nav-number">1.2.</span> <span class="nav-text">自定义配置方面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包命令区分环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">打包命令区分环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置代理地址"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置代理地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue相关配置"><span class="nav-number">1.3.</span> <span class="nav-text">vue相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue的use方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">vue的use方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由"><span class="nav-number">1.3.2.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于vuex"><span class="nav-number">1.3.3.</span> <span class="nav-text">关于vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vuex使用步骤"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">vuex使用步骤</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目页面搭建"><span class="nav-number">2.</span> <span class="nav-text">项目页面搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#home-vue"><span class="nav-number">2.1.</span> <span class="nav-text">home.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue插槽"><span class="nav-number">2.1.1.</span> <span class="nav-text">vue插槽</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左侧菜单"><span class="nav-number">2.1.2.</span> <span class="nav-text">左侧菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据渲染步骤"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">数据渲染步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#menu-vue"><span class="nav-number">2.2.</span> <span class="nav-text">menu.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求"><span class="nav-number">2.2.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目构建"><span class="nav-number">1.</span> <span class="nav-text">项目构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置方面"><span class="nav-number">1.2.</span> <span class="nav-text">自定义配置方面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包命令区分环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">打包命令区分环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置代理地址"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置代理地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue相关配置"><span class="nav-number">1.3.</span> <span class="nav-text">vue相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue的use方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">vue的use方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axios的相关配置"><span class="nav-number">1.4.</span> <span class="nav-text">axios的相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由"><span class="nav-number">1.4.1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于vuex"><span class="nav-number">1.4.2.</span> <span class="nav-text">关于vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vuex使用步骤"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">vuex使用步骤</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目页面搭建"><span class="nav-number">2.</span> <span class="nav-text">项目页面搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#home-vue"><span class="nav-number">2.1.</span> <span class="nav-text">home.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue插槽"><span class="nav-number">2.1.1.</span> <span class="nav-text">vue插槽</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左侧菜单"><span class="nav-number">2.1.2.</span> <span class="nav-text">左侧菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据渲染步骤"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">数据渲染步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#menu-vue"><span class="nav-number">2.2.</span> <span class="nav-text">menu.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求"><span class="nav-number">2.2.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止架构"><span class="nav-number">2.3.</span> <span class="nav-text">阻止架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#风控管理"><span class="nav-number">2.4.</span> <span class="nav-text">风控管理</span></a></li></ol></li></ol></div>
             
 
           </div>
