@@ -48,7 +48,7 @@
     <link href="http://yoursite.com/2019/01/08/n_reactBase/"/>
     <id>http://yoursite.com/2019/01/08/n_reactBase/</id>
     <published>2019-01-08T01:33:02.594Z</published>
-    <updated>2019-01-16T07:29:52.513Z</updated>
+    <updated>2019-01-17T07:49:49.406Z</updated>
     
     <content type="html"><![CDATA[<h1 id="React简介"><a href="#React简介" class="headerlink" title="React简介"></a>React简介</h1><ul><li>React起源于Facebook的内部项目，因为该公司对市场上所有的JavaScript MVC框架，都不满意，就决定自己写一套，用来架设Instagram(照片交友)的网站，做出来以后，发现这套东西很好用，就在2013年5月开源了；</li><li>Angular1 2009年谷歌</li><li>由于React的设计思想独特，属于革命性的创新，性能出众，代码逻辑却非常简单，所以，越来越多的人开始关注和使用，认为他可能将来是Web开发的主流工具</li><li>清楚两个概念<ol><li>library（库）：小而巧的库，有点事船小好调头，可以很方便的从一个库切换到另外的库，但是代码几乎不会改变；</li><li>framework（框架）：大而全的是框架，框架提供了一整套的解决方案，所以，如果在项目中间，想切换到另外的框架，往往是比较困难的；</li></ol></li></ul><h1 id="前端的三大主流框架"><a href="#前端的三大主流框架" class="headerlink" title="前端的三大主流框架"></a>前端的三大主流框架</h1><ul><li>Angular.js：出来的较早的前端框架，学习曲线比较陡，NG1学起来比较麻烦，NG2-NG5开始，进行了一系列的改革，也提供了组件化开发的概念，从NG2开始，也支持使用了TS进行编辑；</li><li>Vue.js：最火（关注的人比较多）的一门前端框架，它是中国人开发的，对我们来说，文档比较友好一些；</li><li>React.js:最流行（用的人比较多）的一门框架，因为它的设计很优秀；</li></ul><h1 id="React与Vue的对比"><a href="#React与Vue的对比" class="headerlink" title="React与Vue的对比"></a>React与Vue的对比</h1><h2 id="组件化方面"><a href="#组件化方面" class="headerlink" title="组件化方面"></a>组件化方面</h2><ol><li>什么是模块化：从代码的角度来进行分析的，把一些可复用的代码，抽离为单个的模块，便于项目的维护和开发；</li><li>什么是组件化：是从UI界面的角度来进行分析的，把一些可复用的UI元素，抽离为单独的组件，便于醒目的维护和开发；</li><li>组件化的好处：随着项目规模的增大，手里的组件越来越多，很方便的能把现有的组件，拼接为一个完整的页面；</li><li>Vue是如何实现组件化的：通过.vue文件；</li><li>React如何实现组件化：一般都是通过JS来实现的</li></ol><h2 id="开发团队方面"><a href="#开发团队方面" class="headerlink" title="开发团队方面"></a>开发团队方面</h2><ul><li>React是由FaceBook前端官方团队进行维护和更新的，因此，React的维护开发团队，技术实力比较雄厚=</li><li>Vue：第一版，主要是由作者尤雨溪专门进行维护的，当Vue更新到2.x版本之后，也有了以尤雨溪为主的开源小团队，进行维护和开发</li></ul><h2 id="社区方面"><a href="#社区方面" class="headerlink" title="社区方面"></a>社区方面</h2><ul><li>在社区方面，React由于诞生的比较早，所以社区比较强大，一些常见的问题，坑，最优的解决方案，文档，博客，在社区中都是很方便的就能找到；</li><li>Vue是近两年才火起来的，所以他的社区性对于React来说要小一些，可能有的一些坑，没人踩过；</li></ul><h2 id="移动APP开发体验方面"><a href="#移动APP开发体验方面" class="headerlink" title="移动APP开发体验方面"></a>移动APP开发体验方面</h2><ul><li>Vue，结合Weex这门技术，提供了迁移到移动端APP开发的体验</li><li>React 结合ReactNative也提供了无缝迁移到移动App的开发体验</li></ul><h1 id="为什么要学习React"><a href="#为什么要学习React" class="headerlink" title="为什么要学习React"></a>为什么要学习React</h1><ol><li>设计很优秀，一切基于JS并且实现了组件化的思想</li><li>开发团队实力强悍，不必担心断更的情况；</li><li>社区强大，很多问题都能找到直接的解决方案</li><li>提供了无缝转到ReactNative的开发体验，让我们的技术能力得到了拓展，增强了我们的核心竞争力</li><li>很多企业中，前端项目的技术选型采用的是React.js</li></ol><h1 id="React中的几个核心概念"><a href="#React中的几个核心概念" class="headerlink" title="React中的几个核心概念"></a>React中的几个核心概念</h1><h2 id="虚拟DOM（Vitual-Document-Object-Model）"><a href="#虚拟DOM（Vitual-Document-Object-Model）" class="headerlink" title="虚拟DOM（Vitual Document Object Model）"></a>虚拟DOM（Vitual Document Object Model）</h2><ul><li><strong>Dom的本质</strong> 浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API；</li><li><strong>React中的虚拟DOM</strong> 是框架中的概念，是程序员用JS对象来模拟页面中的DOM和DOM嵌套；</li><li><strong>虚拟DOM的目的</strong> 为了实现页面中，DOM元素的高效更新</li><li><strong>Dom和虚拟DOM的区别</strong><ul><li>DOM：浏览器中提供的概念，用JS对象，表示页面中的元素，并提供了操作元素的API</li><li>虚拟DOM：是框架中的概念，是开发框架的程序员，手动用JS对象来模拟DOM元素和嵌套关系；<ul><li>本质：用JS对象来模拟DOM元素和嵌套关系</li><li>目的：是为了实现页面元素的高效更新；</li></ul></li></ul></li></ul><h2 id="Diff算法"><a href="#Diff算法" class="headerlink" title="Diff算法"></a>Diff算法</h2><ul><li><p><strong>tree diff</strong> 新旧两颗DOM树，逐层对比的过程，就是Tree Diff,当整颗DOM逐层对比完毕，则所有需要被按时更新的元素，必然能够找到</p></li><li><p><strong>component diff</strong> 在进行Tree Diff的时候，每一层，组件级别的对比，叫做Component Diff;</p><ul><li>如果对比前后，组件的类型相同，则暂时认为此组件不需要被更新；</li><li>如果对比之后，组件类型不同，则暂时认为此组件不需要被更新</li></ul></li><li><p><strong>element diff</strong> 在进行组件对比的会后，如果两个组件类型相同，则需要进行元素的对比，这叫做element diff；</p></li></ul><h1 id="创建基本的webpack4-x项目"><a href="#创建基本的webpack4-x项目" class="headerlink" title="创建基本的webpack4.x项目"></a>创建基本的webpack4.x项目</h1><ol><li>运行<code>npm init -y</code> 快速初始化项目</li><li>在根目录创建<code>src</code>源代码以及<code>dist</code>产品目录</li><li>在src下创建<code>index.html</code>和<code>main.js</code>(入口文件)</li><li>执行命令安装依赖</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cnpm i webpack wepack-cli webpack-dev-server html-webpack-plugin -D</span><br></pre></td></tr></table></figure><ol start="4"><li>新建 <code>webpack.config.js</code></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,</span><br><span class="line">        filename: <span class="string">'./dist/bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">"./src/index.html"</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="5"><li>执行命令 <code>webpack-dev-server</code></li></ol><h1 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h1><h2 id="JSX语法-1"><a href="#JSX语法-1" class="headerlink" title="JSX语法"></a>JSX语法</h2><p>就是符合xml规范的JS语法，语法格式相对来说，要比HTML严谨的多</p><h2 id="使用jsx语法"><a href="#使用jsx语法" class="headerlink" title="使用jsx语法"></a>使用jsx语法</h2><ul><li>安装babel插件</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm i babel-core babel-loader babel-plugin-transform-runtime babel-preset-env babel-preset-stage-0 -D</span><br><span class="line"></span><br><span class="line">cnpm i babel-loader@7.1.5 -D</span><br></pre></td></tr></table></figure><ul><li>安装能够识别转换jsx的包</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i babel-preset-react -D</span><br></pre></td></tr></table></figure><ul><li>新建<code>.babelrc</code></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"presets"</span>:[<span class="string">"env"</span>,<span class="string">"stage-0"</span>,<span class="string">"react"</span>],</span><br><span class="line">    <span class="string">"plugins"</span>:[<span class="string">"transform-runtime"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>配置 <code>webpack.config.js</code></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">        &#123;</span><br><span class="line">            test:<span class="regexp">/\.js|jsx$/</span>,</span><br><span class="line">            use:<span class="string">'babel-loader'</span>,</span><br><span class="line">            exclude:<span class="regexp">/node_modules/</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -67,9 +67,9 @@
       <category term="框架" scheme="http://yoursite.com/categories/JavaScript%E8%BF%9B%E9%98%B6/%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
-    
       <category term="Ne" scheme="http://yoursite.com/tags/Ne/"/>
+    
+      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
     
       <category term="react" scheme="http://yoursite.com/tags/react/"/>
     
@@ -175,9 +175,9 @@
       <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
-    
       <category term="Ne" scheme="http://yoursite.com/tags/Ne/"/>
+    
+      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
     
       <category term="Wepy" scheme="http://yoursite.com/tags/Wepy/"/>
     
@@ -208,11 +208,11 @@
       <category term="框架" scheme="http://yoursite.com/categories/JavaScript%E8%BF%9B%E9%98%B6/%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
-    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
     
       <category term="Ne" scheme="http://yoursite.com/tags/Ne/"/>
+    
+      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
     
   </entry>
   
@@ -237,11 +237,11 @@
       <category term="框架" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
-    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
     
       <category term="Ne" scheme="http://yoursite.com/tags/Ne/"/>
+    
+      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
     
       <category term="MpVue" scheme="http://yoursite.com/tags/MpVue/"/>
     
@@ -299,11 +299,11 @@
       <category term="框架" scheme="http://yoursite.com/categories/JavaScript%E8%BF%9B%E9%98%B6/%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
-    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
     
       <category term="Ne" scheme="http://yoursite.com/tags/Ne/"/>
+    
+      <category term="MVVM" scheme="http://yoursite.com/tags/MVVM/"/>
     
   </entry>
   
@@ -361,11 +361,11 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
+      <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
+    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
     
       <category term="Ne" scheme="http://yoursite.com/tags/Ne/"/>
-    
-      <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
     
   </entry>
   
