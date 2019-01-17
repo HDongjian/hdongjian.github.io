@@ -1,15 +1,12 @@
-<!DOCTYPE html>           
+<!DOCTYPE html>    
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
-
-
 
 
 
@@ -37,6 +34,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
 
 
 
@@ -45,25 +46,49 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/icon.png?v=6.3.0" color="#222">
-
-
-
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.4" color="#222">
 
 
 
+
+
+  <meta name="keywords" content="JavaScript,闭包,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="局部作用域和垃圾回收机制1234567891011function a() &amp;#123;    var b = 12;&amp;#125;// a();function c() &amp;#123;    d = 12;&amp;#125;c();// delete window.d;console.dir(window.d) js的垃圾回收机制(GC:Garbage Collecation)会定期清除无用的变量，释放内">
+<meta name="keywords" content="JavaScript,闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解闭包、作用域">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/closure2/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="局部作用域和垃圾回收机制1234567891011function a() &amp;#123;    var b = 12;&amp;#125;// a();function c() &amp;#123;    d = 12;&amp;#125;c();// delete window.d;console.dir(window.d) js的垃圾回收机制(GC:Garbage Collecation)会定期清除无用的变量，释放内">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-16T07:26:11.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解闭包、作用域">
+<meta name="twitter:description" content="局部作用域和垃圾回收机制1234567891011function a() &amp;#123;    var b = 12;&amp;#125;// a();function c() &amp;#123;    d = 12;&amp;#125;c();// delete window.d;console.dir(window.d) js的垃圾回收机制(GC:Garbage Collecation)会定期清除无用的变量，释放内">
 
 
 
@@ -72,13 +97,15 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.3.0',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -90,39 +117,12 @@
 </script>
 
 
-  
-
-
-
- <meta name="description" content="局部作用域和垃圾回收机制1234567891011function a() &amp;#123;    var b = 12;&amp;#125;// a();function c() &amp;#123;    d = 12;&amp;#125;c();// delete window.d;console.dir(window.d) js的垃圾回收机制(GC:Garbage Collecation)会定期清除无用的变量，释放内">
-<meta name="keywords" content="JavaScript,闭包">
-<meta property="og:type" content="article">
-<meta property="og:title" content="理解闭包、作用域">
-<meta property="og:url" content="http://yoursite.com/2018/08/22/closure2/index.html">
-<meta property="og:site_name" content="H-Dongjian">
-<meta property="og:description" content="局部作用域和垃圾回收机制1234567891011function a() &amp;#123;    var b = 12;&amp;#125;// a();function c() &amp;#123;    d = 12;&amp;#125;c();// delete window.d;console.dir(window.d) js的垃圾回收机制(GC:Garbage Collecation)会定期清除无用的变量，释放内">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-16T07:26:11.073Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解闭包、作用域">
-<meta name="twitter:description" content="局部作用域和垃圾回收机制1234567891011function a() &amp;#123;    var b = 12;&amp;#125;// a();function c() &amp;#123;    d = 12;&amp;#125;c();// delete window.d;console.dir(window.d) js的垃圾回收机制(GC:Garbage Collecation)会定期清除无用的变量，释放内">
-
-
-
-  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
-
-
-
 
   <link rel="canonical" href="http://yoursite.com/2018/08/22/closure2/">
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
     <title>理解闭包、作用域 | H-Dongjian</title>
     
@@ -134,44 +134,15 @@
 
 
 
- <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
        
 
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband">
-            <a href="https://github.com/HDongjian">
-                <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub">
-            </a>
+            <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
         </div>
 
         <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -186,15 +157,13 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
       
         <p class="site-subtitle">前端小学生</p>
       
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -202,69 +171,76 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">27</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">8</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">24</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-  </li>
-
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
         </li>
       
     </ul>
-  
-
-  
-    
-
   
 
   
@@ -293,147 +269,225 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
         </header>
-
-        
-
 
         <main id="main" class="main">
             <div class="main-inner">
                 <div class="content-wrap">
-                    
                     <div id="content" class="content">
                         
 
   <div id="posts" class="posts-expand">
-         
+    
 
-<article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-      
-    <div class="post-block">
-        <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/closure2/">
+  
 
-        <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/closure2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="H-Dongjian">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-        <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="H-Dongjian">
-    </span> 
-        <header class="post-header">
+    </span>
 
-             
-            <h1 class="post-title" itemprop="name headline">理解闭包、作用域  
-            </h1>
-            
+    
+      <header class="post-header">
 
-            <div class="post-meta">
-                <span class="post-time">
+        
+        
+          <h1 class="post-title" itemprop="name headline">理解闭包、作用域</h1>
+        
 
-            
-            
-            
-
+        <div class="post-meta">
+          <span class="post-time">
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span> 
-                <span class="post-meta-item-text">发表于</span>    
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-22T09:44:26+08:00">
+                2018-08-22
+              </time>
+            
 
-                <time title="创建时间：2018-08-22 09:44:26" itemprop="dateCreated datePublished" datetime="2018-08-22T09:44:26+08:00">2018-08-22</time>     
-                <span class="post-meta-divider">|</span> 
+            
 
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span> 
-                <span class="post-meta-item-text">更新于</span> 
-                <time title="修改时间：2019-01-16 15:26:11" itemprop="dateModified" datetime="2019-01-16T15:26:11+08:00">2019-01-16</time>  
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript进阶/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript进阶</span>
+                  </a>
                 </span>
 
                 
-                <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
                 <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-                <span class="post-meta-item-text">分类于</span>  
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JavaScript进阶/" itemprop="url" rel="index"><span itemprop="name">JavaScript进阶</span>
-                </a>
+                  <i class="fa fa-file-word-o"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  656
+                </span>
+              
 
-                  
-                </span>
-                      
+              
                 <span class="post-meta-divider">|</span>
-                <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 656字</span>
-                <span class="post-meta-divider">|</span>
-                <span title="post.min2read">
-                    <i class="fa fa-clock-o"></i>
-                    阅读时长：≈ 3 分钟
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
             </div>
-        </header>
-           
-        <div class="post-body" itemprop="articleBody">
+          
 
-               <h3 id="局部作用域和垃圾回收机制"><a href="#局部作用域和垃圾回收机制" class="headerlink" title="局部作用域和垃圾回收机制"></a>局部作用域和垃圾回收机制</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">12</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a();</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    d = <span class="number">12</span>;</span><br><span class="line">&#125;</span><br><span class="line">c();</span><br><span class="line"><span class="comment">// delete window.d;</span></span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">window</span>.d)</span><br></pre></td></tr></table></figure>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="局部作用域和垃圾回收机制"><a href="#局部作用域和垃圾回收机制" class="headerlink" title="局部作用域和垃圾回收机制"></a>局部作用域和垃圾回收机制</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">12</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a();</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    d = <span class="number">12</span>;</span><br><span class="line">&#125;</span><br><span class="line">c();</span><br><span class="line"><span class="comment">// delete window.d;</span></span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">window</span>.d)</span><br></pre></td></tr></table></figure>
 <p>js的垃圾回收机制(GC:Garbage Collecation)会定期清除无用的变量，释放内存空间，首先释放的就是生命周期结束的变量，全局变量的生命周期直至浏览器卸载页面才会结束。局部变量只在函数的执行过程中存在，所以，在函数执行完之后打印b是会报错的<br>此处说明一下函数c内部的情况，声明变量不加var，为隐式声明，可以理解为window.d = 12；注意虽然是叫隐式声明，但是b此时并不是一个变量，而是window的一个属性，下面会专门找时间把变量和属性的区别描述清楚；</p>
 <h3 id="全局对象的属性和函数声明（这个属于插一曲）"><a href="#全局对象的属性和函数声明（这个属于插一曲）" class="headerlink" title="全局对象的属性和函数声明（这个属于插一曲）"></a>全局对象的属性和函数声明（这个属于插一曲）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> e = <span class="number">123</span>;</span><br><span class="line"><span class="built_in">window</span>.f = <span class="number">1213</span></span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">window</span>.e</span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">window</span>.f</span><br><span class="line"><span class="built_in">console</span>.dir(e)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
 <p>全局函数声明虽然也是挂载到window下的一个属性，但是函数声明和属性的区别是，函数声明拥有不可删除性，通过delect方法无法删除</p>
 <h3 id="局部作用域和闭包"><a href="#局部作用域和闭包" class="headerlink" title="局部作用域和闭包"></a>局部作用域和闭包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//闭包案例</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">z</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> y = z();</span><br><span class="line"><span class="built_in">console</span>.dir(z)</span><br><span class="line"><span class="built_in">console</span>.log(y())</span><br><span class="line"><span class="built_in">console</span>.log(y())</span><br></pre></td></tr></table></figure>
 <p>调用一次返回值+1；<br>正常函数调用完之后，局部作用域内声明的变量会被清除，但是如果在局部作用域函数有函数引用变量，形成闭包环境，该变量则不会清除，就会挂载到该局部作用域；所以函数调用一次就会增加一次形成一个缓存的作用，这也是为什么闭包会容易造成内存溢出的原因；<br>//即使是局部作用域的函数未清除，全局作用域仍然无法获取该变量；所以这也是自执行函数IFEE能够形成自己独立区域的原因，防止变量污染；</p>
 <h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所谓的块级作用域就是&#123;&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> aa = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(aa) <span class="comment">//1;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用var声明变量没有块级作用域，常见的还有for循环中的变量i值</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> bb = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(bb) <span class="comment">//1;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(bb) <span class="comment">//: bb is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用es6的let和const可以生成一个块级作用域，所以之前的自调用函数，可以使用&#123;&#125;代替</span></span><br></pre></td></tr></table></figure>
- 
-    </div>
 
-          
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
-        
-        <div class="post-tags">
-            
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a> 
-            <a href="/tags/闭包/" rel="tag"># 闭包</a> 
-        </div>
-            
-        <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                
-                <a href="/2018/08/18/mine-jQuery/" rel="next" title="我的jQuery">
-                    <i class="fa fa-chevron-left"></i> 我的jQuery
-                </a>
-                
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                
-                <a href="/2018/09/11/my-axios/" rel="prev" title="初步实现Axios">
-                初步实现Axios <i class="fa fa-chevron-right"></i>
-              </a> 
-            </div>
-        </div>
-          
-    </footer>
-    </div>
       
-</article>
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/闭包/" rel="tag"># 闭包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/18/mine-jQuery/" rel="next" title="我的jQuery">
+                <i class="fa fa-chevron-left"></i> 我的jQuery
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/11/my-axios/" rel="prev" title="初步实现Axios">
+                初步实现Axios <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
                     </div>
                     
+
+ 
 
                 </div>
                  
@@ -473,116 +527,42 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
               
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">8</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
+                <a href="/archives">
               
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
               
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
               
-            </nav>
-          
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
 
           
             <div class="feed-link motion-element">
@@ -595,12 +575,13 @@
 
           
             <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/HDongjian" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HDongjian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
             </div>
           
 
@@ -610,9 +591,6 @@
           
           
 
-          
-            
-          
           
 
         </div>
@@ -647,34 +625,15 @@
 
         <footer id="footer" class="footer">
             <div class="footer-inner">
-                <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+                <div class="copyright">&copy; 
+    <span itemprop="copyrightYear">2019</span>
+    <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
-
-  
-
-  
-</div>
+    <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
 
 
-
-
-  <div class="powered-by">H_Dongjian 个人专属</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">博客</div>
-
-
-
- 
-
+</div> 
 
 
 
@@ -688,10 +647,9 @@
         
         <div class="back-to-top">
             <i class="fa fa-arrow-up"></i> 
-            <span id="scrollpercent"><span>0</span>%</span>
-            
         </div>
-           
+         
+
     </div>
 
     
@@ -710,22 +668,10 @@
 
 
 
-
-
-
-
-
   
 
 
 
-  
-  
-
-
-
-  
-  
 
 
 
@@ -742,6 +688,16 @@
 
   
   
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -752,41 +708,36 @@
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
    
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
  
+
+
+  
+
+
+
+
+	
+
+
 
 
 
@@ -797,6 +748,8 @@
 
 
   
+
+
 
 
 
@@ -857,8 +810,6 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      
-
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -892,7 +843,6 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1134,16 +1084,12 @@
  
  
  
- 
   
- 
- 
  
  
  
 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
-<!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 </html>

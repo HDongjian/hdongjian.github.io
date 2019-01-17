@@ -20,8 +20,8 @@
         <category>框架</category>
       </categories>
       <tags>
-        <tag>Ne</tag>
         <tag>MVVM</tag>
+        <tag>Ne</tag>
         <tag>react</tag>
       </tags>
   </entry>
@@ -68,8 +68,8 @@
         <category>框架</category>
       </categories>
       <tags>
-        <tag>Ne</tag>
         <tag>MVVM</tag>
+        <tag>Ne</tag>
         <tag>Wepy</tag>
       </tags>
   </entry>
@@ -82,9 +82,9 @@
         <category>框架</category>
       </categories>
       <tags>
+        <tag>MVVM</tag>
         <tag>Vue</tag>
         <tag>Ne</tag>
-        <tag>MVVM</tag>
       </tags>
   </entry>
   <entry>
@@ -95,9 +95,9 @@
         <category>框架</category>
       </categories>
       <tags>
+        <tag>MVVM</tag>
         <tag>Vue</tag>
         <tag>Ne</tag>
-        <tag>MVVM</tag>
         <tag>MpVue</tag>
       </tags>
   </entry>
@@ -123,9 +123,9 @@
         <category>框架</category>
       </categories>
       <tags>
+        <tag>MVVM</tag>
         <tag>Vue</tag>
         <tag>Ne</tag>
-        <tag>MVVM</tag>
       </tags>
   </entry>
   <entry>
@@ -151,9 +151,9 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
-        <tag>Webpack</tag>
         <tag>Vue</tag>
         <tag>Ne</tag>
+        <tag>Webpack</tag>
       </tags>
   </entry>
   <entry>

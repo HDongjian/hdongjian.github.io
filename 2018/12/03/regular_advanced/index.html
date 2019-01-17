@@ -1,15 +1,12 @@
-<!DOCTYPE html>           
+<!DOCTYPE html>    
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
-
-
 
 
 
@@ -37,6 +34,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
 
 
 
@@ -45,25 +46,49 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/icon.png?v=6.3.0" color="#222">
-
-
-
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.4" color="#222">
 
 
 
+
+
+  <meta name="keywords" content="JavaScript,正则表达式,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
+<meta name="keywords" content="JavaScript,正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式进阶">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/regular_advanced/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-16T07:31:14.306Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式进阶">
+<meta name="twitter:description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
 
 
 
@@ -72,13 +97,15 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.3.0',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -90,39 +117,12 @@
 </script>
 
 
-  
-
-
-
- <meta name="description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
-<meta name="keywords" content="JavaScript,正则表达式">
-<meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式进阶">
-<meta property="og:url" content="http://yoursite.com/2018/12/03/regular_advanced/index.html">
-<meta property="og:site_name" content="H-Dongjian">
-<meta property="og:description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-16T07:31:14.306Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式进阶">
-<meta name="twitter:description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
-
-
-
-  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
-
-
-
 
   <link rel="canonical" href="http://yoursite.com/2018/12/03/regular_advanced/">
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
     <title>正则表达式进阶 | H-Dongjian</title>
     
@@ -134,44 +134,15 @@
 
 
 
- <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
        
 
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband">
-            <a href="https://github.com/HDongjian">
-                <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub">
-            </a>
+            <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
         </div>
 
         <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -186,15 +157,13 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
       
         <p class="site-subtitle">前端小学生</p>
       
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -202,69 +171,76 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">27</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">8</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">24</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-  </li>
-
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
         </li>
       
     </ul>
-  
-
-  
-    
-
   
 
   
@@ -293,98 +269,150 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
         </header>
-
-        
-
 
         <main id="main" class="main">
             <div class="main-inner">
                 <div class="content-wrap">
-                    
                     <div id="content" class="content">
                         
 
   <div id="posts" class="posts-expand">
-         
+    
 
-<article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-      
-    <div class="post-block">
-        <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/regular_advanced/">
+  
 
-        <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/regular_advanced/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="H-Dongjian">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-        <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="H-Dongjian">
-    </span> 
-        <header class="post-header">
+    </span>
 
-             
-            <h1 class="post-title" itemprop="name headline">正则表达式进阶  
-            </h1>
-            
+    
+      <header class="post-header">
 
-            <div class="post-meta">
-                <span class="post-time">
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式进阶</h1>
+        
 
-            
-            
-            
-
+        <div class="post-meta">
+          <span class="post-time">
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span> 
-                <span class="post-meta-item-text">发表于</span>    
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T09:27:45+08:00">
+                2018-12-03
+              </time>
+            
 
-                <time title="创建时间：2018-12-03 09:27:45" itemprop="dateCreated datePublished" datetime="2018-12-03T09:27:45+08:00">2018-12-03</time>     
-                <span class="post-meta-divider">|</span> 
+            
 
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span> 
-                <span class="post-meta-item-text">更新于</span> 
-                <time title="修改时间：2019-01-16 15:31:14" itemprop="dateModified" datetime="2019-01-16T15:31:14+08:00">2019-01-16</time>  
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript进阶/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript进阶</span>
+                  </a>
                 </span>
 
                 
-                <span class="post-category">
+                
+              
+            </span>
+          
+
+          
             
-              <span class="post-meta-divider">|</span> 
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
                 <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-                <span class="post-meta-item-text">分类于</span>  
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JavaScript进阶/" itemprop="url" rel="index"><span itemprop="name">JavaScript进阶</span>
-                </a>
+                  <i class="fa fa-file-word-o"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,395
+                </span>
+              
 
-                  
-                </span>
-                        
+              
                 <span class="post-meta-divider">|</span>
-                <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 1,395字</span>
-                <span class="post-meta-divider">|</span>
-                <span title="post.min2read">
-                    <i class="fa fa-clock-o"></i>
-                    阅读时长：≈ 5 分钟
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
             </div>
-        </header>
-           
-        <div class="post-body" itemprop="articleBody">
+          
 
-               <h2 id="关于分组"><a href="#关于分组" class="headerlink" title="关于分组"></a>关于分组</h2><p>分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组</p>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="关于分组"><a href="#关于分组" class="headerlink" title="关于分组"></a>关于分组</h2><p>分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组</p>
 <h2 id="捕获性分组"><a href="#捕获性分组" class="headerlink" title="捕获性分组"></a>捕获性分组</h2><h3 id="关于捕获性分组"><a href="#关于捕获性分组" class="headerlink" title="关于捕获性分组"></a>关于捕获性分组</h3><p>字面意思就是可以捕获的分组类型，比如</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(\d)(-)/</span>.test(<span class="string">'1-'</span>))<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">2</span>) <span class="comment">//-</span></span><br></pre></td></tr></table></figure>
 <p>捕获性分组会在 比如$1, match exec这样的函数中以第二项，第三项的形式得到相应分组的结果</p>
@@ -441,49 +469,77 @@
 <p>“{m,n}”、“{m,}”、“?”、“*”和“+”。 </p>
 <p>在一些使用NFA引擎的语言中，在匹配优先量词后加上“?”，即变成属于非贪婪模式的量词，也叫做忽略优先量词，包括： </p>
 <p>“{m,n}?”、“{m,}?”、“??”、“*?”和“+?”。 </p>
-<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+c/g</span>)) <span class="comment">//["abcadc"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+?c/g</span>)) <span class="comment">// ["abc", "adc"]</span></span><br></pre></td></tr></table></figure> 
+<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+c/g</span>)) <span class="comment">//["abcadc"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+?c/g</span>)) <span class="comment">// ["abc", "adc"]</span></span><br></pre></td></tr></table></figure>
+      
     </div>
+    
+    
+    
 
-          
+    
+
+    
+
+    
 
     <footer class="post-footer">
-        
-        <div class="post-tags">
-            
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a> 
-            <a href="/tags/正则表达式/" rel="tag"># 正则表达式</a> 
-        </div>
-            
-        <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                
-                <a href="/2018/11/30/regular-base/" rel="next" title="正则表达式基础">
-                    <i class="fa fa-chevron-left"></i> 正则表达式基础
-                </a>
-                
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                
-                <a href="/2018/12/12/l_back/" rel="prev" title="玲珑金管家-后台管理系统">
-                玲珑金管家-后台管理系统 <i class="fa fa-chevron-right"></i>
-              </a> 
-            </div>
-        </div>
-          
-    </footer>
-    </div>
       
-</article>
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/正则表达式/" rel="tag"># 正则表达式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/30/regular-base/" rel="next" title="正则表达式基础">
+                <i class="fa fa-chevron-left"></i> 正则表达式基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/12/l_back/" rel="prev" title="玲珑金管家-后台管理系统">
+                玲珑金管家-后台管理系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
                     </div>
                     
+
+ 
 
   
 
@@ -527,116 +583,42 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
               
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">8</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
+                <a href="/archives">
               
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
               
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
               
-            </nav>
-          
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
 
           
             <div class="feed-link motion-element">
@@ -649,12 +631,13 @@
 
           
             <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/HDongjian" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HDongjian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
             </div>
           
 
@@ -664,9 +647,6 @@
           
           
 
-          
-            
-          
           
 
         </div>
@@ -701,34 +681,15 @@
 
         <footer id="footer" class="footer">
             <div class="footer-inner">
-                <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+                <div class="copyright">&copy; 
+    <span itemprop="copyrightYear">2019</span>
+    <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
-
-  
-
-  
-</div>
+    <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
 
 
-
-
-  <div class="powered-by">H_Dongjian 个人专属</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">博客</div>
-
-
-
- 
-
+</div> 
 
 
 
@@ -742,10 +703,9 @@
         
         <div class="back-to-top">
             <i class="fa fa-arrow-up"></i> 
-            <span id="scrollpercent"><span>0</span>%</span>
-            
         </div>
-           
+         
+
     </div>
 
     
@@ -764,22 +724,10 @@
 
 
 
-
-
-
-
-
   
 
 
 
-  
-  
-
-
-
-  
-  
 
 
 
@@ -796,6 +744,16 @@
 
   
   
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -806,41 +764,36 @@
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
    
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
  
+
+
+  
+
+
+
+
+	
+
+
 
 
 
@@ -851,6 +804,8 @@
 
 
   
+
+
 
 
 
@@ -911,8 +866,6 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      
-
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -946,7 +899,6 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1188,16 +1140,12 @@
  
  
  
- 
   
- 
- 
  
  
  
 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
-<!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 </html>

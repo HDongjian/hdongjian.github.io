@@ -1,15 +1,12 @@
-<!DOCTYPE html>           
+<!DOCTYPE html>    
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
-
-
 
 
 
@@ -37,6 +34,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
 
 
 
@@ -45,25 +46,49 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/icon.png?v=6.3.0" color="#222">
-
-
-
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.4" color="#222">
 
 
 
+
+
+  <meta name="keywords" content="JavaScript,变量提升,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
+<meta name="keywords" content="JavaScript,变量提升">
+<meta property="og:type" content="article">
+<meta property="og:title" content="变量提升">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/variable-lifting/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-16T07:31:39.283Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="变量提升">
+<meta name="twitter:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
 
 
 
@@ -72,13 +97,15 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    version: '6.3.0',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -90,39 +117,12 @@
 </script>
 
 
-  
-
-
-
- <meta name="description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
-<meta name="keywords" content="JavaScript,变量提升">
-<meta property="og:type" content="article">
-<meta property="og:title" content="变量提升">
-<meta property="og:url" content="http://yoursite.com/2018/07/20/variable-lifting/index.html">
-<meta property="og:site_name" content="H-Dongjian">
-<meta property="og:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-16T07:31:39.283Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="变量提升">
-<meta name="twitter:description" content="变量提升是JS在非严格模式下，JS解析的时候出现的一种情况  JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。 JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。  1.变量提升 12345console.log(first) //undefinedvar first = 124;/*正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，">
-
-
-
-  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
-
-
-
 
   <link rel="canonical" href="http://yoursite.com/2018/07/20/variable-lifting/">
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
     <title>变量提升 | H-Dongjian</title>
     
@@ -134,44 +134,15 @@
 
 
 
- <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
        
 
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband">
-            <a href="https://github.com/HDongjian">
-                <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub">
-            </a>
+            <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
         </div>
 
         <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -186,15 +157,13 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
       
         <p class="site-subtitle">前端小学生</p>
       
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -202,69 +171,76 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">27</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">8</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">24</span></a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-  </li>
-
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
         </li>
       
     </ul>
-  
-
-  
-    
-
   
 
   
@@ -293,98 +269,148 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
         </header>
-
-        
-
 
         <main id="main" class="main">
             <div class="main-inner">
                 <div class="content-wrap">
-                    
                     <div id="content" class="content">
                         
 
   <div id="posts" class="posts-expand">
-         
+    
 
-<article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-      
-    <div class="post-block">
-        <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/variable-lifting/">
+  
 
-        <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/variable-lifting/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="H-Dongjian">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-        <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="H-Dongjian">
-    </span> 
-        <header class="post-header">
+    </span>
 
-             
-            <h1 class="post-title" itemprop="name headline">变量提升  
-            </h1>
-            
+    
+      <header class="post-header">
 
-            <div class="post-meta">
-                <span class="post-time">
+        
+        
+          <h1 class="post-title" itemprop="name headline">变量提升</h1>
+        
 
-            
-            
-            
-
+        <div class="post-meta">
+          <span class="post-time">
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span> 
-                <span class="post-meta-item-text">发表于</span>    
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T17:25:27+08:00">
+                2018-07-20
+              </time>
+            
 
-                <time title="创建时间：2018-07-20 17:25:27" itemprop="dateCreated datePublished" datetime="2018-07-20T17:25:27+08:00">2018-07-20</time>     
-                <span class="post-meta-divider">|</span> 
+            
 
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span> 
-                <span class="post-meta-item-text">更新于</span> 
-                <time title="修改时间：2019-01-16 15:31:39" itemprop="dateModified" datetime="2019-01-16T15:31:39+08:00">2019-01-16</time>  
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript基础/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript基础</span>
+                  </a>
                 </span>
 
                 
-                <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
                 <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-                <span class="post-meta-item-text">分类于</span>  
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JavaScript基础/" itemprop="url" rel="index"><span itemprop="name">JavaScript基础</span>
-                </a>
+                  <i class="fa fa-file-word-o"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  340
+                </span>
+              
 
-                  
-                </span>
-                      
+              
                 <span class="post-meta-divider">|</span>
-                <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 340字</span>
-                <span class="post-meta-divider">|</span>
-                <span title="post.min2read">
-                    <i class="fa fa-clock-o"></i>
-                    阅读时长：≈ 1 分钟
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
                 </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
             </div>
-        </header>
-           
-        <div class="post-body" itemprop="articleBody">
+          
 
-               <p>变量提升是JS在非严格模式下，JS解析的时候出现的一种情况</p>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>变量提升是JS在非严格模式下，JS解析的时候出现的一种情况</p>
 <ul>
 <li>JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。</li>
 <li>JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。</li>
@@ -392,45 +418,73 @@
 <h4 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(first) <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> first = <span class="number">124</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">正常var变量声明之后会被提升到最顶端，但是是声明提前，赋值不提前，所以为undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <h4 id="2-函数提升"><a href="#2-函数提升" class="headerlink" title="2.函数提升"></a>2.函数提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">second(); <span class="comment">//123</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">征程通过function声明之后函数会被提升到最顶端，可以直接在声明之前调用</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <h4 id="3-函数提升"><a href="#3-函数提升" class="headerlink" title="3.函数提升"></a>3.函数提升</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// third(); //14-变量提升.html:28 Uncaught TypeError: third is not a function</span></span><br><span class="line"><span class="keyword">var</span> third = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第三种'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">页面报错，因为var声明变量，声明提前，赋值不提前，所以trird为undefined，所以报错；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-函数和变量提升对比"><a href="#4-函数和变量提升对比" class="headerlink" title="4.函数和变量提升对比"></a>4.函数和变量提升对比</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fifth) <span class="comment">//ƒ fifth()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">var</span> fifth = <span class="number">123</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fifth</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(six) <span class="comment">//ƒ six()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">six</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> six = <span class="number">123</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure> 
+<h4 id="4-函数和变量提升对比"><a href="#4-函数和变量提升对比" class="headerlink" title="4.函数和变量提升对比"></a>4.函数和变量提升对比</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fifth) <span class="comment">//ƒ fifth()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">var</span> fifth = <span class="number">123</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fifth</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(six) <span class="comment">//ƒ six()&#123;</span></span><br><span class="line"><span class="comment">// console.log(123)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">six</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> six = <span class="number">123</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">函数和变量同时声明，函数覆盖变量，在进行变量提升；</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+      
     </div>
+    
+    
+    
 
-          
+    
+
+    
+
+    
 
     <footer class="post-footer">
-        
-        <div class="post-tags">
-            
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a> 
-            <a href="/tags/变量提升/" rel="tag"># 变量提升</a> 
-        </div>
-            
-        <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                
-                <a href="/2018/07/24/closure/" rel="prev" title="浅析闭包">
-                浅析闭包 <i class="fa fa-chevron-right"></i>
-              </a> 
-            </div>
-        </div>
-          
-    </footer>
-    </div>
       
-</article>
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/变量提升/" rel="tag"># 变量提升</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/24/closure/" rel="prev" title="浅析闭包">
+                浅析闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
                     </div>
                     
+
+ 
 
                 </div>
                  
@@ -470,116 +524,42 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
               
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">8</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
+                <a href="/archives">
               
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
               
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
               
-            </nav>
-          
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
 
           
             <div class="feed-link motion-element">
@@ -592,12 +572,13 @@
 
           
             <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/HDongjian" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HDongjian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
             </div>
           
 
@@ -607,9 +588,6 @@
           
           
 
-          
-            
-          
           
 
         </div>
@@ -644,34 +622,15 @@
 
         <footer id="footer" class="footer">
             <div class="footer-inner">
-                <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+                <div class="copyright">&copy; 
+    <span itemprop="copyrightYear">2019</span>
+    <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
-
-  
-
-  
-</div>
+    <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
 
 
-
-
-  <div class="powered-by">H_Dongjian 个人专属</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">博客</div>
-
-
-
- 
-
+</div> 
 
 
 
@@ -685,10 +644,9 @@
         
         <div class="back-to-top">
             <i class="fa fa-arrow-up"></i> 
-            <span id="scrollpercent"><span>0</span>%</span>
-            
         </div>
-           
+         
+
     </div>
 
     
@@ -707,22 +665,10 @@
 
 
 
-
-
-
-
-
   
 
 
 
-  
-  
-
-
-
-  
-  
 
 
 
@@ -739,6 +685,16 @@
 
   
   
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -749,41 +705,36 @@
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
    
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
  
+
+
+  
+
+
+
+
+	
+
+
 
 
 
@@ -794,6 +745,8 @@
 
 
   
+
+
 
 
 
@@ -854,8 +807,6 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      
-
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -889,7 +840,6 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1131,16 +1081,12 @@
  
  
  
- 
   
- 
- 
  
  
  
 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
-<!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 </html>
