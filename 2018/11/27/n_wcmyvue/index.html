@@ -88,7 +88,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/27/n_wcmyvue/1542077018582.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/27/n_wcmyvue/1542164654872.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/27/n_wcmyvue/n_wcmyvue/lifecycle.jpg">
-<meta property="og:updated_time" content="2019-01-16T07:30:16.746Z">
+<meta property="og:updated_time" content="2019-01-17T09:25:46.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mpvue基本使用">
 <meta name="twitter:description" content="1. mpvue-介绍mpvue 是美团团队开发的语法类似 Vue.js 的小程序的前端框架  官网 开发文档  1.1. 主要特性主要有以下特性  彻底的组件化开发能力：提高代码复用性 完整的 Vue.js 开发体验 方便的 Vuex 数据管理方案：方便构建复杂应用 快捷的 webpack 构建机制：自定义构建策略、开发阶段 hotReload 支持使用 npm 外部依赖 使用 Vue.js 命">
@@ -331,7 +331,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T17:25:46+08:00">
+                2019-01-17
+              </time>
             
           </span>
 
@@ -447,7 +459,7 @@
 <h2 id="2-3-安装依赖"><a href="#2-3-安装依赖" class="headerlink" title="2.3. 安装依赖"></a>2.3. 安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <h2 id="2-4-修改微信入口地址"><a href="#2-4-修改微信入口地址" class="headerlink" title="2.4. 修改微信入口地址"></a>2.4. 修改微信入口地址</h2><p>由于 mpvue中的 小程序入口路径和打包编译后的路劲  对应不上，因此需要我们手动的修改下 入口路径。</p>
 <p>修改 <code>project.config.json</code> 文件</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 源代码</span><br><span class="line">"miniprogramRoot": "./dist/",</span><br><span class="line"></span><br><span class="line">// 修改为</span><br><span class="line">"miniprogramRoot": "./dist/wx/",</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 源代码</span><br><span class="line">&quot;miniprogramRoot&quot;: &quot;./dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 修改为</span><br><span class="line">&quot;miniprogramRoot&quot;: &quot;./dist/wx/&quot;,</span><br></pre></td></tr></table></figure>
 <h2 id="2-5-启动项目"><a href="#2-5-启动项目" class="headerlink" title="2.5. 启动项目"></a>2.5. 启动项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
 <h2 id="2-6-使用小程序开发者工具打开"><a href="#2-6-使用小程序开发者工具打开" class="headerlink" title="2.6. 使用小程序开发者工具打开"></a>2.6. 使用小程序开发者工具打开</h2><p>编译成功后，可以看到在 <code>dist/wx</code>内有我们熟悉的小程序代码文件，此时，使用小程序开发者工具直接打开 项目的根目录(因为直接在配置文件中配置过 <code>/dist/wx/</code>入口路径  )</p>
 <p><img src="/2018/11/27/n_wcmyvue/1542164654872.png" alt="1542164654872"></p>
@@ -599,10 +611,10 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这种就不支持，建议写 computed --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message.split('').reverse().join('') &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 但写在 @event 里面的表达式是都支持的，因为这部分的计算放在了 vdom 里面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in list"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> @<span class="attr">click</span>=<span class="string">"clickHandle(item, index, $event)"</span>&gt;</span>&#123;&#123; item.value &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="6-3-computed-和-watch"><a href="#6-3-computed-和-watch" class="headerlink" title="6.3. computed 和 watch"></a>6.3. computed 和 watch</h2><h3 id="6-3-1-computed"><a href="#6-3-1-computed" class="headerlink" title="6.3.1. computed"></a>6.3.1. computed</h3><p>对于任何复杂逻辑，都应当使用<strong>计算属性</strong></p>
 <p>使用方式和vue中一样</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">reversedMessage: function () &#123;</span><br><span class="line">  return this.message.split('').reverse().join('')</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">reversedMessage: function () &#123;</span><br><span class="line">  return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="6-3-2-watch"><a href="#6-3-2-watch" class="headerlink" title="6.3.2. watch"></a>6.3.2. watch</h3><p><code>watch</code>相比于<code>computed</code>可以让我们做更多的事情。</p>
 <p>使用方式和vue中一样</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  msg(newValue, oldValue) &#123;</span><br><span class="line">    console.log("watch被触发了");</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  msg(newValue, oldValue) &#123;</span><br><span class="line">    console.log(&quot;watch被触发了&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="6-4-条件渲染"><a href="#6-4-条件渲染" class="headerlink" title="6.4. 条件渲染"></a>6.4. 条件渲染</h2><h3 id="6-4-1-v-if"><a href="#6-4-1-v-if" class="headerlink" title="6.4.1. v-if"></a>6.4.1. v-if</h3><p>支持 <code>v-if v-else 和 v-else if</code>指令。</p>
 <p><code>v-if</code> 指令的显示和隐藏是通过 增加和删除节点实现。频繁操作性能损耗大。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"false"</span>&gt;</span>if<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"true"</span>&gt;</span> v-else-if<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span>v-else<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -925,7 +937,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -936,7 +948,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -947,7 +959,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

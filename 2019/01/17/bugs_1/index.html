@@ -1,0 +1,1147 @@
+<!DOCTYPE html>    
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="bug,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="记录几个2017年项目中遇到的几个小问题，主要是安卓ios兼容，web以及移动端之间的问题">
+<meta name="keywords" content="bug">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bug第一弹">
+<meta property="og:url" content="http://yoursite.com/2019/01/17/bugs_1/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="记录几个2017年项目中遇到的几个小问题，主要是安卓ios兼容，web以及移动端之间的问题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-17T09:41:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bug第一弹">
+<meta name="twitter:description" content="记录几个2017年项目中遇到的几个小问题，主要是安卓ios兼容，web以及移动端之间的问题">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/17/bugs_1/">
+
+
+
+
+
+    <title>Bug第一弹 | H-Dongjian</title>
+    
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+       
+
+    <div class="container sidebar-position-left page-post-detail">
+        <div class="headband">
+            <a href="https://github.com/HDongjian"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
+        </div>
+
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+            <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H-Dongjian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">前端小学生</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+        </header>
+
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="content-wrap">
+                    <div id="content" class="content">
+                        
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/17/bugs_1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="H-Dongjian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H-Dongjian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Bug第一弹</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T17:19:11+08:00">
+                2019-01-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T17:41:06+08:00">
+                2019-01-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bugs/" itemprop="url" rel="index">
+                    <span itemprop="name">Bugs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,114
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  记录几个2017年项目中遇到的几个小问题，主要是安卓ios兼容，web以及移动端之间的问题
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="SSO拦截登陆后页面报错"><a href="#SSO拦截登陆后页面报错" class="headerlink" title="SSO拦截登陆后页面报错"></a>SSO拦截登陆后页面报错</h2><h3 id="功能场景"><a href="#功能场景" class="headerlink" title="功能场景"></a>功能场景</h3><p>校验登录通过cookie中特定cookie，如果没有，所有请求会报403，通过axios的钩子函数检测异常跳转到指定登录页面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求后的钩子函数</span></span><br><span class="line">HTTP.interceptors.response.use(<span class="function"><span class="keyword">function</span> (<span class="params">config</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// console.log(location.href.split('?')[0] + '?' + encodeURIComponent(location.href.split('?')[1]))</span></span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error.response.status === <span class="number">401</span>) &#123;</span><br><span class="line">        Cookie.remove(<span class="string">'userData'</span>)</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        sessionStorage.clear();</span><br><span class="line">        <span class="built_in">console</span>.log(location.href)</span><br><span class="line">        <span class="keyword">if</span> (error.response.data.indexOf(<span class="string">'jumpto'</span>) === <span class="number">-1</span>) &#123;</span><br><span class="line">                location.href = error.response.data + <span class="string">'&amp;jumpto='</span> + location.href</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            location.href = error.response.data</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>在指定jumpto跳转，后天未将参数中&amp;符号后面的参数带来，导致页面参数不足报错</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>解析url路径？参数，通过incode方法解析，去除&amp;符号，页面在通过decode方法解析</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求后的钩子函数</span></span><br><span class="line">HTTP.interceptors.response.use(<span class="function"><span class="keyword">function</span> (<span class="params">config</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// console.log(location.href.split('?')[0] + '?' + encodeURIComponent(location.href.split('?')[1]))</span></span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error.response.status === <span class="number">401</span>) &#123;</span><br><span class="line">        Cookie.remove(<span class="string">'userData'</span>)</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        sessionStorage.clear();</span><br><span class="line">        <span class="built_in">console</span>.log(location.href)</span><br><span class="line">        <span class="keyword">if</span> (error.response.data.indexOf(<span class="string">'jumpto'</span>) === <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (location.href.indexOf(<span class="string">'/approval'</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                location.href = error.response.data + <span class="string">'&amp;jumpto='</span> + location.href.split(<span class="string">'?'</span>)[<span class="number">0</span>] + <span class="string">'?'</span> + <span class="built_in">encodeURIComponent</span>(location.href.split(<span class="string">'?'</span>)[<span class="number">1</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                location.href = error.response.data + <span class="string">'&amp;jumpto='</span> + location.href</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            location.href = error.response.data</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="web和app共有页面无法区分设备"><a href="#web和app共有页面无法区分设备" class="headerlink" title="web和app共有页面无法区分设备"></a>web和app共有页面无法区分设备</h2><h3 id="功能场景-1"><a href="#功能场景-1" class="headerlink" title="功能场景"></a>功能场景</h3><p>移动端和app端有相同功能页面，需要判断当前设备，并打开相应页面</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">common.judegWebOrApp = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> userAgentInfo = navigator.userAgent.toLowerCase();</span><br><span class="line">    <span class="keyword">var</span> Agents = [<span class="string">"zhushou"</span>, <span class="string">"android"</span>, <span class="string">"iphone"</span>, <span class="string">"symbianos"</span>, <span class="string">"windows phone"</span>, <span class="string">"ipad"</span>, <span class="string">"ipod"</span>];</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; Agents.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (userAgentInfo.indexOf(Agents[i]) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> params = location.href.split(<span class="string">'?'</span>)[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">var</span> nowPage = location.href.indexOf(<span class="string">'app'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(flag,nowPage)</span><br><span class="line">    <span class="keyword">if</span> (flag &amp;&amp; nowPage &gt;= <span class="number">0</span>) &#123;<span class="comment">//web端</span></span><br><span class="line">        location.href = <span class="string">"/web/approval?"</span>+params;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!flag &amp;&amp; nowPage &lt; <span class="number">0</span>) &#123;<span class="comment">//app端</span></span><br><span class="line">        location.href = <span class="string">"/app/approval?"</span> + params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="通过app的webview加载H5页面在iphone6s和iphoneSE中吸底偶尔不出现"><a href="#通过app的webview加载H5页面在iphone6s和iphoneSE中吸底偶尔不出现" class="headerlink" title="通过app的webview加载H5页面在iphone6s和iphoneSE中吸底偶尔不出现"></a>通过app的webview加载H5页面在iphone6s和iphoneSE中吸底偶尔不出现</h2><h3 id="bug原因"><a href="#bug原因" class="headerlink" title="bug原因"></a>bug原因</h3><p>在浏览器中测试没有问题，经过测试，在webview中，获取的高度iphone6s和iphoneSE获取的页面高度比真实高度高64px，导致吸底消失</p>
+<h3 id="解决措施"><a href="#解决措施" class="headerlink" title="解决措施"></a>解决措施</h3><p>判断是否是iphone手机，并判断宽度，符合iphone6s以及iphonese尺寸的，采取设置top值而不是botom值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.clientWidth ? <span class="built_in">document</span> : <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="keyword">var</span> height = docEl.clientHeight;</span><br><span class="line"><span class="keyword">var</span> width = docEl.clientWidth;</span><br><span class="line"><span class="keyword">var</span> reduce = <span class="number">98</span> / <span class="number">30</span> * width / <span class="number">25</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.xiBot = <span class="keyword">this</span>.$refs.botTab;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">this</span>.xiBot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (width == <span class="number">320</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.xiBot.style.top = <span class="number">548</span> - reduce + <span class="string">'px'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (width == <span class="number">375</span> &amp;&amp; height &lt; <span class="number">690</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.xiBot.style.top = <span class="number">647</span> - reduce + <span class="string">'px'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="webview中ios系统页面不出现"><a href="#webview中ios系统页面不出现" class="headerlink" title="webview中ios系统页面不出现"></a>webview中ios系统页面不出现</h2><h3 id="具体场景"><a href="#具体场景" class="headerlink" title="具体场景"></a>具体场景</h3><p>在app中内嵌网页，安卓端没问题，在ios上会出现偶数次打开页面空白现象，但是页面中去除本身app头部的方法已经执行，也就是说页面正常加载，但是页面呈现空白；</p>
+<h3 id="bug原因-1"><a href="#bug原因-1" class="headerlink" title="bug原因"></a>bug原因</h3><p>在vue的router.beforeEach钩子函数中调用了函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 路由拦截（钩子）*/</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//重置到页面顶端</span></span><br><span class="line">  <span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">document</span>.documentElement.scrollTop = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//去除桔子堆头部</span></span><br><span class="line">  api.appDelHeader();</span><br><span class="line">  <span class="comment">//判断路径是否是403和选择地址页面</span></span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/403'</span> || to.path === <span class="string">'/FoodAddress'</span>) &#123;</span><br><span class="line">    next();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断是否校验checkCode</span></span><br><span class="line">  <span class="keyword">if</span> (api.mall.on) &#123;</span><br><span class="line">    login.checkLogin(<span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="comment">//失败时候的回调</span></span><br><span class="line">      next(<span class="string">'/403'</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;, () =&gt; &#123;<span class="comment">//成功的回调</span></span><br><span class="line">      <span class="keyword">if</span> (!api.checkUA() &amp;&amp; api.mall.isCheckUA) &#123;</span><br><span class="line">        next(<span class="string">'/403'</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (localStorage.getItem(<span class="string">'arriveAddress'</span>) &amp;&amp; localStorage.getItem(<span class="string">'menuId'</span>)) &#123; <span class="comment">// 已选择了默认区域</span></span><br><span class="line">        next();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'重新获取地址'</span>)</span><br><span class="line">        getArea();<span class="comment">//就是这个方法，实参未传</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获得区域列表</span></span><br><span class="line"><span class="keyword">const</span> getArea = <span class="function"><span class="keyword">function</span> (<span class="params">next, to</span>) </span>&#123;</span><br><span class="line">  api.get(&#123;</span><br><span class="line">    data: &#123; <span class="attr">flag</span>: <span class="number">1</span> &#125;,</span><br><span class="line">    url: <span class="string">"/area/queryList"</span>,</span><br><span class="line">    object: Vue,</span><br><span class="line">    errorIfo: <span class="string">"获取区域失败"</span>,</span><br><span class="line">    then: <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// data = null;</span></span><br><span class="line">      <span class="keyword">if</span> (data &amp;&amp; data.menuId &amp;&amp; data.arriveAddress) &#123;</span><br><span class="line">        localStorage.setItem(<span class="string">'menuId'</span>, data.menuId);</span><br><span class="line">        localStorage.setItem(<span class="string">'arriveAddress'</span>, data.arriveAddress)</span><br><span class="line">        localStorage.setItem(<span class="string">'floorId'</span>, data.floorId)<span class="comment">//localStorage保存楼层信息</span></span><br><span class="line">        <span class="keyword">if</span> (to.path == <span class="string">'/confirmPrepareMeal'</span>) &#123;</span><br><span class="line">          next();</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          next(<span class="string">'/HomeIndex'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        next(<span class="string">'/FoodAddress'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按照上面问题应该导致报错，但是web端测试没问题，安卓没问题，ios偶尔出现，很奇怪</p>
+<h2 id="时间控件国际化无法重新渲染"><a href="#时间控件国际化无法重新渲染" class="headerlink" title="时间控件国际化无法重新渲染"></a>时间控件国际化无法重新渲染</h2><h3 id="问题场景"><a href="#问题场景" class="headerlink" title="问题场景"></a>问题场景</h3><p>时间控件可以使用中英文，但是一经渲染，后期无法局部更新，导致点击切换语言按钮时候无法更改控件内容</p>
+<h3 id="解决措施-1"><a href="#解决措施-1" class="headerlink" title="解决措施"></a>解决措施</h3><p>检测中英文切换操作，采用if重新渲染时间控件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  <span class="string">'$i18n.locale'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dataPicker = <span class="literal">false</span>;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.dataPicker = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">this</span>.showData = <span class="keyword">this</span>.$t(<span class="string">'message.myAppoint.today'</span>);</span><br><span class="line">    &#125;, <span class="number">10</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="ios时间处理失效"><a href="#ios时间处理失效" class="headerlink" title="ios时间处理失效"></a>ios时间处理失效</h2><h3 id="问题场景-1"><a href="#问题场景-1" class="headerlink" title="问题场景"></a>问题场景</h3><p>提交表单需要校验时间，如果时间小于当前时间，则默认取当前时间，此时需要时间戳对比</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//选择时间完成</span></span><br><span class="line">chooseTime(time) &#123;</span><br><span class="line">  <span class="keyword">this</span>.cancelTime(time);</span><br><span class="line">  <span class="keyword">this</span>.modalData.timeModal = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">this</span>.initialCache(<span class="string">"ok"</span>);</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//控制时间大小</span></span><br><span class="line">cancelTime(time) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.setTimeToSeconds(time) - <span class="keyword">this</span>.setTimeToSeconds() &gt; <span class="number">1000</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.cacheData.visitingTime = time;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.cacheData.visitingTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//设置时间</span></span><br><span class="line">setTimeToSeconds(time) &#123;</span><br><span class="line">  <span class="comment">// var seconds = this.$moment(time).format('YYYY-MM-DD HH:mm');</span></span><br><span class="line">  <span class="comment">// return parseInt(new Date(seconds).getTime());</span></span><br><span class="line">  <span class="keyword">if</span> (time) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(time).getTime();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="bug原因-2"><a href="#bug原因-2" class="headerlink" title="bug原因"></a>bug原因</h3><p>new Date(‘时间字符串’)，ios对于时间字符串格式支持较少，不支持2018-02-02此格式的数据，支持/不支持-，导致时间戳校验失败</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//选择时间完成</span></span><br><span class="line">chooseTime(time) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(time)</span><br><span class="line">  time = <span class="keyword">this</span>.$moment(time).format(<span class="string">'YYYY/MM/DD HH:mm:ss'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(time)</span><br><span class="line">  <span class="keyword">this</span>.cancelTime(time);</span><br><span class="line">  <span class="keyword">this</span>.modalData.timeModal = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">this</span>.initialCache(<span class="string">"ok"</span>);</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//控制时间大小</span></span><br><span class="line">cancelTime(time) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.setTimeToSeconds(time) - <span class="keyword">this</span>.setTimeToSeconds() &gt; <span class="number">1000</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.cacheData.visitingTime = time;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.cacheData.visitingTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//设置时间</span></span><br><span class="line">setTimeToSeconds(time) &#123;</span><br><span class="line">  <span class="comment">// var seconds = this.$moment(time).format('YYYY-MM-DD HH:mm');</span></span><br><span class="line">  <span class="comment">// return parseInt(new Date(seconds).getTime());</span></span><br><span class="line">  <span class="keyword">if</span> (time) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(time).getTime();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="超小字符实现方式"><a href="#超小字符实现方式" class="headerlink" title="超小字符实现方式"></a>超小字符实现方式</h2><h3 id="问题场景-2"><a href="#问题场景-2" class="headerlink" title="问题场景"></a>问题场景</h3><p>设计图要求一个按钮字体大小为10px，但是谷歌浏览器最小字符为12px</p>
+<h3 id="实现场景"><a href="#实现场景" class="headerlink" title="实现场景"></a>实现场景</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.repeat-post &#123;</span><br><span class="line">    border: 1px solid #FC9153;</span><br><span class="line">    border-radius: <span class="number">4</span>px;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    height: <span class="number">25</span>px;</span><br><span class="line">    font-size: <span class="number">12</span>px;</span><br><span class="line">    width: <span class="number">65</span>px;</span><br><span class="line">    color: #FC9153;</span><br><span class="line">    transform: scale(<span class="number">.8</span>,<span class="number">.9</span>);<span class="comment">//采用缩放属性实现</span></span><br><span class="line">    transform-origin: left;</span><br></pre></td></tr></table></figure>
+<h2 id="安卓键盘遮挡输入框"><a href="#安卓键盘遮挡输入框" class="headerlink" title="安卓键盘遮挡输入框"></a>安卓键盘遮挡输入框</h2><h3 id="问题场景-3"><a href="#问题场景-3" class="headerlink" title="问题场景"></a>问题场景</h3><p>安卓在获取焦点弹起键盘会自动将也页面上滑，将input框置于可视位置，但是如果body有滚动条的情况下，则input框位置靠下就会被遮挡</p>
+<h3 id="解决措施-2"><a href="#解决措施-2" class="headerlink" title="解决措施"></a>解决措施</h3><p>在input获取焦点的情况下现将页面上移到顶部</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//滚动条到初始状态</span><br><span class="line">scollTopZero() &#123;</span><br><span class="line">    document.body.scrollTop = 0;</span><br><span class="line">    document.documentElement.scrollTop = 0;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="取餐时间内无法取餐"><a href="#取餐时间内无法取餐" class="headerlink" title="取餐时间内无法取餐"></a>取餐时间内无法取餐</h2><h3 id="问题场景-4"><a href="#问题场景-4" class="headerlink" title="问题场景"></a>问题场景</h3><p>正常订餐时间是00：00到下午16：30，但是在0点到8点区间无法点餐；<br>问题原因：后台返回的当前时间currentDate是一个日期字符串，与北京时区不同，有8个小时的时间差，前台处理的时候只是取了日期，导致当天8点之前的日期是昨天的时期</p>
+<h3 id="解决措施-3"><a href="#解决措施-3" class="headerlink" title="解决措施"></a>解决措施</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Gray.prototype.toSeconds = <span class="function"><span class="keyword">function</span> (<span class="params">time, currentTime</span>) </span>&#123;</span><br><span class="line">  time = moment(time).format(<span class="string">'HH:mm:ss'</span>);</span><br><span class="line">  currentTime = moment(currentTime).format(<span class="string">'YYYY/MM/DD'</span>);</span><br><span class="line">  <span class="keyword">var</span> time2 = <span class="keyword">new</span> <span class="built_in">Date</span>(currentTime + <span class="string">' '</span> + time).getTime();</span><br><span class="line">  <span class="keyword">return</span> time2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="显示时间和取餐时间不一致"><a href="#显示时间和取餐时间不一致" class="headerlink" title="显示时间和取餐时间不一致"></a>显示时间和取餐时间不一致</h2><h3 id="问题场景-5"><a href="#问题场景-5" class="headerlink" title="问题场景"></a>问题场景</h3><p>后台提示的下单时间是00：00到下午4：30 在EP部分有一个的电脑时间显示有误，其他人没有问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thu Mar <span class="number">22</span> <span class="number">2018</span> <span class="number">21</span>:<span class="number">21</span>:<span class="number">47</span> GMT+<span class="number">0800</span> (中国标准时间)</span><br></pre></td></tr></table></figure>
+<h3 id="解决措施-4"><a href="#解决措施-4" class="headerlink" title="解决措施"></a>解决措施</h3><p>导致此问题原因为该人电脑时区设置的是美国，导致浏览器解析new Date的时候和正常时区不一致<br>将电脑时区调整好即可</p>
+<h2 id="IOS系统中div盒子内设置滚动条，偶尔会滑动失效"><a href="#IOS系统中div盒子内设置滚动条，偶尔会滑动失效" class="headerlink" title="IOS系统中div盒子内设置滚动条，偶尔会滑动失效"></a>IOS系统中div盒子内设置滚动条，偶尔会滑动失效</h2><h3 id="问题场景-6"><a href="#问题场景-6" class="headerlink" title="问题场景"></a>问题场景</h3><p>在餐品页面内，有餐品列表，偶尔会出现滑动失效的问题，在苹果手机</p>
+<h3 id="解决措施-5"><a href="#解决措施-5" class="headerlink" title="解决措施"></a>解决措施</h3><ul>
+<li>采用body整体布局</li>
+<li>使用iscroll插件解决</li>
+<li>将此盒子设置为fixed定位</li>
+</ul>
+<h2 id="iphonx的兼容问题"><a href="#iphonx的兼容问题" class="headerlink" title="iphonx的兼容问题"></a>iphonx的兼容问题</h2><h3 id="问题场景-7"><a href="#问题场景-7" class="headerlink" title="问题场景"></a>问题场景</h3><p>一个侧边栏，点击从右侧划出的时候iphonex底部有空白，只有这个是这样的</p>
+<h3 id="解决措施-6"><a href="#解决措施-6" class="headerlink" title="解决措施"></a>解决措施</h3><p>布局问题，原来次侧边栏和遮挡层在一个div中，点击的时候显示此div，并给遮挡层和侧边栏加入动画效果；<br>现在取消外层div即可</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bug/" rel="tag"># bug</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/16/about_hexo/" rel="next" title="【持续更新】关于Hexo优化">
+                <i class="fa fa-chevron-left"></i> 【持续更新】关于Hexo优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/18/oop_base/" rel="prev" title="JavaScript的面向对象">
+                JavaScript的面向对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+                    </div>
+                    
+
+ 
+
+  
+
+
+
+                </div>
+                 
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="H-Dongjian">
+            
+              <p class="site-author-name" itemprop="name">H-Dongjian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HDongjian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSO拦截登陆后页面报错"><span class="nav-number">1.</span> <span class="nav-text">SSO拦截登陆后页面报错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能场景"><span class="nav-number">1.1.</span> <span class="nav-text">功能场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因"><span class="nav-number">1.2.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">1.3.</span> <span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web和app共有页面无法区分设备"><span class="nav-number">2.</span> <span class="nav-text">web和app共有页面无法区分设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能场景-1"><span class="nav-number">2.1.</span> <span class="nav-text">功能场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过app的webview加载H5页面在iphone6s和iphoneSE中吸底偶尔不出现"><span class="nav-number">3.</span> <span class="nav-text">通过app的webview加载H5页面在iphone6s和iphoneSE中吸底偶尔不出现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bug原因"><span class="nav-number">3.1.</span> <span class="nav-text">bug原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决措施"><span class="nav-number">3.2.</span> <span class="nav-text">解决措施</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webview中ios系统页面不出现"><span class="nav-number">4.</span> <span class="nav-text">webview中ios系统页面不出现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#具体场景"><span class="nav-number">4.1.</span> <span class="nav-text">具体场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bug原因-1"><span class="nav-number">4.2.</span> <span class="nav-text">bug原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间控件国际化无法重新渲染"><span class="nav-number">5.</span> <span class="nav-text">时间控件国际化无法重新渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景"><span class="nav-number">5.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决措施-1"><span class="nav-number">5.2.</span> <span class="nav-text">解决措施</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ios时间处理失效"><span class="nav-number">6.</span> <span class="nav-text">ios时间处理失效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景-1"><span class="nav-number">6.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bug原因-2"><span class="nav-number">6.2.</span> <span class="nav-text">bug原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超小字符实现方式"><span class="nav-number">7.</span> <span class="nav-text">超小字符实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景-2"><span class="nav-number">7.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现场景"><span class="nav-number">7.2.</span> <span class="nav-text">实现场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安卓键盘遮挡输入框"><span class="nav-number">8.</span> <span class="nav-text">安卓键盘遮挡输入框</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景-3"><span class="nav-number">8.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决措施-2"><span class="nav-number">8.2.</span> <span class="nav-text">解决措施</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取餐时间内无法取餐"><span class="nav-number">9.</span> <span class="nav-text">取餐时间内无法取餐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景-4"><span class="nav-number">9.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决措施-3"><span class="nav-number">9.2.</span> <span class="nav-text">解决措施</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示时间和取餐时间不一致"><span class="nav-number">10.</span> <span class="nav-text">显示时间和取餐时间不一致</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景-5"><span class="nav-number">10.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决措施-4"><span class="nav-number">10.2.</span> <span class="nav-text">解决措施</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOS系统中div盒子内设置滚动条，偶尔会滑动失效"><span class="nav-number">11.</span> <span class="nav-text">IOS系统中div盒子内设置滚动条，偶尔会滑动失效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景-6"><span class="nav-number">11.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决措施-5"><span class="nav-number">11.2.</span> <span class="nav-text">解决措施</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iphonx的兼容问题"><span class="nav-number">12.</span> <span class="nav-text">iphonx的兼容问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题场景-7"><span class="nav-number">12.1.</span> <span class="nav-text">问题场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决措施-6"><span class="nav-number">12.2.</span> <span class="nav-text">解决措施</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+ 
+            </div>
+        </main>
+
+        <footer id="footer" class="footer">
+            <div class="footer-inner">
+                <div class="copyright">&copy; 
+    <span itemprop="copyrightYear">2019</span>
+    <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+    <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
+
+
+</div> 
+
+
+
+
+
+
+ 
+            </div>
+        </footer>
+
+        
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i> 
+        </div>
+         
+
+    </div>
+
+    
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+ 
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+ 
+ 
+ 
+  
+ 
+ 
+ 
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>

@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T07:31:14.306Z">
+<meta property="og:updated_time" content="2019-01-17T09:25:46.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式进阶">
 <meta name="twitter:description" content="关于分组分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组 捕获性分组关于捕获性分组字面意思就是可以捕获的分组类型，比如 123console.log(/(\d)(-)/.test(&apos;1-&apos;))//trueconsole.log(RegExp.$1) //1console.log(RegExp.$2) //- 捕获">
@@ -327,7 +327,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T17:25:46+08:00">
+                2019-01-17
+              </time>
             
           </span>
 
@@ -414,11 +426,11 @@
       
         <h2 id="关于分组"><a href="#关于分组" class="headerlink" title="关于分组"></a>关于分组</h2><p>分组在正则中用的还是比较广的，我所理解的分组 就是一对括号（） ，每一对括号 就代表了一个分组，分组可以分为：捕获性分组和非捕获性分组</p>
 <h2 id="捕获性分组"><a href="#捕获性分组" class="headerlink" title="捕获性分组"></a>捕获性分组</h2><h3 id="关于捕获性分组"><a href="#关于捕获性分组" class="headerlink" title="关于捕获性分组"></a>关于捕获性分组</h3><p>字面意思就是可以捕获的分组类型，比如</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(\d)(-)/</span>.test(<span class="string">'1-'</span>))<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">2</span>) <span class="comment">//-</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(\d)(-)/</span>.test(<span class="string">'1-'</span>))<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">2</span>) <span class="comment">//-</span></span><br></pre></td></tr></table></figure>
 <p>捕获性分组会在 比如$1, match exec这样的函数中以第二项，第三项的形式得到相应分组的结果</p>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var reg = /test(\d+)/;</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/test(\d+)/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'new test001 test002'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg)); <span class="comment">//["test001", "001", index: 4, input: "new test001 test002"]</span></span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">RegExp</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var reg = /test(\d+)/;</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/test(\d+)/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'new test001 test002'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg)); <span class="comment">//["test001", "001", index: 4, input: "new test001 test002"]</span></span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">RegExp</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="非捕获性分组–"><a href="#非捕获性分组–" class="headerlink" title="非捕获性分组–(?:)"></a>非捕获性分组–(?:)</h2><p>非捕获性分组也就是 有些地方需要用到一对括号，但是又不想让他成为一个捕获性分组也就是不想让这个分组被类似 macth exec 这样的函数所获取到通常在括号内部的前面加上?: 也就是 (?:pattern)这样就变成了一个非捕获性分组,比如</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(\d)(?:-)/</span>.test(<span class="string">'1-'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>)<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">2</span>)<span class="comment">//空值</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(\d)(?:-)/</span>.test(<span class="string">'1-'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>)<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">2</span>)<span class="comment">//空值</span></span><br></pre></td></tr></table></figure>
 <h2 id="非捕获性分组–断言"><a href="#非捕获性分组–断言" class="headerlink" title="非捕获性分组–断言"></a>非捕获性分组–断言</h2><p>javascript只支持零宽先行断言,所以关于JS中的正则表达式的断言，说的一般就是零宽，<br>而零宽先行断言又可以分为正向零宽先行断言，和负向零宽先行断言。</p>
 <h3 id="零宽度断言"><a href="#零宽度断言" class="headerlink" title="零宽度断言"></a>零宽度断言</h3><p>零宽断言正如它的名字一样，是一种零宽度的匹配，它匹配到的内容不会保存到匹配结果中去，最终匹配结果只是一个位置而已。</p>
 <p>作用是给指定位置添加一个限定条件，用来规定此位置之前或者之后的字符必须满足限定条件才能使正则中的字表达式匹配成功。</p>
@@ -426,17 +438,17 @@
 <h4 id="案例解析"><a href="#案例解析" class="headerlink" title="案例解析"></a>案例解析</h4><ol>
 <li>简单了解</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abZW863"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/ab(?=[A-Z])/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">// "ab"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abZW863"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/ab(?=[A-Z])/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">// "ab"</span></span><br></pre></td></tr></table></figure>
 <p>在以上代码中，正则表达式的语义是:匹配后面跟随任意一个大写字母的字符串”ab”。最终匹配结果是”ab”，因为零宽断言”(?=[A-Z])”并不匹配任何字符，只是用来规定当前位置的后面必须是一个大写字母。</p>
 <ol start="2">
 <li>案例进阶</li>
 </ol>
 <p>如果在上述案例的基础上我想要匹配上ZW应该怎么写；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abZW863"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/ab(?=[A-Z]+)[A-Z]+/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">//"abZW"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abZW863"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/ab(?=[A-Z]+)[A-Z]+/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">//"abZW"</span></span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>案例3</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"&lt;div&gt;antzone"</span>;</span><br><span class="line"><span class="keyword">var</span> reg=<span class="regexp">/^(?=&lt;)&lt;[^&gt;]+&gt;\w+/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">//"&lt;div&gt;antzone"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"&lt;div&gt;antzone"</span>;</span><br><span class="line"><span class="keyword">var</span> reg=<span class="regexp">/^(?=&lt;)&lt;[^&gt;]+&gt;\w+/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">//"&lt;div&gt;antzone"</span></span><br></pre></td></tr></table></figure>
 <p>解析过程：</p>
 <ul>
 <li>首先^符号表示位置，从0开始匹配，匹配成功，让后将控制权交给(?=&lt;)</li>
@@ -448,12 +460,12 @@
 <h4 id="案例解析-1"><a href="#案例解析-1" class="headerlink" title="案例解析"></a>案例解析</h4><ol>
 <li>案例1</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abZW863"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/ab(?![A-Z])/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abZW863"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/ab(?![A-Z])/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br><span class="line"><span class="comment">// null</span></span><br></pre></td></tr></table></figure>
 <p>正则表达式的语义是:匹配后面不跟随任意一个大写字母的字符串”ab”。正则表达式没能匹配任何字符，因为在字符串中，ab的后面跟随有大写字母。</p>
 <ol start="2">
 <li>案例2</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"abZW863ab88"</span>;</span><br><span class="line"><span class="keyword">var</span> reg=<span class="regexp">/ab(?![A-Z])/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"abZW863ab88"</span>;</span><br><span class="line"><span class="keyword">var</span> reg=<span class="regexp">/ab(?![A-Z])/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg));</span><br></pre></td></tr></table></figure>
 <ul>
 <li>首先由正则表达式的字符”a”获取控制权，从位置0处开始匹配，匹配字符”a”成功</li>
 <li>然后控制权转交给”b”，从位置1处开始匹配，配字符”b”成功，然后控制权转交给”(?[A-Z])”，它从位置2处开始匹配，它要求所在位置的右边不能够是任意一个大写字母，而位置的右边是大写字母”Z”,匹配失败</li>
@@ -463,13 +475,13 @@
 <ol start="3">
 <li>案例3</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]&#123;6,12&#125;$/</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]&#123;6,12&#125;$/</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="关于贪婪模式和非贪婪模式"><a href="#关于贪婪模式和非贪婪模式" class="headerlink" title="关于贪婪模式和非贪婪模式"></a>关于贪婪模式和非贪婪模式</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>贪婪与非贪婪模式影响的是被量词修饰的子表达式的匹配行为，贪婪模式在整个表达式匹配成功的前提下，尽可能多的匹配，而非贪婪模式在整个表达式匹配成功的前提下，尽可能少的匹配。非贪婪模式只被部分NFA引擎所支持。 </p>
 <p>属于贪婪模式的量词，也叫做匹配优先量词，包括： </p>
 <p>“{m,n}”、“{m,}”、“?”、“*”和“+”。 </p>
 <p>在一些使用NFA引擎的语言中，在匹配优先量词后加上“?”，即变成属于非贪婪模式的量词，也叫做忽略优先量词，包括： </p>
 <p>“{m,n}?”、“{m,}?”、“??”、“*?”和“+?”。 </p>
-<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+c/g</span>)) <span class="comment">//["abcadc"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+?c/g</span>)) <span class="comment">// ["abc", "adc"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+c/g</span>)) <span class="comment">//["abcadc"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'abcadc'</span>.match(<span class="regexp">/a.+?c/g</span>)) <span class="comment">// ["abc", "adc"]</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -590,7 +602,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -601,7 +613,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -612,7 +624,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

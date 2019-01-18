@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T07:27:39.409Z">
+<meta property="og:updated_time" content="2019-01-17T09:25:46.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玲珑金管家-后台管理系统">
 <meta name="twitter:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
@@ -327,7 +327,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T17:25:46+08:00">
+                2019-01-17
+              </time>
             
           </span>
 
@@ -416,7 +428,7 @@
 <h3 id="自定义配置方面"><a href="#自定义配置方面" class="headerlink" title="自定义配置方面"></a>自定义配置方面</h3><h4 id="打包命令区分环境"><a href="#打包命令区分环境" class="headerlink" title="打包命令区分环境"></a>打包命令区分环境</h4><ol>
 <li>package.json中设置打包命令</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"uat"</span>: <span class="string">"node build/uat.js"</span>,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"uat"</span>: <span class="string">"node build/uat.js"</span>,</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li><p>新建打包配置文件</p>
 </li>
@@ -425,7 +437,7 @@
 <li><p>在config里面新建相对应的环境变量</p>
 </li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  NODE_ENV: <span class="string">'"uat"'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  NODE_ENV: <span class="string">'"uat"'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>在项目中使用process.env.NODE_ENV来获取不同的环境变量；</li>
 </ol>
@@ -435,7 +447,7 @@
 <li><p>配置方式</p>
 </li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">    <span class="string">'/hyacp'</span>: &#123;</span><br><span class="line">        <span class="comment">// '*': &#123;</span></span><br><span class="line">        target: <span class="string">'https://yunyingtest.huanyueguoji.com'</span>,</span><br><span class="line">        <span class="comment">// target: 'http://192.168.1.168:8091/',</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">            <span class="string">'^/hyacp'</span>: <span class="string">'/hyacp'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">    <span class="string">'/hyacp'</span>: &#123;</span><br><span class="line">        <span class="comment">// '*': &#123;</span></span><br><span class="line">        target: <span class="string">'https://yunyingtest.huanyueguoji.com'</span>,</span><br><span class="line">        <span class="comment">// target: 'http://192.168.1.168:8091/',</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">            <span class="string">'^/hyacp'</span>: <span class="string">'/hyacp'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li><p>基本作用</p>
 <ul>
@@ -444,9 +456,9 @@
 </ul>
 </li>
 </ol>
-<h3 id="vue相关配置"><a href="#vue相关配置" class="headerlink" title="vue相关配置"></a>vue相关配置</h3><h4 id="vue的use方法"><a href="#vue的use方法" class="headerlink" title="vue的use方法"></a>vue的use方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(iView)</span><br></pre></td></tr></table></figure>
+<h3 id="vue相关配置"><a href="#vue相关配置" class="headerlink" title="vue相关配置"></a>vue相关配置</h3><h4 id="vue的use方法"><a href="#vue的use方法" class="headerlink" title="vue的use方法"></a>vue的use方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(iView)</span><br></pre></td></tr></table></figure>
 <p>基本原理就是通过模块化外放一个变量，内置有一个install方法，vue调用use方法的时候，可以理解为调用了install，并且将vue实例作为实参传递进去</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    install: <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    install: <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="axios的相关配置"><a href="#axios的相关配置" class="headerlink" title="axios的相关配置"></a>axios的相关配置</h3><ol>
 <li>通过axios的create方法统一配置axios的配置项</li>
 <li>通过promise封装axios来区别后天返回的成功或失败(在状态值为200的成功)</li>
@@ -464,11 +476,11 @@
 <h5 id="vuex使用步骤"><a href="#vuex使用步骤" class="headerlink" title="vuex使用步骤"></a>vuex使用步骤</h5><ol>
 <li>声明实例化</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    actions,</span><br><span class="line">    mutations,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    actions,</span><br><span class="line">    mutations,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>在vue实例化的时候挂载到vue</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    router,</span><br><span class="line">    store,</span><br><span class="line">    components: &#123; App &#125;,</span><br><span class="line">    template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    router,</span><br><span class="line">    store,</span><br><span class="line">    components: &#123; App &#125;,</span><br><span class="line">    template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li><p>关于四个属性</p>
 <ul>
@@ -480,16 +492,16 @@
 <li><p>获取变量</p>
 </li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState, mapMutations, mapGetters, mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line">  computed: mapState(&#123;</span><br><span class="line">    power: <span class="function"><span class="params">state</span> =&gt;</span> state.power,</span><br><span class="line">    shrinked: <span class="function"><span class="params">state</span> =&gt;</span> state.shrinked,</span><br><span class="line">    tabData: <span class="function"><span class="params">state</span> =&gt;</span> state.tabData</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">//通过this.power获取到相应变量</span></span><br><span class="line"></span><br><span class="line">  computed: &#123;</span><br><span class="line">    ...mapState([<span class="string">'pSwiperModal'</span>, <span class="string">'pSwiperPicList'</span>])</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState, mapMutations, mapGetters, mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line">  computed: mapState(&#123;</span><br><span class="line">    power: <span class="function"><span class="params">state</span> =&gt;</span> state.power,</span><br><span class="line">    shrinked: <span class="function"><span class="params">state</span> =&gt;</span> state.shrinked,</span><br><span class="line">    tabData: <span class="function"><span class="params">state</span> =&gt;</span> state.tabData</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">//通过this.power获取到相应变量</span></span><br><span class="line"></span><br><span class="line">  computed: &#123;</span><br><span class="line">    ...mapState([<span class="string">'pSwiperModal'</span>, <span class="string">'pSwiperPicList'</span>])</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>更改变量（状态）<br>通过mapMutations等方法将函数挂载到method下面就可以了直接调用了</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...mapMutations([</span><br><span class="line">   <span class="string">'setPowerM'</span>,</span><br><span class="line">   <span class="string">'pathPushM'</span>,</span><br><span class="line">   <span class="string">'setTabList'</span>,</span><br><span class="line">   <span class="string">'setTabChoosed'</span>,</span><br><span class="line">   <span class="string">'setPermList'</span></span><br><span class="line"> ]),</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...mapMutations([</span><br><span class="line">   <span class="string">'setPowerM'</span>,</span><br><span class="line">   <span class="string">'pathPushM'</span>,</span><br><span class="line">   <span class="string">'setTabList'</span>,</span><br><span class="line">   <span class="string">'setTabChoosed'</span>,</span><br><span class="line">   <span class="string">'setPermList'</span></span><br><span class="line"> ]),</span><br></pre></td></tr></table></figure>
 <h2 id="项目页面搭建"><a href="#项目页面搭建" class="headerlink" title="项目页面搭建"></a>项目页面搭建</h2><h3 id="home-vue"><a href="#home-vue" class="headerlink" title="home.vue"></a>home.vue</h3><p>home文件主要有layout.vue组成，包括左侧菜单，右侧头部，右侧主要内容，这些主要有插槽来实现的</p>
 <h4 id="vue插槽"><a href="#vue插槽" class="headerlink" title="vue插槽"></a>vue插槽</h4><ol>
 <li>确定插槽位置</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;slot name=<span class="string">'logo'</span>&gt;&lt;/slot&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;slot name=<span class="string">'logo'</span>&gt;&lt;/slot&gt;</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>设置插槽的主要内容<br>template、组件、div都可以作为插槽，主要设置slot属性即可<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">e-menu</span> <span class="attr">slot</span>=<span class="string">'menu'</span> <span class="attr">:openNames</span>=<span class="string">'openNames'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">e-menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -647,8 +659,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/08/n_reactBase/" rel="prev" title="React基础">
-                React基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/08/n_reactBase/" rel="prev" title="初识React">
+                初识React <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -726,7 +738,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -737,7 +749,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -748,7 +760,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -80,14 +80,14 @@
 <meta name="description" content="React简介 React起源于Facebook的内部项目，因为该公司对市场上所有的JavaScript MVC框架，都不满意，就决定自己写一套，用来架设Instagram(照片交友)的网站，做出来以后，发现这套东西很好用，就在2013年5月开源了； Angular1 2009年谷歌 由于React的设计思想独特，属于革命性的创新，性能出众，代码逻辑却非常简单，所以，越来越多的人开始关注和使用，认">
 <meta name="keywords" content="Ne,MVVM,react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React基础">
+<meta property="og:title" content="初识React">
 <meta property="og:url" content="http://yoursite.com/2019/01/08/n_reactBase/index.html">
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:description" content="React简介 React起源于Facebook的内部项目，因为该公司对市场上所有的JavaScript MVC框架，都不满意，就决定自己写一套，用来架设Instagram(照片交友)的网站，做出来以后，发现这套东西很好用，就在2013年5月开源了； Angular1 2009年谷歌 由于React的设计思想独特，属于革命性的创新，性能出众，代码逻辑却非常简单，所以，越来越多的人开始关注和使用，认">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-17T07:49:49.406Z">
+<meta property="og:updated_time" content="2019-01-18T09:30:13.764Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React基础">
+<meta name="twitter:title" content="初识React">
 <meta name="twitter:description" content="React简介 React起源于Facebook的内部项目，因为该公司对市场上所有的JavaScript MVC框架，都不满意，就决定自己写一套，用来架设Instagram(照片交友)的网站，做出来以后，发现这套东西很好用，就在2013年5月开源了； Angular1 2009年谷歌 由于React的设计思想独特，属于革命性的创新，性能出众，代码逻辑却非常简单，所以，越来越多的人开始关注和使用，认">
 
 
@@ -124,7 +124,7 @@
 
 
 
-    <title>React基础 | H-Dongjian</title>
+    <title>初识React | H-Dongjian</title>
     
 
 
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">React基础</h1>
+          <h1 class="post-title" itemprop="name headline">初识React</h1>
         
 
         <div class="post-meta">
@@ -327,7 +327,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-18T17:30:13+08:00">
+                2019-01-18
+              </time>
             
           </span>
 
@@ -386,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,565
+                  2,452
                 </span>
               
 
@@ -402,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  10
                 </span>
               
             </div>
@@ -500,7 +512,7 @@
 <ol start="4">
 <li>新建 <code>webpack.config.js</code></li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,</span><br><span class="line">        filename: <span class="string">'./dist/bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">"./src/index.html"</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,</span><br><span class="line">        filename: <span class="string">'./dist/bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">"./src/index.html"</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>执行命令 <code>webpack-dev-server</code></li>
 </ol>
@@ -516,11 +528,65 @@
 <ul>
 <li>新建<code>.babelrc</code></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"presets"</span>:[<span class="string">"env"</span>,<span class="string">"stage-0"</span>,<span class="string">"react"</span>],</span><br><span class="line">    <span class="string">"plugins"</span>:[<span class="string">"transform-runtime"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"presets"</span>:[<span class="string">"env"</span>,<span class="string">"stage-0"</span>,<span class="string">"react"</span>],</span><br><span class="line">    <span class="string">"plugins"</span>:[<span class="string">"transform-runtime"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>配置 <code>webpack.config.js</code></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">        &#123;</span><br><span class="line">            test:<span class="regexp">/\.js|jsx$/</span>,</span><br><span class="line">            use:<span class="string">'babel-loader'</span>,</span><br><span class="line">            exclude:<span class="regexp">/node_modules/</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">        &#123;</span><br><span class="line">            test:<span class="regexp">/\.js|jsx$/</span>,</span><br><span class="line">            use:<span class="string">'babel-loader'</span>,</span><br><span class="line">            exclude:<span class="regexp">/node_modules/</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="jsx注意事项"><a href="#jsx注意事项" class="headerlink" title="jsx注意事项"></a>jsx注意事项</h1><ol>
+<li><strong>jsx语法本质:</strong>并不是直接把jsx渲染到页面上，而是内部先转换成了createElement的形式，在渲染的</li>
+<li><strong>在jsx中混合写入js表达式</strong>：在jsx语法中，要把js代码写到<code>{}</code>中</li>
+<li><strong>在jsx中添加类名：</strong>使用<code>className</code>来替代<code>class</code></li>
+<li><strong>在jsx中为label添加for属性：</strong>使用<code>htmlFor</code></li>
+<li>在jsx语法中，标签必须成对出现，如果是单标签，则必须自闭</li>
+</ol>
+<p>当编译引擎，在编译jsx代码的时候，如果遇到了<code>&lt;</code>就会把它当做html代码去编译，如果遇到了<code>{}</code>就会作为普通js代码去编译</p>
+<h1 id="React中创建组件"><a href="#React中创建组件" class="headerlink" title="React中创建组件"></a>React中创建组件</h1><h2 id="使用构造函数来创建组件"><a href="#使用构造函数来创建组件" class="headerlink" title="使用构造函数来创建组件"></a>使用构造函数来创建组件</h2><h3 id="声明组件"><a href="#声明组件" class="headerlink" title="声明组件"></a>声明组件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hello</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//注意，不论在vue还是react中，组件props永远都是只读的，不能被重新赋值</span></span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;HELLO--&#123;props.name&#125;--&#123;props.age&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用组件"><a href="#使用组件" class="headerlink" title="使用组件"></a>使用组件</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Hello &#123;...li&#125;&gt;&lt;/Hello&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li>组件名称必须大写</li>
+<li>组件传参可以使用<code>...</code>展开运算符进行传参</li>
+<li>可以将组件封装到单独的js文件中，但是必须引入<code>React</code>对象</li>
+</ol>
+<h3 id="关于路径配置"><a href="#关于路径配置" class="headerlink" title="关于路径配置"></a>关于路径配置</h3><ol>
+<li>如果引入文件需要省略后缀名可以在webpack中做如下配置</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resolve:&#123;</span><br><span class="line">    extensions:[<span class="string">'.js'</span>,<span class="string">'.jsx'</span>,<span class="string">'.json'</span>],<span class="comment">//表示，这几个文件的后缀名可以省略不写，会按照书写顺序来解析</span></span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>关于引用路径中的<code>@</code>符号</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias:&#123;</span><br><span class="line">    <span class="string">'@'</span>:path.join(__dirname,<span class="string">'./src'</span>)<span class="comment">//这样，@就表示项目根目录中src的这一层路径</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用Class类来创建组件"><a href="#使用Class类来创建组件" class="headerlink" title="使用Class类来创建组件"></a>使用Class类来创建组件</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;div&gt;movie组件&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;div&gt;</span><br><span class="line">    &lt;Movie&gt;&lt;/Movie&gt;</span><br><span class="line">&lt;/div&gt;,<span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>组件内可以直接通过<code>this.props</code>接受父组件传递的参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;div&gt;&#123;this.props.name&#125;&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;div&gt;</span><br><span class="line">    &lt;Movie &#123;...li&#125;&gt;&lt;/Movie&gt;</span><br><span class="line">&lt;/div&gt;,<span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><p>这个<code>this.state</code>就相当于vue中的<code>data(){return{}}</code><br>状态和<code>props</code>相比，是可以更改的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.state=&#123;</span><br><span class="line">            msg:<span class="string">"大家好"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;div&gt;&#123;this.props.name&#125;---&#123;this.state.msg&#125;&lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;div&gt;</span><br><span class="line">    &lt;Movie &#123;...li&#125;&gt;&lt;/Movie&gt;</span><br><span class="line">&lt;/div&gt;,<span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="两种组件方式的对比"><a href="#两种组件方式的对比" class="headerlink" title="两种组件方式的对比"></a>两种组件方式的对比</h2><blockquote>
+<p>注意：使用class关键字创建的组件，有自己的私有数据this.state和生命周期<br>注意：使用function创建的组件，只有props，没有自己的私有属性和声明周期</p>
+</blockquote>
+<ol>
+<li>用构造函数创造出来的组件叫做<code>无状态组件</code></li>
+<li>用class关键字创造出来的组件，叫做<code>有状态组件</code></li>
+<li>什么情况下使用有状态组件？什么情况下使用无状态组件？<ul>
+<li>如果一个组件需要有自己的私有数据，推荐使用class</li>
+<li>如果一个组件不需要有私有数据，则推荐使用构造函数</li>
+<li>React官方说，无状态组件，由于没有自己的state和声明周期，所以运行效率会比有状态组件稍微高一些</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>有状态组件和无状态组件之间的本质区别就是：有无state属性，有无声明周期函数</p>
+</blockquote>
+<ol start="4">
+<li>组件中的<code>props</code>和<code>state/data</code>之前的区别<ul>
+<li>props中的数据都是外界传递进来的</li>
+<li>state、data中的数据，都是组件私有的；</li>
+<li>props中的数据都是只读，不能重新赋值</li>
+<li>state/data中的数据，都是可读可写的</li>
+</ul>
+</li>
+</ol>
+
       
     </div>
     
@@ -564,8 +630,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/16/about_hexo/" rel="prev" title="关于Hexo">
-                关于Hexo <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/16/about_hexo/" rel="prev" title="【持续更新】关于Hexo优化">
+                【持续更新】关于Hexo优化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -643,7 +709,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -654,7 +720,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -665,7 +731,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -715,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React简介"><span class="nav-number">1.</span> <span class="nav-text">React简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端的三大主流框架"><span class="nav-number">2.</span> <span class="nav-text">前端的三大主流框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React与Vue的对比"><span class="nav-number">3.</span> <span class="nav-text">React与Vue的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化方面"><span class="nav-number">3.1.</span> <span class="nav-text">组件化方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发团队方面"><span class="nav-number">3.2.</span> <span class="nav-text">开发团队方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社区方面"><span class="nav-number">3.3.</span> <span class="nav-text">社区方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动APP开发体验方面"><span class="nav-number">3.4.</span> <span class="nav-text">移动APP开发体验方面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要学习React"><span class="nav-number">4.</span> <span class="nav-text">为什么要学习React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">5.</span> <span class="nav-text">React中的几个核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟DOM（Vitual-Document-Object-Model）"><span class="nav-number">5.1.</span> <span class="nav-text">虚拟DOM（Vitual Document Object Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff算法"><span class="nav-number">5.2.</span> <span class="nav-text">Diff算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建基本的webpack4-x项目"><span class="nav-number">6.</span> <span class="nav-text">创建基本的webpack4.x项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSX语法"><span class="nav-number">7.</span> <span class="nav-text">JSX语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法-1"><span class="nav-number">7.1.</span> <span class="nav-text">JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用jsx语法"><span class="nav-number">7.2.</span> <span class="nav-text">使用jsx语法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React简介"><span class="nav-number">1.</span> <span class="nav-text">React简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端的三大主流框架"><span class="nav-number">2.</span> <span class="nav-text">前端的三大主流框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React与Vue的对比"><span class="nav-number">3.</span> <span class="nav-text">React与Vue的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化方面"><span class="nav-number">3.1.</span> <span class="nav-text">组件化方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发团队方面"><span class="nav-number">3.2.</span> <span class="nav-text">开发团队方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社区方面"><span class="nav-number">3.3.</span> <span class="nav-text">社区方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动APP开发体验方面"><span class="nav-number">3.4.</span> <span class="nav-text">移动APP开发体验方面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要学习React"><span class="nav-number">4.</span> <span class="nav-text">为什么要学习React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">5.</span> <span class="nav-text">React中的几个核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟DOM（Vitual-Document-Object-Model）"><span class="nav-number">5.1.</span> <span class="nav-text">虚拟DOM（Vitual Document Object Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff算法"><span class="nav-number">5.2.</span> <span class="nav-text">Diff算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建基本的webpack4-x项目"><span class="nav-number">6.</span> <span class="nav-text">创建基本的webpack4.x项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSX语法"><span class="nav-number">7.</span> <span class="nav-text">JSX语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法-1"><span class="nav-number">7.1.</span> <span class="nav-text">JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用jsx语法"><span class="nav-number">7.2.</span> <span class="nav-text">使用jsx语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsx注意事项"><span class="nav-number">8.</span> <span class="nav-text">jsx注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中创建组件"><span class="nav-number">9.</span> <span class="nav-text">React中创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用构造函数来创建组件"><span class="nav-number">9.1.</span> <span class="nav-text">使用构造函数来创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明组件"><span class="nav-number">9.1.1.</span> <span class="nav-text">声明组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用组件"><span class="nav-number">9.1.2.</span> <span class="nav-text">使用组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">9.1.3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于路径配置"><span class="nav-number">9.1.4.</span> <span class="nav-text">关于路径配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Class类来创建组件"><span class="nav-number">9.2.</span> <span class="nav-text">使用Class类来创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">9.2.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传参"><span class="nav-number">9.2.2.</span> <span class="nav-text">传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态"><span class="nav-number">9.2.3.</span> <span class="nav-text">状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种组件方式的对比"><span class="nav-number">9.3.</span> <span class="nav-text">两种组件方式的对比</span></a></li></ol></li></ol></div>
             
 
           </div>

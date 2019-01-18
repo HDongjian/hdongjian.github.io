@@ -88,7 +88,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/29/n_wcwepy/1541084631532.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/29/n_wcwepy/1541215202749.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/29/n_wcwepy/1541215658454.png">
-<meta property="og:updated_time" content="2019-01-16T07:30:49.302Z">
+<meta property="og:updated_time" content="2019-01-17T09:25:46.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wepy基本使用">
 <meta name="twitter:description" content="1. wepy-介绍&amp;nbsp; &amp;nbsp; WePY (发音: /‘wepi/)是一款腾讯团队于2016年11月发布的小程序组件化框架，通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。 官网 1.1. 特性 类Vue开发风格 支持自定义组件开发 支持引入NPM包 支持Promise 支持ES2015+特性，如Async Functions 支持多种编译器，Less/Sass/S">
@@ -331,7 +331,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T17:25:46+08:00">
+                2019-01-17
+              </time>
             
           </span>
 
@@ -452,7 +464,7 @@
 <h2 id="2-4-WePY项目的目录结构"><a href="#2-4-WePY项目的目录结构" class="headerlink" title="2.4. WePY项目的目录结构"></a>2.4. WePY项目的目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">├─dist                   小程序文件夹</span><br><span class="line">│  └─pages               小程序页面文件夹</span><br><span class="line">│          index.js      首页的js文件</span><br><span class="line">│          index.json    首页的配置文件</span><br><span class="line">│          index.wxml    首页的标签文件   </span><br><span class="line">│          index.wxss    首页的样式文件</span><br><span class="line">│—node_modules           node包           </span><br><span class="line">│─src                    wepy的项目源代码</span><br><span class="line">│   │  app.wpy           wepy的小程序的全局组件</span><br><span class="line">│   │                    </span><br><span class="line">│   └─pages              wepy的页面组件文件夹</span><br><span class="line">│           index.wpy    wepy的小程序的首页组件</span><br><span class="line">│  .editorconfig         代码格式的配置文件</span><br><span class="line">│  .gitignore            告诉git哪些文件需要忽略</span><br><span class="line">│  .prettierrc           代码格式化的配置文件</span><br><span class="line">│  .wepycache            wepy项目的缓存文件 防止build时 重复编译npm目录</span><br><span class="line">│  .wepyignore           wepy编译工具的忽略清单</span><br><span class="line">│  package-lock.json     npm的项目描述文件</span><br><span class="line">│  package.json          npm的项目描述文件</span><br><span class="line">│  project.config.json   小程序项目内的配置文件</span><br><span class="line">│  wepy.config.js        wepy的编译配置文件</span><br></pre></td></tr></table></figure>
 <p>&nbsp;&nbsp; <strong>dist</strong>为小程序运行目录，因此千万不要手动去编辑或者修改!!</p>
 <h1 id="3-开发环境配置"><a href="#3-开发环境配置" class="headerlink" title="3. 开发环境配置"></a>3. 开发环境配置</h1><h2 id="3-1-小程序开发者工具配置"><a href="#3-1-小程序开发者工具配置" class="headerlink" title="3.1. 小程序开发者工具配置"></a>3.1. 小程序开发者工具配置</h2><p>由于统一使用<code>wepy</code>进行开发，因此关于开发者工具的配置也需要直接在<code>wepy</code>项目中直接进行配置。通过<code>project.config.json</code>即可进行配置，默认不需要修改。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"project description"</span>,</span><br><span class="line">  <span class="attr">"setting"</span>: &#123;</span><br><span class="line">    <span class="attr">"urlCheck"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"es6"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"postcss"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"minified"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"compileType"</span>: <span class="string">"miniprogram"</span>,</span><br><span class="line">  <span class="attr">"appid"</span>: <span class="string">"touristappid"</span>,</span><br><span class="line">  <span class="attr">"projectname"</span>: <span class="string">"Project name"</span>,</span><br><span class="line">  <span class="attr">"miniprogramRoot"</span>: <span class="string">"./dist"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;description&quot;: &quot;project description&quot;,</span><br><span class="line">  &quot;setting&quot;: &#123;</span><br><span class="line">    &quot;urlCheck&quot;: true,</span><br><span class="line">    &quot;es6&quot;: false,</span><br><span class="line">    &quot;postcss&quot;: false,</span><br><span class="line">    &quot;minified&quot;: false</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;compileType&quot;: &quot;miniprogram&quot;,</span><br><span class="line">  &quot;appid&quot;: &quot;touristappid&quot;,</span><br><span class="line">  &quot;projectname&quot;: &quot;Project name&quot;,</span><br><span class="line">  &quot;miniprogramRoot&quot;: &quot;./dist&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>es6</code>: 对应<code>关闭ES6转ES5</code>选项，<strong>关闭</strong>。 重要：未关闭会运行报错。</p>
 <p><code>postcss</code>: 对应<code>关闭上传代码时样式自动补全</code>选项，<strong>关闭</strong>。 重要：某些情况下漏掉此项也会运行报错。</p>
 <p><code>minified</code>: 对应<code>关闭代码压缩上传</code>选项，<strong>关闭</strong>。重要：开启后，会导致真机computed, props.sync 等等属性失效。</p>
@@ -837,7 +849,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -848,7 +860,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -859,7 +871,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

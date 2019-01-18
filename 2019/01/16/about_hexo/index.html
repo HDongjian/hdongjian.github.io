@@ -80,14 +80,14 @@
 <meta name="description" content="基本命令 hexo n “我的博客” == hexo new “我的博客” #新建文章 hexo p == hexo publish hexo g == hexo generate#生成 hexo s == hexo server #启动服务预览 hexo d == hexo deploy#部署  增加站内搜索功能安装插件在自己博客根目录下（我的目录：D:\workspace\hexo），执行如下">
 <meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于Hexo">
+<meta property="og:title" content="【持续更新】关于Hexo优化">
 <meta property="og:url" content="http://yoursite.com/2019/01/16/about_hexo/index.html">
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:description" content="基本命令 hexo n “我的博客” == hexo new “我的博客” #新建文章 hexo p == hexo publish hexo g == hexo generate#生成 hexo s == hexo server #启动服务预览 hexo d == hexo deploy#部署  增加站内搜索功能安装插件在自己博客根目录下（我的目录：D:\workspace\hexo），执行如下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T07:49:11.583Z">
+<meta property="og:updated_time" content="2019-01-17T09:25:46.281Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于Hexo">
+<meta name="twitter:title" content="【持续更新】关于Hexo优化">
 <meta name="twitter:description" content="基本命令 hexo n “我的博客” == hexo new “我的博客” #新建文章 hexo p == hexo publish hexo g == hexo generate#生成 hexo s == hexo server #启动服务预览 hexo d == hexo deploy#部署  增加站内搜索功能安装插件在自己博客根目录下（我的目录：D:\workspace\hexo），执行如下">
 
 
@@ -124,7 +124,7 @@
 
 
 
-    <title>关于Hexo | H-Dongjian</title>
+    <title>【持续更新】关于Hexo优化 | H-Dongjian</title>
     
 
 
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于Hexo</h1>
+          <h1 class="post-title" itemprop="name headline">【持续更新】关于Hexo优化</h1>
         
 
         <div class="post-meta">
@@ -327,7 +327,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T17:25:46+08:00">
+                2019-01-17
+              </time>
             
           </span>
 
@@ -375,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  238
+                  756
                 </span>
               
 
@@ -391,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -422,11 +434,28 @@
 <h1 id="增加站内搜索功能"><a href="#增加站内搜索功能" class="headerlink" title="增加站内搜索功能"></a>增加站内搜索功能</h1><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>在自己博客根目录下（我的目录：D:\workspace\hexo），执行如下命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 <h2 id="修改站点配置文件"><a href="#修改站点配置文件" class="headerlink" title="修改站点配置文件"></a>修改站点配置文件</h2><p>修改根目录下的_config.yml（我的目录：D:\workspace\hexo_config.yml），在最底部添加如下配置</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
 <h2 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h2><p>修改主体下的themes\next_config.yml配置文件（我的目录：D:\workspace\hexo\themes\next_config.yml），搜索local_search，修改enable为true</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
 <h2 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h2><p>开启本地server<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
-
+<h1 id="增加博客置顶功能（自定义排序）"><a href="#增加博客置顶功能（自定义排序）" class="headerlink" title="增加博客置顶功能（自定义排序）"></a>增加博客置顶功能（自定义排序）</h1><h2 id="修改node-modules下代码"><a href="#修改node-modules下代码" class="headerlink" title="修改node_modules下代码"></a>修改node_modules下代码</h2><p>找到<code>node_modules/hexo-generator-index/lib/generator.js</code>文件</p>
+<p>将内部代码替换成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = <span class="keyword">this</span>.config;</span><br><span class="line">  <span class="keyword">var</span> posts = locals.posts.sort(config.index_generator.order_by);</span><br><span class="line">  posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></span><br><span class="line">            <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</span><br><span class="line">  <span class="keyword">var</span> path = config.index_generator.path || <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> pagination(path, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</span><br><span class="line">    format: paginationDir + <span class="string">'/%d/'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在文章添加 top 标签可以设置置顶顺序<code>顺序根据top的值来决定</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名</span><br><span class="line">date: 文章发布时间</span><br><span class="line">tags: 文章标签</span><br><span class="line">top: <span class="number">100</span>(文章置顶)</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h1 id="Next主题设定代码高亮格式"><a href="#Next主题设定代码高亮格式" class="headerlink" title="Next主题设定代码高亮格式"></a>Next主题设定代码高亮格式</h1><p>需要改动的有hexo的配置文件<code>_config.yml</code>，以及next主题的配置文件<code>themes/next/_config.yml</code>文件</p>
+<h2 id="更改hexo的配置文件"><a href="#更改hexo的配置文件" class="headerlink" title="更改hexo的配置文件"></a>更改hexo的配置文件</h2><p>查找<code>highlight</code>关键字，更改一下属性为true<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">highlight:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  line_number:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  auto_detect:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  tab_replace:</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="更改next主题配置文件"><a href="#更改next主题配置文件" class="headerlink" title="更改next主题配置文件"></a>更改next主题配置文件</h2><p>搜索<code>highlight_theme</code>关键字，这个属性有四个值：</p>
+<ul>
+<li>normal  ：默认值</li>
+<li>night   ：黑色</li>
+<li>night eighties ：个人感觉跟第二个差不太多</li>
+<li>night blue     ： 底部是蓝色，跟sublime text3默认配色差不多</li>
+<li>night bright   ： 有点闪瞎眼的感觉</li>
+</ul>
+<p>具体使用哪个看个人喜好吧，本人night</p>
+<h1 id="增加显示文章更新时间"><a href="#增加显示文章更新时间" class="headerlink" title="增加显示文章更新时间"></a>增加显示文章更新时间</h1><p>在next主题的配置文件<code>themes/next/_config.yml</code>文件中搜索<code>post_meta</code>关键字，将属性<code>updated_at</code>该为<code>true</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_meta:</span></span><br><span class="line"><span class="attr">  item_text:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  created_at:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  updated_at:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  categories:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -456,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/08/n_reactBase/" rel="next" title="React基础">
-                <i class="fa fa-chevron-left"></i> React基础
+              <a href="/2019/01/08/n_reactBase/" rel="next" title="初识React">
+                <i class="fa fa-chevron-left"></i> 初识React
               </a>
             
           </div>
@@ -465,6 +494,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/17/bugs_1/" rel="prev" title="Bug第一弹">
+                Bug第一弹 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -541,7 +574,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -552,7 +585,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -563,7 +596,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -613,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增加站内搜索功能"><span class="nav-number">2.</span> <span class="nav-text">增加站内搜索功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装插件"><span class="nav-number">2.1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改站点配置文件"><span class="nav-number">2.2.</span> <span class="nav-text">修改站点配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改主题配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">修改主题配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预览效果"><span class="nav-number">2.4.</span> <span class="nav-text">预览效果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增加站内搜索功能"><span class="nav-number">2.</span> <span class="nav-text">增加站内搜索功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装插件"><span class="nav-number">2.1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改站点配置文件"><span class="nav-number">2.2.</span> <span class="nav-text">修改站点配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改主题配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">修改主题配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预览效果"><span class="nav-number">2.4.</span> <span class="nav-text">预览效果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增加博客置顶功能（自定义排序）"><span class="nav-number">3.</span> <span class="nav-text">增加博客置顶功能（自定义排序）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改node-modules下代码"><span class="nav-number">3.1.</span> <span class="nav-text">修改node_modules下代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next主题设定代码高亮格式"><span class="nav-number">4.</span> <span class="nav-text">Next主题设定代码高亮格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更改hexo的配置文件"><span class="nav-number">4.1.</span> <span class="nav-text">更改hexo的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改next主题配置文件"><span class="nav-number">4.2.</span> <span class="nav-text">更改next主题配置文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增加显示文章更新时间"><span class="nav-number">5.</span> <span class="nav-text">增加显示文章更新时间</span></a></li></ol></div>
             
 
           </div>
