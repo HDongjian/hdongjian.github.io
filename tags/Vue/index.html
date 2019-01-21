@@ -79,7 +79,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="H-Dongjian">
-<meta property="og:url" content="http://yoursite.com/tags/Vue/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/vue/index.html">
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -113,13 +113,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Vue/">
+  <link rel="canonical" href="http://yoursite.com/tags/vue/">
 
 
 
 
 
-    <title>标签: Vue | H-Dongjian</title>
+    <title>标签: vue | H-Dongjian</title>
     
 
 
@@ -280,7 +280,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Vue<small>标签</small>
+        <h1>vue<small>标签</small>
         </h1>
       </div>
 
@@ -292,95 +292,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/11/28/n_h_vue/" itemprop="url">
+            <a class="post-title-link" href="/2018/12/12/l_back/" itemprop="url">
               
-                <span itemprop="name">MVVM框架进阶与实现--解析版</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-28T16:02:55+08:00" content="2018-11-28">
-          11-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/27/n_wcmyvue/" itemprop="url">
-              
-                <span itemprop="name">mpvue基本使用</span>
+                <span itemprop="name">玲珑金管家-后台管理系统</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-27T14:30:24+08:00" content="2018-11-27">
-          11-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/14/n_myVue/" itemprop="url">
-              
-                <span itemprop="name">MVVM框架进阶与实现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-14T15:50:15+08:00" content="2018-11-14">
-          11-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/25/n_framework/" itemprop="url">
-              
-                <span itemprop="name">框架原理与进阶</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-25T11:31:43+08:00" content="2018-10-25">
-          10-25
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-12T15:38:11+08:00" content="2018-12-12">
+          12-12
         </time>
       </div>
 
@@ -440,7 +362,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -462,7 +384,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -914,6 +836,71 @@
               });
               var searchResultList = '<ul class=\"search-result-list\">';
               resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+ 
+ 
+ 
+  
+ 
+ 
+ 
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>.forEach(function (result) {
                 searchResultList += result.item;
               })
               searchResultList += "</ul>";
