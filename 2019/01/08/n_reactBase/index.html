@@ -85,10 +85,18 @@
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:description" content="React简介 React起源于Facebook的内部项目，因为该公司对市场上所有的JavaScript MVC框架，都不满意，就决定自己写一套，用来架设Instagram(照片交友)的网站，做出来以后，发现这套东西很好用，就在2013年5月开源了； Angular1 2009年谷歌 由于React的设计思想独特，属于革命性的创新，性能出众，代码逻辑却非常简单，所以，越来越多的人开始关注和使用，认">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-21T05:47:51.383Z">
+<meta property="og:image" content="http://yoursite.com/2019/01/08/n_reactBase/1.bmp">
+<meta property="og:image" content="http://yoursite.com/2019/01/08/n_reactBase/2.bmp">
+<meta property="og:image" content="http://yoursite.com/2019/01/08/n_reactBase/3.bmp">
+<meta property="og:image" content="http://yoursite.com/2019/01/08/n_reactBase/4.bmp">
+<meta property="og:image" content="http://yoursite.com/2019/01/08/n_reactBase/5.bmp">
+<meta property="og:image" content="http://yoursite.com/2019/01/08/n_reactBase/6.bmp">
+<meta property="og:image" content="http://yoursite.com/2019/01/08/n_reactBase/7.bmp">
+<meta property="og:updated_time" content="2019-01-23T07:02:28.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识React">
 <meta name="twitter:description" content="React简介 React起源于Facebook的内部项目，因为该公司对市场上所有的JavaScript MVC框架，都不满意，就决定自己写一套，用来架设Instagram(照片交友)的网站，做出来以后，发现这套东西很好用，就在2013年5月开源了； Angular1 2009年谷歌 由于React的设计思想独特，属于革命性的创新，性能出众，代码逻辑却非常简单，所以，越来越多的人开始关注和使用，认">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/08/n_reactBase/1.bmp">
 
 
 
@@ -337,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-21T13:47:51+08:00">
-                2019-01-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-23T15:02:28+08:00">
+                2019-01-23
               </time>
             
           </span>
@@ -398,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,452
+                  2,655
                 </span>
               
 
@@ -586,6 +594,24 @@
 </ul>
 </li>
 </ol>
+<h1 id="CSS模块化"><a href="#CSS模块化" class="headerlink" title="CSS模块化"></a>CSS模块化</h1><h2 id="CSS行内式"><a href="#CSS行内式" class="headerlink" title="CSS行内式"></a><code>CSS</code>行内式</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">&#123;&#123;color:</span>'<span class="attr">red</span>',<span class="attr">fontWeight:200</span>&#125;&#125;&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="启用css-modules"><a href="#启用css-modules" class="headerlink" title="启用css-modules"></a>启用css-modules</h2><ol>
+<li>修改<code>webpack.config.js</code>这个配置文件，为<code>css-loader</code>添加参数</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:&#123;<span class="string">'style-loader'</span>,<span class="string">'css-loader-modules&#125;&#125;</span></span><br><span class="line"><span class="string">//为.css后缀名的样式表启动CSS模块化=</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在需要的组件中，<code>import</code> 导入样式表，并接口模块化的CSS样式对象</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cssObj <span class="keyword">from</span> <span class="string">'../css/CmtList.css'</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>在需要HTML标签上，使用<code>className</code>指定模块化的样式</li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><img src="/2019/01/08/n_reactBase/1.bmp" alt="1542077018582"><br><img src="/2019/01/08/n_reactBase/2.bmp" alt="1542077018582"></p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p><img src="/2019/01/08/n_reactBase/3.bmp" alt="1542077018582"><br><img src="/2019/01/08/n_reactBase/4.bmp" alt="1542077018582"></p>
+<h1 id="React中绑定事件的注意点"><a href="#React中绑定事件的注意点" class="headerlink" title="React中绑定事件的注意点"></a>React中绑定事件的注意点</h1><p><img src="/2019/01/08/n_reactBase/5.bmp" alt="1542077018582"><br><img src="/2019/01/08/n_reactBase/6.bmp" alt="1542077018582"></p>
+<h1 id="使用ref获取DOM元素应用"><a href="#使用ref获取DOM元素应用" class="headerlink" title="使用ref获取DOM元素应用"></a>使用ref获取DOM元素应用</h1><p>和vue差不多，vue为页面上的元素提供了<code>ref</code>的属性，如果想要获取元素引用，则需要<code>this.$refs</code>引用名称</p>
+<p>在React中，也有<code>ref</code>如果获取元素的应用<code>this.$refs</code>应用名称</p>
+<h1 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h1><p><img src="/2019/01/08/n_reactBase/7.bmp" alt="1542077018582"></p>
 
       
     </div>
@@ -709,7 +735,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -720,7 +746,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -731,7 +757,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -755,6 +781,18 @@
                     <a href="https://github.com/HDongjian" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_38388339" target="_blank" title="CSND">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSND</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5a97df5cf265da237f1db6f8/posts" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-globe"></i>掘金</a>
                   </span>
                 
             </div>
@@ -781,7 +819,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React简介"><span class="nav-number">1.</span> <span class="nav-text">React简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端的三大主流框架"><span class="nav-number">2.</span> <span class="nav-text">前端的三大主流框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React与Vue的对比"><span class="nav-number">3.</span> <span class="nav-text">React与Vue的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化方面"><span class="nav-number">3.1.</span> <span class="nav-text">组件化方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发团队方面"><span class="nav-number">3.2.</span> <span class="nav-text">开发团队方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社区方面"><span class="nav-number">3.3.</span> <span class="nav-text">社区方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动APP开发体验方面"><span class="nav-number">3.4.</span> <span class="nav-text">移动APP开发体验方面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要学习React"><span class="nav-number">4.</span> <span class="nav-text">为什么要学习React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">5.</span> <span class="nav-text">React中的几个核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟DOM（Vitual-Document-Object-Model）"><span class="nav-number">5.1.</span> <span class="nav-text">虚拟DOM（Vitual Document Object Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff算法"><span class="nav-number">5.2.</span> <span class="nav-text">Diff算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建基本的webpack4-x项目"><span class="nav-number">6.</span> <span class="nav-text">创建基本的webpack4.x项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSX语法"><span class="nav-number">7.</span> <span class="nav-text">JSX语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法-1"><span class="nav-number">7.1.</span> <span class="nav-text">JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用jsx语法"><span class="nav-number">7.2.</span> <span class="nav-text">使用jsx语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsx注意事项"><span class="nav-number">8.</span> <span class="nav-text">jsx注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中创建组件"><span class="nav-number">9.</span> <span class="nav-text">React中创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用构造函数来创建组件"><span class="nav-number">9.1.</span> <span class="nav-text">使用构造函数来创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明组件"><span class="nav-number">9.1.1.</span> <span class="nav-text">声明组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用组件"><span class="nav-number">9.1.2.</span> <span class="nav-text">使用组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">9.1.3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于路径配置"><span class="nav-number">9.1.4.</span> <span class="nav-text">关于路径配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Class类来创建组件"><span class="nav-number">9.2.</span> <span class="nav-text">使用Class类来创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">9.2.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传参"><span class="nav-number">9.2.2.</span> <span class="nav-text">传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态"><span class="nav-number">9.2.3.</span> <span class="nav-text">状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种组件方式的对比"><span class="nav-number">9.3.</span> <span class="nav-text">两种组件方式的对比</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React简介"><span class="nav-number">1.</span> <span class="nav-text">React简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端的三大主流框架"><span class="nav-number">2.</span> <span class="nav-text">前端的三大主流框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React与Vue的对比"><span class="nav-number">3.</span> <span class="nav-text">React与Vue的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化方面"><span class="nav-number">3.1.</span> <span class="nav-text">组件化方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发团队方面"><span class="nav-number">3.2.</span> <span class="nav-text">开发团队方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社区方面"><span class="nav-number">3.3.</span> <span class="nav-text">社区方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动APP开发体验方面"><span class="nav-number">3.4.</span> <span class="nav-text">移动APP开发体验方面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要学习React"><span class="nav-number">4.</span> <span class="nav-text">为什么要学习React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">5.</span> <span class="nav-text">React中的几个核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟DOM（Vitual-Document-Object-Model）"><span class="nav-number">5.1.</span> <span class="nav-text">虚拟DOM（Vitual Document Object Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diff算法"><span class="nav-number">5.2.</span> <span class="nav-text">Diff算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建基本的webpack4-x项目"><span class="nav-number">6.</span> <span class="nav-text">创建基本的webpack4.x项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSX语法"><span class="nav-number">7.</span> <span class="nav-text">JSX语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法-1"><span class="nav-number">7.1.</span> <span class="nav-text">JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用jsx语法"><span class="nav-number">7.2.</span> <span class="nav-text">使用jsx语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsx注意事项"><span class="nav-number">8.</span> <span class="nav-text">jsx注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中创建组件"><span class="nav-number">9.</span> <span class="nav-text">React中创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用构造函数来创建组件"><span class="nav-number">9.1.</span> <span class="nav-text">使用构造函数来创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明组件"><span class="nav-number">9.1.1.</span> <span class="nav-text">声明组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用组件"><span class="nav-number">9.1.2.</span> <span class="nav-text">使用组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">9.1.3.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于路径配置"><span class="nav-number">9.1.4.</span> <span class="nav-text">关于路径配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Class类来创建组件"><span class="nav-number">9.2.</span> <span class="nav-text">使用Class类来创建组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">9.2.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传参"><span class="nav-number">9.2.2.</span> <span class="nav-text">传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态"><span class="nav-number">9.2.3.</span> <span class="nav-text">状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种组件方式的对比"><span class="nav-number">9.3.</span> <span class="nav-text">两种组件方式的对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS模块化"><span class="nav-number">10.</span> <span class="nav-text">CSS模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS行内式"><span class="nav-number">10.1.</span> <span class="nav-text">CSS行内式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用css-modules"><span class="nav-number">10.2.</span> <span class="nav-text">启用css-modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">10.3.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例"><span class="nav-number">10.4.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React中绑定事件的注意点"><span class="nav-number">11.</span> <span class="nav-text">React中绑定事件的注意点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用ref获取DOM元素应用"><span class="nav-number">12.</span> <span class="nav-text">使用ref获取DOM元素应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组件的生命周期"><span class="nav-number">13.</span> <span class="nav-text">组件的生命周期</span></a></li></ol></div>
             
 
           </div>
