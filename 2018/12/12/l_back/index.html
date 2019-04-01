@@ -80,14 +80,14 @@
 <meta name="description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玲珑金管家-后台管理系统">
+<meta property="og:title" content="玲珑金管家-交接文档">
 <meta property="og:url" content="http://yoursite.com/2018/12/12/l_back/index.html">
 <meta property="og:site_name" content="H-Dongjian">
 <meta property="og:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-21T05:46:42.751Z">
+<meta property="og:updated_time" content="2019-03-08T06:01:07.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玲珑金管家-后台管理系统">
+<meta name="twitter:title" content="玲珑金管家-交接文档">
 <meta name="twitter:description" content="项目构建实现方式通过vue-cli实现基本项目的搭建 自定义配置方面打包命令区分环境 package.json中设置打包命令  1&quot;uat&quot;: &quot;node build/uat.js&quot;,  新建打包配置文件  在webpack.prod.conf配置不同的环境变量  在config里面新建相对应的环境变量   1234&apos;use strict&apos;module.exports = &amp;#123;  NODE">
 
 
@@ -124,7 +124,7 @@
 
 
 
-    <title>玲珑金管家-后台管理系统 | H-Dongjian</title>
+    <title>玲珑金管家-交接文档 | H-Dongjian</title>
     
 
 
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">玲珑金管家-后台管理系统</h1>
+          <h1 class="post-title" itemprop="name headline">玲珑金管家-交接文档</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-21T13:46:42+08:00">
-                2019-01-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-08T14:01:07+08:00">
+                2019-03-08
               </time>
             
           </span>
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,934
+                  2,311
                 </span>
               
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  9
                 </span>
               
             </div>
@@ -497,7 +497,7 @@
 <li>更改变量（状态）<br>通过mapMutations等方法将函数挂载到method下面就可以了直接调用了</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...mapMutations([</span><br><span class="line">   <span class="string">'setPowerM'</span>,</span><br><span class="line">   <span class="string">'pathPushM'</span>,</span><br><span class="line">   <span class="string">'setTabList'</span>,</span><br><span class="line">   <span class="string">'setTabChoosed'</span>,</span><br><span class="line">   <span class="string">'setPermList'</span></span><br><span class="line"> ]),</span><br></pre></td></tr></table></figure>
-<h2 id="项目页面搭建"><a href="#项目页面搭建" class="headerlink" title="项目页面搭建"></a>项目页面搭建</h2><h3 id="home-vue"><a href="#home-vue" class="headerlink" title="home.vue"></a>home.vue</h3><p>home文件主要有layout.vue组成，包括左侧菜单，右侧头部，右侧主要内容，这些主要有插槽来实现的</p>
+<h2 id="后台管理系统"><a href="#后台管理系统" class="headerlink" title="后台管理系统"></a>后台管理系统</h2><h3 id="home-vue"><a href="#home-vue" class="headerlink" title="home.vue"></a>home.vue</h3><p>home文件主要有layout.vue组成，包括左侧菜单，右侧头部，右侧主要内容，这些主要有插槽来实现的</p>
 <h4 id="vue插槽"><a href="#vue插槽" class="headerlink" title="vue插槽"></a>vue插槽</h4><ol>
 <li>确定插槽位置</li>
 </ol>
@@ -619,6 +619,17 @@
 <li>上传图片进行压缩处理小于1M</li>
 <li>上传成功之后将图片以及文字信息处理成list并转化成字符串以imgdata传给后台</li>
 </ol>
+<h2 id="玲珑金管家"><a href="#玲珑金管家" class="headerlink" title="玲珑金管家"></a>玲珑金管家</h2><h3 id="webpack配置问题"><a href="#webpack配置问题" class="headerlink" title="webpack配置问题"></a>webpack配置问题</h3><p>此项目是vue-cli脚手架的基础上，更改的多页面应用，如果在<code>pages</code>下增加了新的页面，项目需要重启，在执行<code>npm run dev</code>命令</p>
+<h3 id="vue配置"><a href="#vue配置" class="headerlink" title="vue配置"></a>vue配置</h3><p>如果需要为所有页面设置公用的过滤器、组件等，可以再<code>src/public.js</code>中进行配置；</p>
+<h3 id="页面组成"><a href="#页面组成" class="headerlink" title="页面组成"></a>页面组成</h3><p>所有页面公用组件基本都在<code>src/components</code>文件目录下，基本内容包括，头部，底部，公用弹窗，分页组件</p>
+<h3 id="项目关于权限拦截部分"><a href="#项目关于权限拦截部分" class="headerlink" title="项目关于权限拦截部分"></a>项目关于权限拦截部分</h3><p>此项目的拦截系统都是有<code>config/beforeEnter.js</code>中外放的两个方法来决定的，其中<code>go</code>方法为页面跳转时候去调用，<code>hashIntercept</code>为路由拦截的时候调用；</p>
+<p>原理:</p>
+<ul>
+<li>首先判断路由的跳转方式</li>
+<li>判断该路由下是需要校验权限<code>history.js</code>中为路由配置</li>
+<li>根据权限判断是为满足那种权限，在做相对应的操作</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 跳转拦截触发函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">hashInterFun = &#123;</span><br><span class="line">    isrealname: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$bus.$emit(<span class="string">'isRealName'</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    issurvey: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$bus.$emit(<span class="string">'isSurvey'</span>, <span class="literal">true</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    isbank: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        location.href = <span class="string">'/myAccount.html#/SecuritySetting/BandcardInfo'</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    isLend: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$MyMessage.info(<span class="string">'当前账户为借款人，不能进行出借操作！'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    isBorrow: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.$MyMessage.info(<span class="string">'当前账户为出借人，不能进行借款操作！'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    normal: <span class="function"><span class="keyword">function</span>(<span class="params">self, params</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> direction = <span class="keyword">this</span>.dealPath(<span class="keyword">this</span>.params);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.jumpage) &#123;</span><br><span class="line">            location.href = <span class="keyword">this</span>.params;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            self.$router.push(params)</span><br><span class="line">        &#125;</span><br><span class="line">        lib.goScrollTop(<span class="number">0</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -738,7 +749,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -822,7 +833,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目构建"><span class="nav-number">1.</span> <span class="nav-text">项目构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置方面"><span class="nav-number">1.2.</span> <span class="nav-text">自定义配置方面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包命令区分环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">打包命令区分环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置代理地址"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置代理地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue相关配置"><span class="nav-number">1.3.</span> <span class="nav-text">vue相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue的use方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">vue的use方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axios的相关配置"><span class="nav-number">1.4.</span> <span class="nav-text">axios的相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由"><span class="nav-number">1.4.1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于vuex"><span class="nav-number">1.4.2.</span> <span class="nav-text">关于vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vuex使用步骤"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">vuex使用步骤</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目页面搭建"><span class="nav-number">2.</span> <span class="nav-text">项目页面搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#home-vue"><span class="nav-number">2.1.</span> <span class="nav-text">home.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue插槽"><span class="nav-number">2.1.1.</span> <span class="nav-text">vue插槽</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左侧菜单"><span class="nav-number">2.1.2.</span> <span class="nav-text">左侧菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据渲染步骤"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">数据渲染步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#menu-vue"><span class="nav-number">2.2.</span> <span class="nav-text">menu.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求"><span class="nav-number">2.2.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止架构"><span class="nav-number">2.3.</span> <span class="nav-text">阻止架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#风控管理"><span class="nav-number">2.4.</span> <span class="nav-text">风控管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实地和背调操作"><span class="nav-number">2.4.1.</span> <span class="nav-text">实地和背调操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#考察结果"><span class="nav-number">2.4.2.</span> <span class="nav-text">考察结果</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目构建"><span class="nav-number">1.</span> <span class="nav-text">项目构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置方面"><span class="nav-number">1.2.</span> <span class="nav-text">自定义配置方面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包命令区分环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">打包命令区分环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置代理地址"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置代理地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue相关配置"><span class="nav-number">1.3.</span> <span class="nav-text">vue相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue的use方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">vue的use方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axios的相关配置"><span class="nav-number">1.4.</span> <span class="nav-text">axios的相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由"><span class="nav-number">1.4.1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于vuex"><span class="nav-number">1.4.2.</span> <span class="nav-text">关于vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vuex使用步骤"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">vuex使用步骤</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台管理系统"><span class="nav-number">2.</span> <span class="nav-text">后台管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#home-vue"><span class="nav-number">2.1.</span> <span class="nav-text">home.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue插槽"><span class="nav-number">2.1.1.</span> <span class="nav-text">vue插槽</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左侧菜单"><span class="nav-number">2.1.2.</span> <span class="nav-text">左侧菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据渲染步骤"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">数据渲染步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#menu-vue"><span class="nav-number">2.2.</span> <span class="nav-text">menu.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求"><span class="nav-number">2.2.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止架构"><span class="nav-number">2.3.</span> <span class="nav-text">阻止架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#风控管理"><span class="nav-number">2.4.</span> <span class="nav-text">风控管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实地和背调操作"><span class="nav-number">2.4.1.</span> <span class="nav-text">实地和背调操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#考察结果"><span class="nav-number">2.4.2.</span> <span class="nav-text">考察结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#玲珑金管家"><span class="nav-number">3.</span> <span class="nav-text">玲珑金管家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack配置问题"><span class="nav-number">3.1.</span> <span class="nav-text">webpack配置问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue配置"><span class="nav-number">3.2.</span> <span class="nav-text">vue配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面组成"><span class="nav-number">3.3.</span> <span class="nav-text">页面组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目关于权限拦截部分"><span class="nav-number">3.4.</span> <span class="nav-text">项目关于权限拦截部分</span></a></li></ol></li></ol></div>
             
 
           </div>
