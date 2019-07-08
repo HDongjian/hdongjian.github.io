@@ -1,0 +1,1422 @@
+<!DOCTYPE html>    
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Ne,MVVM,Wepy,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="H-Dongjian" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1. wepy-介绍&amp;nbsp; &amp;nbsp; WePY (发音: /‘wepi/)是一款腾讯团队于2016年11月发布的小程序组件化框架，通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。 官网 1.1. 特性 类Vue开发风格 支持自定义组件开发 支持引入NPM包 支持Promise 支持ES2015+特性，如Async Functions 支持多种编译器，Less/Sass/S">
+<meta name="keywords" content="Ne,MVVM,Wepy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wepy基本使用">
+<meta property="og:url" content="http://yoursite.com/2018/11/29/n_wcwepy/index.html">
+<meta property="og:site_name" content="H-Dongjian">
+<meta property="og:description" content="1. wepy-介绍&amp;nbsp; &amp;nbsp; WePY (发音: /‘wepi/)是一款腾讯团队于2016年11月发布的小程序组件化框架，通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。 官网 1.1. 特性 类Vue开发风格 支持自定义组件开发 支持引入NPM包 支持Promise 支持ES2015+特性，如Async Functions 支持多种编译器，Less/Sass/S">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/n_wcwepy/1541084631532.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/n_wcwepy/1541215202749.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/n_wcwepy/1541215658454.png">
+<meta property="og:updated_time" content="2019-04-26T01:44:23.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wepy基本使用">
+<meta name="twitter:description" content="1. wepy-介绍&amp;nbsp; &amp;nbsp; WePY (发音: /‘wepi/)是一款腾讯团队于2016年11月发布的小程序组件化框架，通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。 官网 1.1. 特性 类Vue开发风格 支持自定义组件开发 支持引入NPM包 支持Promise 支持ES2015+特性，如Async Functions 支持多种编译器，Less/Sass/S">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/29/n_wcwepy/1541084631532.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/29/n_wcwepy/">
+
+
+
+
+
+    <title>wepy基本使用 | H-Dongjian</title>
+    
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+       
+
+    <div class="container sidebar-position-left page-post-detail">
+        <div class="headband">
+            <a href="https://github.com/HDongjian"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
+        </div>
+
+        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+            <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H-Dongjian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">前端小学生</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+        </header>
+
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="content-wrap">
+                    <div id="content" class="content">
+                        
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/n_wcwepy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="H-Dongjian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H-Dongjian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">wepy基本使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T13:39:05+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-26T09:44:23+08:00">
+                2019-04-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Framework</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,529
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  19
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-wepy-介绍"><a href="#1-wepy-介绍" class="headerlink" title="1. wepy-介绍"></a>1. wepy-介绍</h1><p>&nbsp; &nbsp; <strong>WePY</strong> (发音: /‘wepi/)是一款腾讯团队于2016年11月发布的小程序组件化框架，通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。</p>
+<p><a href="https://tencent.github.io/wepy/index.html" target="_blank" rel="noopener">官网</a></p>
+<h2 id="1-1-特性"><a href="#1-1-特性" class="headerlink" title="1.1. 特性"></a>1.1. 特性</h2><ul>
+<li>类Vue开发风格</li>
+<li>支持自定义组件开发</li>
+<li>支持引入NPM包</li>
+<li>支持<a href="https://github.com/wepyjs/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8Promise" target="_blank" rel="noopener">Promise</a></li>
+<li>支持ES2015+特性，如<a href="https://github.com/wepyjs/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8async-await" target="_blank" rel="noopener">Async Functions</a></li>
+<li>支持多种编译器，Less/Sass/Stylus/PostCSS、Babel/Typescript、Pug</li>
+<li>支持多种插件处理，文件压缩，图片压缩，内容替换等</li>
+<li>支持 Sourcemap，ESLint等</li>
+<li>小程序细节优化，如请求列队，事件优化等</li>
+</ul>
+<h2 id="1-2-优秀案例"><a href="#1-2-优秀案例" class="headerlink" title="1.2. 优秀案例"></a>1.2. 优秀案例</h2><p>&nbsp; &nbsp; 腾讯疫苗查询小程序、 腾讯翻译君小程序、 腾讯地图小程序、 玩转故宫小程序、 手机充值+、 手机余额查询、 手机流量充值优惠、 友福图书馆（开源）、 素洁商城（开源）、 NewsLite（开源）、 西安找拼车（开源）、 深大的树洞（开源）、 求知微阅读（开源）、 给你的 iPhone X 换个发型、 天天跟我买、 坚橙、 群脱单、 米淘联盟、 帮助圈、 众安保险福利、 阅邻二手书、 趣店招聘、 满熊阅读（开源： 微信小程序、支付宝小程序）、 育儿柚道、 平行进口报价内参、 GitHub掘金版、 班级群管、 鲜花说小店、 逛人备忘、 英语助手君、 花花百科、 独角兽公司、 爱羽客羽毛球、 斑马小店、 小小羽球、 培恩医学、 农资优选、 公务员朝夕刷题、 七弦琴小助手、 七弦琴大数据、 爽到家小程序、 应用全球排行（开源）、 we川大（开源）、 聊会儿、 … </p>
+<h2 id="1-3-前置知识"><a href="#1-3-前置知识" class="headerlink" title="1.3. 前置知识"></a>1.3. 前置知识</h2><ul>
+<li><a href="http://nodejs.cn/" target="_blank" rel="noopener">node</a>&amp;<a href="https://www.npmjs.com.cn/" target="_blank" rel="noopener">npm</a></li>
+<li><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">vue</a></li>
+<li>es6</li>
+<li><a href>微信小程序</a></li>
+</ul>
+<h1 id="2-快速项目搭建"><a href="#2-快速项目搭建" class="headerlink" title="2. 快速项目搭建"></a>2. 快速项目搭建</h1><h2 id="2-1-全局安装"><a href="#2-1-全局安装" class="headerlink" title="2.1. 全局安装"></a>2.1. 全局安装</h2><p>WePY的安装或更新都通过<code>npm</code>进行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wepy-cli -g</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-创建空项目"><a href="#2-2-创建空项目" class="headerlink" title="2.2. 创建空项目"></a>2.2. 创建空项目</h2><blockquote>
+<p>1.7.0版本之前的请查询官网完成创建</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wepy init empty my-project</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-编译并监控项目"><a href="#2-3-编译并监控项目" class="headerlink" title="2.3. 编译并监控项目"></a>2.3. 编译并监控项目</h2><p>等待创建成果后，进入到项目目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>  my-project</span><br></pre></td></tr></table></figure>
+<p>安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>编译并监控项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wepy build --watch</span><br></pre></td></tr></table></figure>
+<p>此时，可以看到目录下多了一个<code>dist</code>文件夹，该文件夹便是经过<code>wepy</code>编译后的小程序源代码，也就是我们可以用小程序开发者工具直接监控的项目代码。</p>
+<h2 id="2-4-WePY项目的目录结构"><a href="#2-4-WePY项目的目录结构" class="headerlink" title="2.4. WePY项目的目录结构"></a>2.4. WePY项目的目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">├─dist                   小程序文件夹</span><br><span class="line">│  └─pages               小程序页面文件夹</span><br><span class="line">│          index.js      首页的js文件</span><br><span class="line">│          index.json    首页的配置文件</span><br><span class="line">│          index.wxml    首页的标签文件   </span><br><span class="line">│          index.wxss    首页的样式文件</span><br><span class="line">│—node_modules           node包           </span><br><span class="line">│─src                    wepy的项目源代码</span><br><span class="line">│   │  app.wpy           wepy的小程序的全局组件</span><br><span class="line">│   │                    </span><br><span class="line">│   └─pages              wepy的页面组件文件夹</span><br><span class="line">│           index.wpy    wepy的小程序的首页组件</span><br><span class="line">│  .editorconfig         代码格式的配置文件</span><br><span class="line">│  .gitignore            告诉git哪些文件需要忽略</span><br><span class="line">│  .prettierrc           代码格式化的配置文件</span><br><span class="line">│  .wepycache            wepy项目的缓存文件 防止build时 重复编译npm目录</span><br><span class="line">│  .wepyignore           wepy编译工具的忽略清单</span><br><span class="line">│  package-lock.json     npm的项目描述文件</span><br><span class="line">│  package.json          npm的项目描述文件</span><br><span class="line">│  project.config.json   小程序项目内的配置文件</span><br><span class="line">│  wepy.config.js        wepy的编译配置文件</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp; <strong>dist</strong>为小程序运行目录，因此千万不要手动去编辑或者修改!!</p>
+<h1 id="3-开发环境配置"><a href="#3-开发环境配置" class="headerlink" title="3. 开发环境配置"></a>3. 开发环境配置</h1><h2 id="3-1-小程序开发者工具配置"><a href="#3-1-小程序开发者工具配置" class="headerlink" title="3.1. 小程序开发者工具配置"></a>3.1. 小程序开发者工具配置</h2><p>由于统一使用<code>wepy</code>进行开发，因此关于开发者工具的配置也需要直接在<code>wepy</code>项目中直接进行配置。通过<code>project.config.json</code>即可进行配置，默认不需要修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;description&quot;: &quot;project description&quot;,</span><br><span class="line">  &quot;setting&quot;: &#123;</span><br><span class="line">    &quot;urlCheck&quot;: true,</span><br><span class="line">    &quot;es6&quot;: false,</span><br><span class="line">    &quot;postcss&quot;: false,</span><br><span class="line">    &quot;minified&quot;: false</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;compileType&quot;: &quot;miniprogram&quot;,</span><br><span class="line">  &quot;appid&quot;: &quot;touristappid&quot;,</span><br><span class="line">  &quot;projectname&quot;: &quot;Project name&quot;,</span><br><span class="line">  &quot;miniprogramRoot&quot;: &quot;./dist&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>es6</code>: 对应<code>关闭ES6转ES5</code>选项，<strong>关闭</strong>。 重要：未关闭会运行报错。</p>
+<p><code>postcss</code>: 对应<code>关闭上传代码时样式自动补全</code>选项，<strong>关闭</strong>。 重要：某些情况下漏掉此项也会运行报错。</p>
+<p><code>minified</code>: 对应<code>关闭代码压缩上传</code>选项，<strong>关闭</strong>。重要：开启后，会导致真机computed, props.sync 等等属性失效。</p>
+<p><code>urlCheck</code>: 对应<code>不检查安全域名</code>选项，<strong>开启</strong>。 如果已配置好安全域名则建议关闭。</p>
+<h2 id="3-2-代码高亮配置"><a href="#3-2-代码高亮配置" class="headerlink" title="3.2. 代码高亮配置"></a>3.2. 代码高亮配置</h2><p>wepy推荐开发者使用较为成熟的编辑器来代替 <strong>微信开发者工具</strong> ， <strong>微信开发者工具</strong> 只用来做显示界面使用。</p>
+<p>这里推荐 使用<strong>vs code</strong> ，如需要其他编辑器，<a href="https://tencent.github.io/wepy/document.html#/?id=%e4%bb%a3%e7%a0%81%e9%ab%98%e4%ba%ae" target="_blank" rel="noopener">其他编辑器配置</a></p>
+<ol>
+<li><p>在 Code 里先安装 Vue 的语法高亮插件 <code>Vetur</code>。</p>
+</li>
+<li><p>打开任意 <code>.wpy</code> 文件。</p>
+</li>
+<li><p>点击右下角的选择语言模式，默认为<code>纯文本</code>。</p>
+</li>
+<li><p>在弹出的窗口中选择 <code>.wpy 的配置文件关联...</code>。</p>
+</li>
+<li><p>在<code>选择要与 .wpy 关联的语言模式</code> 中选择 <code>Vue</code>。</p>
+</li>
+</ol>
+<h2 id="3-3-启用promise"><a href="#3-3-启用promise" class="headerlink" title="3.3. 启用promise"></a>3.3. 启用promise</h2><p>因为不想陷入异步的回调地狱中，所以在一些复杂的业务当中，我们推荐使用 promise 或者 async-function 来代替传统的回调。因此需要在项目中单独进行配置。</p>
+<h3 id="3-3-1-进入项目根目录，安装polyfill"><a href="#3-3-1-进入项目根目录，安装polyfill" class="headerlink" title="3.3.1. 进入项目根目录，安装polyfill"></a>3.3.1. 进入项目根目录，安装polyfill</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install wepy-async-function --save</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-2-在app-wpy中导入polyfill"><a href="#3-3-2-在app-wpy中导入polyfill" class="headerlink" title="3.3.2. 在app.wpy中导入polyfill"></a>3.3.2. 在app.wpy中导入polyfill</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import <span class="string">'wepy-async-function'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-3-在app-wpy中开启promise"><a href="#3-3-3-在app-wpy中开启promise" class="headerlink" title="3.3.3. 在app.wpy中开启promise"></a>3.3.3. 在app.wpy中开启promise</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">app</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> () &#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.use(<span class="string">'promisify'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-4-wepy-config-js"><a href="#3-4-wepy-config-js" class="headerlink" title="3.4. wepy.config.js"></a>3.4. wepy.config.js</h2><p>&nbsp;&nbsp;wepy项目编译的配置文件</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>wepy编译后的生成目录</td>
+</tr>
+<tr>
+<td>wpyExt</td>
+<td>wepy组件的后缀名，默认为wepy，可以指定为vue</td>
+</tr>
+<tr>
+<td>eslint</td>
+<td>是否开启eslint的验证</td>
+</tr>
+<tr>
+<td>cliLogs</td>
+<td>开启控制台打印</td>
+</tr>
+<tr>
+<td>compilers</td>
+<td>编译sass，js等文件的配置</td>
+</tr>
+<tr>
+<td>plugins</td>
+<td>插件</td>
+</tr>
+<tr>
+<td>appConfig</td>
+<td>全局变量，可以在组件中通过 wepy.$appConfig访问</td>
+</tr>
+</tbody>
+</table>
+<h1 id="4-小程序页面结构和wepy组件结构对比"><a href="#4-小程序页面结构和wepy组件结构对比" class="headerlink" title="4. 小程序页面结构和wepy组件结构对比"></a>4. 小程序页面结构和wepy组件结构对比</h1><h2 id="4-1-wepy组件的编译图解"><a href="#4-1-wepy组件的编译图解" class="headerlink" title="4.1. wepy组件的编译图解"></a>4.1. wepy组件的编译图解</h2><p>wepy组件编译的流程如图所示，我们在学习wepy组件前，最好提前了解一下。</p>
+<p><img src="/2018/11/29/n_wcwepy/1541084631532.png" alt="1541084631532"></p>
+<h2 id="4-2-小程序页面结构"><a href="#4-2-小程序页面结构" class="headerlink" title="4.2. 小程序页面结构"></a>4.2. 小程序页面结构</h2><p>小程序页面结构分为4个部分</p>
+<ul>
+<li>wxml 标签文件</li>
+<li>wxss 样式文件</li>
+<li>JavaScript 逻辑文件</li>
+<li>json 配置文件</li>
+</ul>
+<h2 id="4-3-wepy组件结构"><a href="#4-3-wepy组件结构" class="headerlink" title="4.3. wepy组件结构"></a>4.3. wepy组件结构</h2><p>wepy组件默认后缀名为 <code>.wpy</code>,该文件里面包含有了 <strong>样式</strong>、<strong>标签</strong>和<strong>逻辑部分</strong> 如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/* 样式 */</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">/* 标签 */</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    Hello world</span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"> /* 逻辑 */</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">page</span> </span>&#123;</span></span><br><span class="line">  config = &#123;</span><br><span class="line"><span class="javascript">    navigationBarTitleText: <span class="string">'test'</span></span></span><br><span class="line">  &#125;;</span><br><span class="line">  onLoad() &#123;</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'onLoad'</span>);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="5-app-wpy文件"><a href="#5-app-wpy文件" class="headerlink" title="5. app.wpy文件"></a>5. app.wpy文件</h1><p><code>wpy</code>文件分为3个部分，分别是 样式 <code>style</code>，标签 <code>template</code>，还有 脚本 <code>javascript</code>。下面挨个来讲解</p>
+<h2 id="5-1-style"><a href="#5-1-style" class="headerlink" title="5.1. style"></a>5.1. style</h2><p>在<code>app.wpy</code> 文件的<code>style</code>中，控制的是全局的样式。它有如下特点</p>
+<ol>
+<li><p>设置的样式可以在所有的页面文件中使用</p>
+</li>
+<li><p>通过<code>lang</code>关键字可以设置 <code>css</code>,<code>less</code>,<code>scss</code> 等预处理器</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以使用 <code>//</code>等作为注释（小程序中的wxss中直接写<code>//</code>是不支持的）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">view</span> &#123;</span><br><span class="line">  // color: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以通过<code>style</code>标签中的<code>src</code>关键字导入另外的第三方样式文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">src</span>=<span class="string">"./styles/base.css"</span>&gt;</span> <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="5-2-template"><a href="#5-2-template" class="headerlink" title="5.2. template"></a>5.2. template</h2><p>   template为标签部分，由于app.wpy最终是要编译为小程序中的<code>app.js</code>文件的，因此该<code>template</code>无特别用法</p>
+<h2 id="5-3-JavaScript"><a href="#5-3-JavaScript" class="headerlink" title="5.3. JavaScript"></a>5.3. JavaScript</h2><p>   <code>app.wpy</code>中的<code>javascript</code>为脚本部分，继承自<code>wepy.app</code> 它经过编译后，最终会生成两个文件，分别是 <code>app.js</code> 和 <code>app.json</code>。 主要有以下特点</p>
+<ol>
+<li><p>代码风格类似<code>vue</code>，es6的语法。 继承自 <code>wepy.app</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">app</span> </span>&#123;</span><br><span class="line">  config = &#123;</span><br><span class="line">    pages: [<span class="string">'pages/index'</span>],</span><br><span class="line">    <span class="built_in">window</span>: &#123;</span><br><span class="line">      backgroundTextStyle: <span class="string">'light'</span>,</span><br><span class="line">      navigationBarBackgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">      navigationBarTitleText: <span class="string">'WeChat'</span>,</span><br><span class="line">      navigationBarTextStyle: <span class="string">'black'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  onLaunch() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'on launch'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 <code>default class</code>内，<code>config</code>字段对应的是小程序中 <code>app.json</code>的内容  <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html" target="_blank" rel="noopener">全局配置</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;</span><br><span class="line">  pages: [<span class="string">'pages/index'</span>],</span><br><span class="line">  <span class="built_in">window</span>: &#123;</span><br><span class="line">    backgroundTextStyle: <span class="string">'light'</span>,</span><br><span class="line">    navigationBarBackgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">    navigationBarTitleText: <span class="string">'WeChat'</span>,</span><br><span class="line">    navigationBarTextStyle: <span class="string">'black'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>和<code>config</code>同层级，可以定义小程序的<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/app.html" target="_blank" rel="noopener">App注册事件</a> 和全局变量 <code>globalData</code>等</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;...  &#125;;</span><br><span class="line"></span><br><span class="line">onLaunch() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'on launch'</span>);</span><br><span class="line">&#125;</span><br><span class="line">onShow()&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"on show"</span>);</span><br><span class="line">&#125;</span><br><span class="line">globalData=&#123;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="6-index-wpy"><a href="#6-index-wpy" class="headerlink" title="6. index.wpy"></a>6. index.wpy</h1><h2 id="6-1-介绍"><a href="#6-1-介绍" class="headerlink" title="6.1. 介绍"></a>6.1. 介绍</h2><p>页面组件<code>wpy</code>的文件结构类似 <code>app.wpy</code>结构，也是由三个部分组成 标签 <code>template</code> ，样式 <code>style</code>和脚本<code>javascript</code>  继承自 <code>wepy.page</code>。其中 脚本 <code>javascript</code>经过编译后，也是会生成两个文件。分别是小程序中的页面<code>javascript</code>和页面<code>json</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"less"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">page</span> </span>&#123;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>config</td>
+<td>页面配置对象，对应于原生的<code>page.json</code>文件，类似于<code>app.wpy</code>中的config</td>
+</tr>
+<tr>
+<td>data</td>
+<td>页面渲染数据对象，存放可用于页面模板绑定的渲染数据</td>
+</tr>
+<tr>
+<td>methods</td>
+<td>wxml事件处理函数对象，存放响应wxml中所捕获到的事件的函数，如<code>bindtap</code>、<code>bindchange</code></td>
+</tr>
+<tr>
+<td>生命周期函数</td>
+<td>小程序页面<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html#生命周期回调函数" target="_blank" rel="noopener">生命周期函数</a>，如onLoad、<code>onReady</code>等，以及其它自定义的方法与属性</td>
+</tr>
+<tr>
+<td>computed</td>
+<td>计算属性</td>
+</tr>
+<tr>
+<td>watch</td>
+<td>监控数据</td>
+</tr>
+<tr>
+<td>自定义数据</td>
+<td>可以自定义内部使用的数据</td>
+</tr>
+<tr>
+<td>自定义函数</td>
+<td>可以自定义内部需要使用的函数</td>
+</tr>
+<tr>
+<td>components</td>
+<td>页面组件列表对象，声明页面所引入的组件列表</td>
+</tr>
+<tr>
+<td>events</td>
+<td>WePY组件事件处理函数对象，存放响应组件之间通过<code>$broadcast</code>、<code>$emit</code>、<code>$invoke</code>所传递的事件的函数</td>
+</tr>
+<tr>
+<td>mixins</td>
+<td>声明页面引入的Minxin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-2-数据绑定"><a href="#6-2-数据绑定" class="headerlink" title="6.2. 数据绑定"></a>6.2. 数据绑定</h2><p>在wepy中，数据绑定的类似vue的风格，也是通过 <code></code> 来绑定，<code>this.mydata=&#39;hello wepy&#39;</code>来修改。</p>
+<p><strong>注意，如在异步里修改数据，需要手动调用 <code>this.$apply();</code> 来触发数据更新</strong></p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;mydata&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">page</span> </span>&#123;</span></span><br><span class="line">  data=&#123;</span><br><span class="line"><span class="javascript">        mydata:<span class="string">"hello wepy"</span></span></span><br><span class="line">    &#125;;</span><br><span class="line">  onLoad() &#123;</span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.mytitle = <span class="string">'你好wepy'</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-3-事件"><a href="#6-3-事件" class="headerlink" title="6.3. 事件"></a>6.3. 事件</h2><p>页面中，绑定事件的方式变为更为简单了。并且，可以实现在事件中传递参数。通过@来绑定，可以省略小程序中的关键字 <code>bind</code>。如 <code>bindtap</code> 变为 <code>@tap</code>。</p>
+<p>而且，可以通过添加事件后缀来指定对应的事件类型，如：</p>
+<ul>
+<li><code>.default</code>: 绑定小程序冒泡型事件，如<code>bindtap</code>，<code>.default</code>后缀可省略不写；</li>
+<li><code>.stop</code>: 绑定小程序捕获型事件，如<code>catchtap</code>；</li>
+<li><code>.user</code>: 绑定用户自定义组件事件，通过<code>$emit</code>触发。<strong>注意，如果用了自定义事件，则events中对应的监听函数不会再执行。</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span> @<span class="attr">tap</span>=<span class="string">"myTap(123)"</span>&gt;</span></span><br><span class="line">    Hello world</span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">page</span> </span>&#123;</span></span><br><span class="line">  methods = &#123;</span><br><span class="line">    myTap(data) &#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(data);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="7-component-wpy"><a href="#7-component-wpy" class="headerlink" title="7. component.wpy"></a>7. component.wpy</h1><p>组件文件，结构上大体和<code>页面.wpy</code>类似，区别在于组件是继承自 <code>wepy.component</code>,并且它拥有自己的属性设置，插槽等。关于一些小程序自身的组件基本属性，可以通过 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/" target="_blank" rel="noopener">小程序组件</a> 来进行查阅。这里主要讲解如何<strong>使用自定义组件</strong>和<strong>组件传参</strong>。</p>
+<h2 id="7-1-使用自定义组件"><a href="#7-1-使用自定义组件" class="headerlink" title="7.1. 使用自定义组件"></a>7.1. 使用自定义组件</h2><h3 id="7-1-1-声明组件"><a href="#7-1-1-声明组件" class="headerlink" title="7.1.1. 声明组件"></a>7.1.1. 声明组件</h3><ol>
+<li><p>新建组件  <code>Myheader.wpy</code></p>
+</li>
+<li><p>编辑组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> @<span class="attr">tap</span>=<span class="string">"myTap"</span> &gt;</span>组件中的文字<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">"wepy"</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHeader</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">component</span>   </span>&#123;</span></span><br><span class="line">  methods=&#123;</span><br><span class="line">    myTap()&#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"组件被点击了"</span>);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.$emit(<span class="string">"parentEvent"</span>,&#123;&#125;);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="7-1-2-使用组件"><a href="#7-1-2-使用组件" class="headerlink" title="7.1.2. 使用组件"></a>7.1.2. 使用组件</h3><ol>
+<li><p>在页面文件中引入组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MyHeader <span class="keyword">from</span> <span class="string">'../components/MyHeader'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 <code>class</code>中声明引入的组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">components = &#123;</span><br><span class="line">   MyHeader</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>template中使用组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;view class=&quot;container&quot;  &gt;</span><br><span class="line">    &lt;MyHeader&gt;&lt;/MyHeader&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="7-2-props组件传值"><a href="#7-2-props组件传值" class="headerlink" title="7.2. props组件传值"></a>7.2. props组件传值</h2><p>页面和组件之间的传值可以通过 props实现。分为三种：</p>
+<ol>
+<li><strong>静态传值</strong> 父组件传递到子组件的值，不会再被父组件改变。只能传递字符串</li>
+<li>动态传值 使用 <code>.sync</code>修饰符来将父组件的数据绑定到子组件上，单向绑定。<code>父 -&gt; 子</code></li>
+<li>动态传值 使用 <code>.sync</code> 和 子组件中的<code>twoWay: true</code> 实现双向绑定 <code>父 &lt;-&gt; 子</code></li>
+</ol>
+<h3 id="7-2-1-静态传值"><a href="#7-2-1-静态传值" class="headerlink" title="7.2.1. 静态传值"></a>7.2.1. 静态传值</h3><p>组件 <code>MyHeader</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> &gt;</span>&#123;&#123;parentTitle&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// ....</span></span></span><br><span class="line">  props=&#123;</span><br><span class="line"><span class="javascript">    parentTitle:<span class="built_in">String</span> <span class="comment">// 静态传值</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>父组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MyHeader</span> <span class="attr">parentTitle</span>=<span class="string">"父组件中的title"</span> &gt;</span><span class="tag">&lt;/<span class="name">MyHeader</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-2-2-单向绑定"><a href="#7-2-2-单向绑定" class="headerlink" title="7.2.2. 单向绑定"></a>7.2.2. 单向绑定</h3><p>组件 <code>MyHeader</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> &gt;</span>&#123;&#123;parentTitle&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// ....</span></span></span><br><span class="line">    props=&#123;</span><br><span class="line">    	parentTitle:&#123;</span><br><span class="line"><span class="javascript">      		type:<span class="built_in">String</span>,</span></span><br><span class="line"><span class="javascript">      		<span class="keyword">default</span>:<span class="literal">null</span></span></span><br><span class="line">   		 &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>父组件  使用 <code>.sync</code> 修饰符</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MyHeader</span> <span class="attr">:parentTitle.sync</span>=<span class="string">"父组件中的title"</span> &gt;</span><span class="tag">&lt;/<span class="name">MyHeader</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> MyHeader <span class="keyword">from</span> <span class="string">'../components/MyHeader'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">page</span> </span>&#123;</span></span><br><span class="line">  data=&#123;</span><br><span class="line"><span class="javascript">    title:<span class="string">"父中的组件"</span></span></span><br><span class="line">  &#125;</span><br><span class="line">  onLoad() &#123;</span><br><span class="line"><span class="javascript">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.title=<span class="string">"被修改了"</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.$apply();</span></span><br><span class="line">    &#125;, 2000);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-2-3-双向绑定"><a href="#7-2-3-双向绑定" class="headerlink" title="7.2.3. 双向绑定"></a>7.2.3. 双向绑定</h3><p>父组件和子组件上同时加上配置便可实现 组件中的数据双向绑定。</p>
+<p>组件 <code>MyHeader</code>  加上配置   <code>twoWay: true</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> @<span class="attr">tap</span>=<span class="string">"myTap"</span> &gt;</span>子组件 &#123;&#123;parentTitle&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">"wepy"</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHeader</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">component</span>   </span>&#123;</span></span><br><span class="line">  props=&#123;</span><br><span class="line">    parentTitle:&#123;</span><br><span class="line"><span class="javascript">      type:<span class="built_in">String</span>,</span></span><br><span class="line"><span class="javascript">      <span class="keyword">default</span>:<span class="literal">null</span>,</span></span><br><span class="line"><span class="javascript">      twoWay:<span class="literal">true</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  methods=&#123;</span><br><span class="line">    myTap()&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.parentTitle=<span class="string">"组件中修改了"</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>父组件 中继续使用 <code>.sync</code> 修饰符</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">   父组件上的数据：   &#123;&#123;title&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MyHeader:parentTitle.sync="title"</span> &gt;</span><span class="tag">&lt;/<span class="name">MyHeader</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> MyHeader <span class="keyword">from</span> <span class="string">'../components/MyHeader'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">page</span> </span>&#123;</span></span><br><span class="line">  components = &#123;</span><br><span class="line">    MyHeader</span><br><span class="line">  &#125;;</span><br><span class="line">  data=&#123;</span><br><span class="line"><span class="javascript">    title:<span class="string">"父中的组件"</span></span></span><br><span class="line">  &#125;</span><br><span class="line">  onLoad() &#123;</span><br><span class="line"><span class="javascript">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.title=<span class="string">"父组件中修改了"</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.$apply();</span></span><br><span class="line">    &#125;, 2000);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-3-组件通信"><a href="#7-3-组件通信" class="headerlink" title="7.3. 组件通信"></a>7.3. 组件通信</h2><p>组件之间的通信，都通过事件触发的形式来实现。主要有以下三种</p>
+<ol>
+<li>父组件向子组件通信   <code>$broadcast</code> </li>
+<li>子组件向父组件通信 <code>$emit</code></li>
+<li>页面或组件对另一个组件中的方法的直接调用 <code>$invoke</code></li>
+</ol>
+<h3 id="7-3-1-broadcast"><a href="#7-3-1-broadcast" class="headerlink" title="7.3.1. $broadcast"></a>7.3.1. $broadcast</h3><p>$broadcast 负责由父组件向子组件传播事件。</p>
+<p>流程如下</p>
+<p><img src="/2018/11/29/n_wcwepy/1541215202749.png" alt="1541215202749"></p>
+<p><strong>使用方式</strong>：</p>
+<p>父组件中 触发</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$broadcast(<span class="string">"子组件中的事件名"</span>,..参数)</span><br></pre></td></tr></table></figure>
+<p>子组件中，在<code>events</code>字段内监听</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">events=&#123;</span><br><span class="line">    事件名(...args)&#123;</span><br><span class="line">        // 执行逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-2-emit"><a href="#7-3-2-emit" class="headerlink" title="7.3.2. $emit"></a>7.3.2. $emit</h3><p>$emit 负责由子组件向父组件触发事件 。</p>
+<p><strong>流程如下</strong> 方向和 $broadcast 相反</p>
+<p><img src="/2018/11/29/n_wcwepy/1541215658454.png" alt="1541215658454"></p>
+<p><strong>使用方式</strong></p>
+<p>子组件中触发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&quot;parentFn&quot;,1,3,4,5);</span><br></pre></td></tr></table></figure>
+<p>父组件 <code>events</code> 字段中监听</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">events = &#123;</span><br><span class="line"> parentFn(...args)&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"父组件事件触发"</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-3-invoke"><a href="#7-3-3-invoke" class="headerlink" title="7.3.3. $invoke"></a>7.3.3. $invoke</h3><p><code>$invoke</code>是一个页面或组件对另一个组件中的方法的直接调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 页面中的调用</span></span><br><span class="line"><span class="keyword">this</span>.$invoke(<span class="string">'ComA'</span>, <span class="string">'someMethod'</span>, <span class="string">'someArgs'</span>);</span><br><span class="line"><span class="comment">// 组件中的调用</span></span><br><span class="line"><span class="keyword">this</span>.$invoke(<span class="string">'./../ComB/ComG'</span>, <span class="string">'someMethod'</span>, <span class="string">'someArgs'</span>);</span><br></pre></td></tr></table></figure>
+<p>如同文件夹下，在页面index中，A 组件想要调用B组件内的方法</p>
+<p><strong>index.wpy</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">A</span>&gt;</span><span class="tag">&lt;/<span class="name">A</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">B</span>&gt;</span><span class="tag">&lt;/<span class="name">B</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>A.wpy</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">lang</span>=<span class="string">"wxml"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> @<span class="attr">tap</span>=<span class="string">"myTap"</span>&gt;</span>组件1<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> B <span class="keyword">from</span> <span class="string">'./B'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">component</span> </span>&#123;</span></span><br><span class="line">  methods = &#123;</span><br><span class="line">    myTap() &#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.$invoke(<span class="string">'B'</span>, <span class="string">'show'</span>, <span class="string">'A的呼叫'</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  components=&#123;</span><br><span class="line">    B</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>B.wpy</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">lang</span>=<span class="string">"wxml"</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> &gt;</span>组件0<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">component</span> </span>&#123;</span></span><br><span class="line">  methods = &#123;</span><br><span class="line">    show(msg) &#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"触发  "</span> +msg);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-3-3-1-组件自定义事件"><a href="#7-3-3-1-组件自定义事件" class="headerlink" title="7.3.3.1. 组件自定义事件"></a>7.3.3.1. 组件自定义事件</h4><p>可以通过使用<code>.user</code>修饰符为自定义组件绑定事件，如：<a href="mailto:`@customEvent.user" target="_blank" rel="noopener">`@customEvent.user</a>=”myFn”`</p>
+<p>其中，<code>@</code>表示事件修饰符，<code>customEvent</code> 表示事件名称，<code>.user</code>表示事件后缀。</p>
+<p>目前总共有三种事件后缀：</p>
+<ul>
+<li><code>.default</code>: 绑定小程序冒泡型事件，如<code>bindtap</code>，<code>.default</code>后缀可省略不写；</li>
+<li><code>.stop</code>: 绑定小程序捕获型事件，如<code>catchtap</code>；</li>
+<li><code>.user</code>: 绑定用户自定义组件事件，通过<code>$emit</code>触发。<strong>注意，如果用了自定义事件，则events中对应的监听函数不会再执行。</strong></li>
+</ul>
+<h2 id="7-4-插槽slot"><a href="#7-4-插槽slot" class="headerlink" title="7.4. 插槽slot"></a>7.4. 插槽slot</h2><p>插槽slot可以允许我们在页面中往组件的内部动态的插入标签结构</p>
+<p>slot有两种使用方式，单个slot和多个slot 当使用多个slot时，只需要指定唯一的<code>name</code>属性即可。</p>
+<p>在<code>Panel</code>组件中有以下模板：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"title"</span>&gt;</span>默认标题<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"content"</span>&gt;</span>默认内容<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在父组件中使用<code>Panel</code>子组件时，可以这样使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">panel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">slot</span>=<span class="string">"title"</span>&gt;</span>新的标题<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">slot</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span>&gt;</span>新的内容<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">panel</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="8-拦截器"><a href="#8-拦截器" class="headerlink" title="8. 拦截器"></a>8. 拦截器</h1><p>可以使用WePY提供的全局拦截器对原生API的请求进行拦截。</p>
+<h2 id="8-1-在app-wpy中定义全局拦截器"><a href="#8-1-在app-wpy中定义全局拦截器" class="headerlink" title="8.1. 在app.wpy中定义全局拦截器"></a>8.1. 在app.wpy中定义全局拦截器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wepy <span class="keyword">from</span> <span class="string">'wepy'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">app</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> () &#123;</span><br><span class="line">        <span class="comment">// this is not allowed before super()</span></span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="comment">// 拦截request请求</span></span><br><span class="line">        <span class="keyword">this</span>.intercept(<span class="string">'request'</span>, &#123;</span><br><span class="line">            <span class="comment">// 发出请求时的回调函数</span></span><br><span class="line">            config (p) &#123;</span><br><span class="line">                <span class="comment">// 对所有request请求中的OBJECT参数对象统一附加时间戳属性</span></span><br><span class="line">                p.timestamp = +<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'config request: '</span>, p);</span><br><span class="line">                <span class="comment">// 必须返回OBJECT参数对象，否则无法发送请求到服务端</span></span><br><span class="line">                <span class="keyword">return</span> p;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 请求成功后的回调函数</span></span><br><span class="line">            success (p) &#123;</span><br><span class="line">                <span class="comment">// 可以在这里对收到的响应数据对象进行加工处理</span></span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'request success: '</span>, p);</span><br><span class="line">                <span class="comment">// 必须返回响应数据对象，否则后续无法对响应数据进行处理</span></span><br><span class="line">                <span class="keyword">return</span> p;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">//请求失败后的回调函数</span></span><br><span class="line">            fail (p) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'request fail: '</span>, p);</span><br><span class="line">                <span class="comment">// 必须返回响应数据对象，否则后续无法对响应数据进行处理</span></span><br><span class="line">                <span class="keyword">return</span> p;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 请求完成时的回调函数(请求成功或失败都会被执行)</span></span><br><span class="line">            complete (p) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'request complete: '</span>, p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-2-使用内置的wepy发送请求"><a href="#8-2-使用内置的wepy发送请求" class="headerlink" title="8.2. 使用内置的wepy发送请求"></a>8.2. 使用内置的wepy发送请求</h2><p>通过 <code>wepy.request</code>的方式来发送请求 如：</p>
+<blockquote>
+<p>记得要先开启 wepy对promise 和 async 方法的支持。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> movies = <span class="keyword">await</span> wepy.request(&#123; <span class="attr">url</span>: <span class="string">"http://api.apiopen.top/searchAuthors?name=李白"</span> &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(movies);</span><br></pre></td></tr></table></figure>
+<h1 id="9-循环标签repeat"><a href="#9-循环标签repeat" class="headerlink" title="9. 循环标签repeat"></a>9. 循环标签repeat</h1><p>当需要循环渲染WePY组件时，必须使用WePY定义的辅助标签<code>&lt;repeat&gt;</code></p>
+<p>默认项为 <code>item</code> 索引为 <code>index</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repeat</span> <span class="attr">for</span>=<span class="string">"&#123;&#123;list&#125;&#125;"</span> <span class="attr">key</span>=<span class="string">"index"</span> <span class="attr">index</span>=<span class="string">"index"</span> <span class="attr">item</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repeat</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ne/" rel="tag"># Ne</a>
+          
+            <a href="/tags/MVVM/" rel="tag"># MVVM</a>
+          
+            <a href="/tags/Wepy/" rel="tag"># Wepy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/28/n_h_vue/" rel="next" title="MVVM框架进阶与实现--解析版">
+                <i class="fa fa-chevron-left"></i> MVVM框架进阶与实现--解析版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/30/regular-base/" rel="prev" title="正则表达式基础">
+                正则表达式基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+                    </div>
+                    
+
+ 
+
+  
+
+
+
+                </div>
+                 
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="H-Dongjian">
+            
+              <p class="site-author-name" itemprop="name">H-Dongjian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HDongjian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_38388339" target="_blank" title="CSND">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSND</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5a97df5cf265da237f1db6f8/posts" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-globe"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-wepy-介绍"><span class="nav-number">1.</span> <span class="nav-text">1. wepy-介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-特性"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-优秀案例"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. 优秀案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-前置知识"><span class="nav-number">1.3.</span> <span class="nav-text">1.3. 前置知识</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-快速项目搭建"><span class="nav-number">2.</span> <span class="nav-text">2. 快速项目搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-全局安装"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. 全局安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-创建空项目"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 创建空项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-编译并监控项目"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. 编译并监控项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-WePY项目的目录结构"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. WePY项目的目录结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-开发环境配置"><span class="nav-number">3.</span> <span class="nav-text">3. 开发环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-小程序开发者工具配置"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. 小程序开发者工具配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-代码高亮配置"><span class="nav-number">3.2.</span> <span class="nav-text">3.2. 代码高亮配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-启用promise"><span class="nav-number">3.3.</span> <span class="nav-text">3.3. 启用promise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-进入项目根目录，安装polyfill"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1. 进入项目根目录，安装polyfill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-在app-wpy中导入polyfill"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2. 在app.wpy中导入polyfill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-在app-wpy中开启promise"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3. 在app.wpy中开启promise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-wepy-config-js"><span class="nav-number">3.4.</span> <span class="nav-text">3.4. wepy.config.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-小程序页面结构和wepy组件结构对比"><span class="nav-number">4.</span> <span class="nav-text">4. 小程序页面结构和wepy组件结构对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-wepy组件的编译图解"><span class="nav-number">4.1.</span> <span class="nav-text">4.1. wepy组件的编译图解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-小程序页面结构"><span class="nav-number">4.2.</span> <span class="nav-text">4.2. 小程序页面结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-wepy组件结构"><span class="nav-number">4.3.</span> <span class="nav-text">4.3. wepy组件结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-app-wpy文件"><span class="nav-number">5.</span> <span class="nav-text">5. app.wpy文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-style"><span class="nav-number">5.1.</span> <span class="nav-text">5.1. style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-template"><span class="nav-number">5.2.</span> <span class="nav-text">5.2. template</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-JavaScript"><span class="nav-number">5.3.</span> <span class="nav-text">5.3. JavaScript</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-index-wpy"><span class="nav-number">6.</span> <span class="nav-text">6. index.wpy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-介绍"><span class="nav-number">6.1.</span> <span class="nav-text">6.1. 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-数据绑定"><span class="nav-number">6.2.</span> <span class="nav-text">6.2. 数据绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-事件"><span class="nav-number">6.3.</span> <span class="nav-text">6.3. 事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-component-wpy"><span class="nav-number">7.</span> <span class="nav-text">7. component.wpy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-使用自定义组件"><span class="nav-number">7.1.</span> <span class="nav-text">7.1. 使用自定义组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-1-声明组件"><span class="nav-number">7.1.1.</span> <span class="nav-text">7.1.1. 声明组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-2-使用组件"><span class="nav-number">7.1.2.</span> <span class="nav-text">7.1.2. 使用组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-props组件传值"><span class="nav-number">7.2.</span> <span class="nav-text">7.2. props组件传值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-静态传值"><span class="nav-number">7.2.1.</span> <span class="nav-text">7.2.1. 静态传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-2-单向绑定"><span class="nav-number">7.2.2.</span> <span class="nav-text">7.2.2. 单向绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-3-双向绑定"><span class="nav-number">7.2.3.</span> <span class="nav-text">7.2.3. 双向绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-组件通信"><span class="nav-number">7.3.</span> <span class="nav-text">7.3. 组件通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-broadcast"><span class="nav-number">7.3.1.</span> <span class="nav-text">7.3.1. $broadcast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-emit"><span class="nav-number">7.3.2.</span> <span class="nav-text">7.3.2. $emit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-3-invoke"><span class="nav-number">7.3.3.</span> <span class="nav-text">7.3.3. $invoke</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-3-1-组件自定义事件"><span class="nav-number">7.3.3.1.</span> <span class="nav-text">7.3.3.1. 组件自定义事件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-插槽slot"><span class="nav-number">7.4.</span> <span class="nav-text">7.4. 插槽slot</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-拦截器"><span class="nav-number">8.</span> <span class="nav-text">8. 拦截器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-在app-wpy中定义全局拦截器"><span class="nav-number">8.1.</span> <span class="nav-text">8.1. 在app.wpy中定义全局拦截器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-使用内置的wepy发送请求"><span class="nav-number">8.2.</span> <span class="nav-text">8.2. 使用内置的wepy发送请求</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-循环标签repeat"><span class="nav-number">9.</span> <span class="nav-text">9. 循环标签repeat</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+ 
+            </div>
+        </main>
+
+        <footer id="footer" class="footer">
+            <div class="footer-inner">
+                <div class="copyright">&copy; 
+    <span itemprop="copyrightYear">2019</span>
+    <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+    <span class="author" itemprop="copyrightHolder">H-Dongjian</span>
+
+
+</div> 
+
+
+
+
+
+
+ 
+            </div>
+        </footer>
+
+        
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i> 
+        </div>
+         
+
+    </div>
+
+    
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+ 
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+ 
+ 
+ 
+  
+ 
+ 
+ 
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>
