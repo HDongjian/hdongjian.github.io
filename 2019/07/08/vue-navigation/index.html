@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="base,">
+  <meta name="keywords" content="Vue,">
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="less的一些基本用法">
-<meta name="keywords" content="base">
+<meta name="description" content="vue-navigation原理的基本解析；vue-navigation的实现逻辑；vue-navigation中学到的东西">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Less常用方法">
-<meta property="og:url" content="http://yoursite.com/2019/06/17/less/index.html">
+<meta property="og:title" content="vue-navigation">
+<meta property="og:url" content="http://yoursite.com/2019/07/08/vue-navigation/index.html">
 <meta property="og:site_name" content="H-Dongjian">
-<meta property="og:description" content="less的一些基本用法">
+<meta property="og:description" content="vue-navigation原理的基本解析；vue-navigation的实现逻辑；vue-navigation中学到的东西">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-18T06:49:22.892Z">
+<meta property="og:updated_time" content="2019-07-08T10:36:27.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Less常用方法">
-<meta name="twitter:description" content="less的一些基本用法">
+<meta name="twitter:title" content="vue-navigation">
+<meta name="twitter:description" content="vue-navigation原理的基本解析；vue-navigation的实现逻辑；vue-navigation中学到的东西">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/17/less/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/08/vue-navigation/">
 
 
 
 
 
-    <title>Less常用方法 | H-Dongjian</title>
+    <title>vue-navigation | H-Dongjian</title>
     
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/less/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/08/vue-navigation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="H-Dongjian">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Less常用方法</h1>
+          <h1 class="post-title" itemprop="name headline">vue-navigation</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T10:51:29+08:00">
-                2019-06-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T17:12:59+08:00">
+                2019-07-08
               </time>
             
 
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-18T14:49:22+08:00">
-                2019-06-18
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-08T18:36:27+08:00">
+                2019-07-08
               </time>
             
           </span>
@@ -356,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Surround/" itemprop="url" rel="index">
-                    <span itemprop="name">Surround</span>
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
                   </a>
                 </span>
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  515
+                  1,100
                 </span>
               
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -411,7 +411,7 @@
 
           
               <div class="post-description">
-                  less的一些基本用法
+                  vue-navigation原理的基本解析；vue-navigation的实现逻辑；vue-navigation中学到的东西
               </div>
           
 
@@ -428,24 +428,76 @@
       
 
       
-        <h1 id="路径引入"><a href="#路径引入" class="headerlink" title="路径引入"></a>路径引入</h1><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Variables</span></span><br><span class="line"><span class="variable">@images:</span> <span class="string">"../img"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Usage</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#444</span>;</span><br><span class="line">  <span class="attribute">background</span>: url(<span class="string">"@&#123;images&#125;/white-sand.png"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Variables</span></span><br><span class="line"><span class="variable">@themes:</span> <span class="string">"../../src/themes"</span>;</span><br><span class="line"><span class="comment">// Usage</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"@&#123;themes&#125;/tidal-wave.less"</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="属性代替"><a href="#属性代替" class="headerlink" title="属性代替"></a>属性代替</h1><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@property:</span> color;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.widget</span> &#123;</span><br><span class="line">  <span class="attribute">@&#123;property&#125;</span>: <span class="number">#0ee</span>;</span><br><span class="line">  <span class="selector-tag">background-</span><span class="variable">@&#123;property&#125;</span>: <span class="selector-id">#999</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="延伸选择器"><a href="#延伸选择器" class="headerlink" title="延伸选择器"></a>延伸选择器</h1><h2 id="初步用法"><a href="#初步用法" class="headerlink" title="初步用法"></a>初步用法</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.inline)</span>;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inline</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line">输出</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.inline</span>,</span><br><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="对比混入"><a href="#对比混入" class="headerlink" title="对比混入"></a>对比混入</h2><p>示例 - 使用mixin：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.my-inline-block</span>() &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.thing1</span> &#123;</span><br><span class="line">  <span class="selector-class">.my-inline-block</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.thing2</span> &#123;</span><br><span class="line">  <span class="selector-class">.my-inline-block</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>输出<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.thing1</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.thing2</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.my-inline-block</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.thing1</span> &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.my-inline-block)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.thing2</span> &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.my-inline-block)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.my-inline-block</span>,</span><br><span class="line"><span class="selector-class">.thing1</span>,</span><br><span class="line"><span class="selector-class">.thing2</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Mixins中的选择器"><a href="#Mixins中的选择器" class="headerlink" title="Mixins中的选择器"></a>Mixins中的选择器</h1><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.my-hover-mixin</span>() &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="selector-class">.my-hover-mixin</span>();</span><br><span class="line">&#125;</span><br><span class="line">输出</span><br><span class="line"></span><br><span class="line"><span class="attribute">button</span>:hover &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><h2 id="属性循环"><a href="#属性循环" class="headerlink" title="属性循环"></a>属性循环</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.loop</span>(<span class="variable">@counter</span>) <span class="keyword">when</span> (<span class="variable">@counter</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.loop</span>((<span class="variable">@counter</span> - <span class="number">1</span>));    <span class="comment">// next iteration</span></span><br><span class="line">  <span class="attribute">width</span>: (<span class="number">10px</span> * <span class="variable">@counter</span>); <span class="comment">// code for each iteration</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.loop</span>(<span class="number">5</span>); <span class="comment">// launch the loop</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="类名循环"><a href="#类名循环" class="headerlink" title="类名循环"></a>类名循环</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.generate-columns</span>(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.generate-columns</span>(<span class="variable">@n</span>, <span class="variable">@i</span>: <span class="number">1</span>) <span class="keyword">when</span> (<span class="variable">@i</span> =&lt; <span class="variable">@n</span>) &#123;</span><br><span class="line">  <span class="selector-class">.column-</span><span class="variable">@&#123;i&#125;</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: (<span class="variable">@i</span> * <span class="number">100%</span> / <span class="variable">@n</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.generate-columns</span>(<span class="variable">@n</span>, (<span class="variable">@i</span> + <span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.column-1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">25%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.column-2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.column-3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">75%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.column-4</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h1><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.mixin</span>() &#123;</span><br><span class="line">  <span class="selector-tag">box-shadow</span>+: <span class="selector-tag">inset</span> <span class="selector-tag">0</span> <span class="selector-tag">0</span> <span class="selector-tag">10px</span> <span class="selector-id">#555</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.myclass</span> &#123;</span><br><span class="line">  <span class="selector-class">.mixin</span>();</span><br><span class="line">  <span class="selector-tag">box-shadow</span>+: <span class="selector-tag">0</span> <span class="selector-tag">0</span> <span class="selector-tag">20px</span> <span class="selector-tag">black</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.myclass</span> &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#555</span>, <span class="number">0</span> <span class="number">0</span> <span class="number">20px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="父选择器"><a href="#父选择器" class="headerlink" title="父选择器"></a>父选择器</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结果是：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="attribute">a</span>:hover &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.button</span> &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">-ok</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: url(<span class="string">"ok.png"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">-cancel</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: url(<span class="string">"cancel.png"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">-custom</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: url(<span class="string">"custom.png"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.button-ok</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: url(<span class="string">"ok.png"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.button-cancel</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: url(<span class="string">"cancel.png"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.button-custom</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: url(<span class="string">"custom.png"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="关于vue-navigation"><a href="#关于vue-navigation" class="headerlink" title="关于vue-navigation"></a>关于vue-navigation</h1><ul>
+<li>A page navigation library, record routes and cache pages, like native app navigation. 一个页面导航库，记录路由并缓存页面，像原生APP导航一样。<blockquote>
+<p>github——zack24q</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|-- src                         //根路径</span><br><span class="line">  |-- components             </span><br><span class="line">    |-- Navigation.js           //组件</span><br><span class="line">  |-- index.js                  //入口</span><br><span class="line">  |-- navigator.js              //方法</span><br><span class="line">  |-- routes.js                 //缓存</span><br><span class="line">  |-- utils.js                  //工具</span><br></pre></td></tr></table></figure>
+<h1 id="文件初始化"><a href="#文件初始化" class="headerlink" title="文件初始化"></a>文件初始化</h1><h2 id="初始化index-js"><a href="#初始化index-js" class="headerlink" title="初始化index.js"></a>初始化<code>index.js</code></h2><p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Navigation <span class="keyword">from</span> <span class="string">'vue-navigation'</span></span><br><span class="line">Vue.use(Navigation, &#123;router, store, <span class="string">'moduleName'</span>, <span class="string">'keyName'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>源码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install: <span class="function">(<span class="params">Vue, &#123; router, store, moduleName = <span class="string">'navigation'</span>, keyName = <span class="string">'VNK'</span> &#125; = &#123;&#125;</span>) =&gt;</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>moduleName</code>默认参数<code>navigation</code>：<code>store</code>中缓存的路由名称</li>
+<li><code>keyName</code>默认参数<code>VNK</code>：路径中<code>query</code>的<code>key</code></li>
+</ul>
+<h2 id="初始化navigation-js"><a href="#初始化navigation-js" class="headerlink" title="初始化navigation.js"></a>初始化<code>navigation.js</code></h2><p>初始化<code>index.js</code>之后，随即就会初始化<code>bus</code>以及<code>navigation.js</code></p>
+<ul>
+<li><code>bus</code>主要是在触发<code>navigation</code>中的前进、后退等方法的时候通知触发回调事件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.vue</span></span><br><span class="line"><span class="keyword">this</span>.$navigation.on(<span class="string">'forward'</span>, (to, <span class="keyword">from</span>) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'forward to'</span>, to, <span class="string">'from '</span>, <span class="keyword">from</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">this</span>.$navigation.on(<span class="string">'back'</span>, (to, <span class="keyword">from</span>) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'back to'</span>, to, <span class="string">'from '</span>, <span class="keyword">from</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">this</span>.$navigation.on(<span class="string">'replace'</span>, (to, <span class="keyword">from</span>) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'replace to'</span>, to, <span class="string">'from '</span>, <span class="keyword">from</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>navigation</code>中主要是对前进，后退等方法的封装，其中会涉及到通过<code>store</code>以及<code>sessionStorage</code>做的路由缓存和<code>bus</code>方法的调用</li>
+</ul>
+<h2 id="初始化组件components-Navigation-js"><a href="#初始化组件components-Navigation-js" class="headerlink" title="初始化组件components/Navigation.js"></a>初始化组件<code>components/Navigation.js</code></h2><p>app.vue(根路径)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigation</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">navigation</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="实现逻辑"><a href="#实现逻辑" class="headerlink" title="实现逻辑"></a>实现逻辑</h1><h2 id="全局前置守卫beforeEach"><a href="#全局前置守卫beforeEach" class="headerlink" title="全局前置守卫beforeEach"></a>全局前置守卫<code>beforeEach</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line">  router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!to.query[keyName]) &#123;</span><br><span class="line">      <span class="keyword">const</span> query = &#123; ...to.query &#125;</span><br><span class="line">      <span class="comment">// go to the same route will be set the same key</span></span><br><span class="line">      <span class="keyword">if</span> (to.path === <span class="keyword">from</span>.path &amp;&amp; isObjEqual(</span><br><span class="line">        &#123; ...to.query, [keyName]: <span class="literal">null</span> &#125;,</span><br><span class="line">        &#123; ...from.query, [keyName]: <span class="literal">null</span> &#125;,</span><br><span class="line">      ) &amp;&amp; <span class="keyword">from</span>.query[keyName]) &#123;</span><br><span class="line">        query[keyName] = <span class="keyword">from</span>.query[keyName]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        query[keyName] = genKey()</span><br><span class="line">      &#125;</span><br><span class="line">      next(&#123; <span class="attr">name</span>: to.name, <span class="attr">params</span>: to.params, query, <span class="attr">replace</span>: replaceFlag || !<span class="keyword">from</span>.query[keyName] &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断前后路由是否一致，如果一直，获取<code>from</code>的路由版本号，不进行版本更新</li>
+<li>如果不一致，获取新的<code>keyName</code>并且放置到新的路由地址中</li>
+</ul>
+<h2 id="全局后置钩子afterEach"><a href="#全局后置钩子afterEach" class="headerlink" title="全局后置钩子afterEach"></a>全局后置钩子<code>afterEach</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line">  router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">    navigator.record(to, <span class="keyword">from</span>, replaceFlag)</span><br><span class="line">    replaceFlag = <span class="literal">false</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// navigation.js</span></span><br><span class="line"><span class="keyword">const</span> record = <span class="function">(<span class="params">toRoute, fromRoute, replaceFlag</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> name = getKey(toRoute, keyName)</span><br><span class="line">  <span class="keyword">if</span> (replaceFlag) &#123;</span><br><span class="line">    replace(name, toRoute, fromRoute)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> toIndex = Routes.lastIndexOf(name)</span><br><span class="line">    <span class="keyword">if</span> (toIndex === <span class="number">-1</span>) &#123;</span><br><span class="line">      forward(name, toRoute, fromRoute)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (toIndex === Routes.length - <span class="number">1</span>) &#123;</span><br><span class="line">      refresh(toRoute, fromRoute)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      back(Routes.length - <span class="number">1</span> - toIndex, toRoute, fromRoute)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>触发路由后置函数 <code>afterEach</code>,调用<code>navigator</code>的<code>record</code>方法</li>
+<li><code>Routes</code>为<code>store</code>以及<code>sessionStorage</code>做的路由缓存</li>
+<li>根据<code>Routes</code>中缓存判断是前进，还是后退，还是刷新，调用不同的事件</li>
+<li><p><code>forward</code>中向缓存新增一条记录，记录的结果如下，并且触发<code>store</code>的<code>navigation/FORWARD</code>方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"index?a28ae28e"</span>,<span class="string">"list?ff674e47"</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>refresh</code>触发<code>store</code>的<code>navigation/REFRESH</code>方法</p>
+</li>
+<li><code>back</code>触发<code>store</code>的<code>navigation/BACK</code>方法，删除一条记录</li>
+</ul>
+<h2 id="components-Navigation-js"><a href="#components-Navigation-js" class="headerlink" title="components/Navigation.js"></a>components/Navigation.js</h2><ul>
+<li><p>在<code>Navigation</code>中检测了缓存<code>routes</code>的变化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  routes(val) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> <span class="keyword">this</span>.cache) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!matches(val, key)) &#123;</span><br><span class="line">        <span class="keyword">const</span> vnode = <span class="keyword">this</span>.cache[key]</span><br><span class="line">        vnode &amp;&amp; vnode.componentInstance.$destroy()</span><br><span class="line">        <span class="keyword">delete</span> <span class="keyword">this</span>.cache[key]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>会根据<code>routes</code>中的变化，改变<code>cache</code>的缓存</p>
+</li>
+<li>在<code>render</code>函数中根据<code>cache</code>的缓存渲染组件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.cache[key]) &#123;</span><br><span class="line">  <span class="keyword">if</span> (vnode.key === <span class="keyword">this</span>.cache[key].key) &#123;</span><br><span class="line">    <span class="comment">// restore vnode from cache</span></span><br><span class="line">    vnode.componentInstance = <span class="keyword">this</span>.cache[key].componentInstance</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// replace vnode to cache</span></span><br><span class="line">    <span class="keyword">this</span>.cache[key].componentInstance.$destroy()</span><br><span class="line">    <span class="keyword">this</span>.cache[key] = vnode</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// cache new vnode</span></span><br><span class="line">  <span class="keyword">this</span>.cache[key] = vnode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="关于路由版本号keyName"><a href="#关于路由版本号keyName" class="headerlink" title="关于路由版本号keyName"></a>关于路由版本号<code>keyName</code></h2><ul>
+<li>只有在前往的页面路径没有<code>keyName</code>并且不是刷新操作的情况下才会生成新的<code>keyName</code>;</li>
+<li>页面是否读取缓存是由路径以及<code>genKey</code>的值来决定的</li>
+<li>页面返回会清除上一个页面的缓存</li>
+<li>刷新页面<code>keyName</code>的值不会发生改变，但是因为组件的缓存是由一个变量<code>cacha</code>来实现的，所以依旧会触发<code>created</code>方法</li>
+</ul>
+<h2 id="关于路由不设置name属性路径没有keyName参数的问题"><a href="#关于路由不设置name属性路径没有keyName参数的问题" class="headerlink" title="关于路由不设置name属性路径没有keyName参数的问题"></a>关于路由不设置<code>name</code>属性路径没有<code>keyName</code>参数的问题</h2><ul>
+<li><p>不设置<code>name</code>页面依旧会缓存，只不过缓存的数据是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"/?undefined"</span>,<span class="string">"/list?undefined"</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因是在全局前置钩子<code>beforeEach</code>中调用<code>next</code>函数的时候，用的是路由<code>name</code>字段，如果没有该字段，设置的<code>query</code>就无效，在<code>afterEach</code>中就无法获取<code>keyName</code>导致缓存为<code>undefined</code>，此种情况下虽然缓存依旧有效，但是不太安全</p>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>关于其他的地方，比如<code>replace</code>方法，<code>navigation</code>提供的<code>getRoutes</code>和<code>cleanRoutes</code>因为跟主要功能关系不大，未做详细说明</li>
+<li><code>navigation</code>在没有<code>store</code>缓存的情况下会使用<code>sessionStorage</code>作为缓存路径</li>
+<li>无论是<code>store</code>和<code>sessionStorage</code>都没有对组件进行缓存，所以页面刷新必定会引起组件的重新加载</li>
+</ul>
 
       
     </div>
@@ -463,7 +515,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/base/" rel="tag"># base</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -476,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/22/lib/" rel="next" title="常用方法库">
-                <i class="fa fa-chevron-left"></i> 常用方法库
+              <a href="/2019/06/17/less/" rel="next" title="Less常用方法">
+                <i class="fa fa-chevron-left"></i> Less常用方法
               </a>
             
           </div>
@@ -485,10 +537,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/08/vue-navigation/" rel="prev" title="vue-navigation">
-                vue-navigation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -649,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#路径引入"><span class="nav-number">1.</span> <span class="nav-text">路径引入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#属性代替"><span class="nav-number">2.</span> <span class="nav-text">属性代替</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#延伸选择器"><span class="nav-number">3.</span> <span class="nav-text">延伸选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初步用法"><span class="nav-number">3.1.</span> <span class="nav-text">初步用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比混入"><span class="nav-number">3.2.</span> <span class="nav-text">对比混入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mixins中的选择器"><span class="nav-number">4.</span> <span class="nav-text">Mixins中的选择器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#循环"><span class="nav-number">5.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性循环"><span class="nav-number">5.1.</span> <span class="nav-text">属性循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名循环"><span class="nav-number">5.2.</span> <span class="nav-text">类名循环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并"><span class="nav-number">6.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#父选择器"><span class="nav-number">7.</span> <span class="nav-text">父选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">7.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名"><span class="nav-number">7.2.</span> <span class="nav-text">类名</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于vue-navigation"><span class="nav-number">1.</span> <span class="nav-text">关于vue-navigation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录结构"><span class="nav-number">2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件初始化"><span class="nav-number">3.</span> <span class="nav-text">文件初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化index-js"><span class="nav-number">3.1.</span> <span class="nav-text">初始化index.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化navigation-js"><span class="nav-number">3.2.</span> <span class="nav-text">初始化navigation.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化组件components-Navigation-js"><span class="nav-number">3.3.</span> <span class="nav-text">初始化组件components/Navigation.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现逻辑"><span class="nav-number">4.</span> <span class="nav-text">实现逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局前置守卫beforeEach"><span class="nav-number">4.1.</span> <span class="nav-text">全局前置守卫beforeEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局后置钩子afterEach"><span class="nav-number">4.2.</span> <span class="nav-text">全局后置钩子afterEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#components-Navigation-js"><span class="nav-number">4.3.</span> <span class="nav-text">components/Navigation.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">5.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于路由版本号keyName"><span class="nav-number">5.1.</span> <span class="nav-text">关于路由版本号keyName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于路由不设置name属性路径没有keyName参数的问题"><span class="nav-number">5.2.</span> <span class="nav-text">关于路由不设置name属性路径没有keyName参数的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
             
 
           </div>
