@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d2088b9"],{a4f6:function(t,n,e){"use strict";e.r(n);var a=function(){var t=this,n=t.$createElement;t._self._c;return t._m(0)},c=[function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("div",{staticClass:"default-container"},[e("h2",[t._v("欢迎使用排课统计管理系统")])])}],u={data:function(){return{}},created:function(){},mounted:function(){},methods:{}},r=u,i=e("6691"),o=Object(i["a"])(r,a,c,!1,null,"298a401d",null);n["default"]=o.exports}}]);
-//# sourceMappingURL=chunk-2d2088b9.60caf81d.js.map
